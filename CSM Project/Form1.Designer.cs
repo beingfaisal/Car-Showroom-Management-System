@@ -61,7 +61,7 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(722, 0);
+            this.exitBtn.Location = new System.Drawing.Point(714, 0);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(46, 40);
             this.exitBtn.TabIndex = 6;
@@ -84,8 +84,8 @@
             this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(104)))), ((int)(((byte)(220)))));
             this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(78)))), ((int)(((byte)(214)))));
             this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(78)))), ((int)(((byte)(214)))));
-            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(77)))), ((int)(((byte)(155)))));
-            this.bunifuGradientPanel1.Location = new System.Drawing.Point(121, 115);
+            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.Aqua;
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(118, 147);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(508, 389);
@@ -108,7 +108,7 @@
             this.logBtn.BackColor = System.Drawing.Color.White;
             this.logBtn.FlatAppearance.BorderSize = 0;
             this.logBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logBtn.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logBtn.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logBtn.ForeColor = System.Drawing.Color.Black;
             this.logBtn.Location = new System.Drawing.Point(204, 300);
             this.logBtn.Name = "logBtn";
@@ -201,7 +201,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(190, 22);
+            this.label3.Location = new System.Drawing.Point(190, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 43;
@@ -250,7 +250,7 @@
             this.circularPictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
             this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.circularPictureBox1.Location = new System.Drawing.Point(303, 23);
+            this.circularPictureBox1.Location = new System.Drawing.Point(300, 55);
             this.circularPictureBox1.Name = "circularPictureBox1";
             this.circularPictureBox1.Size = new System.Drawing.Size(150, 150);
             this.circularPictureBox1.TabIndex = 40;
@@ -263,7 +263,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(768, 605);
+            this.ClientSize = new System.Drawing.Size(760, 653);
             this.Controls.Add(this.circularPictureBox1);
             this.Controls.Add(this.bunifuGradientPanel1);
             this.Controls.Add(this.exitBtn);

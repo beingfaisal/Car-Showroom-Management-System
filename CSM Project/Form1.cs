@@ -13,7 +13,7 @@ namespace CSM_Project
 {
     public partial class LogInForm : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=EXCALIBUR\\SQLEXPRESS;Initial Catalog=CSM;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         public LogInForm()
         {
             InitializeComponent();

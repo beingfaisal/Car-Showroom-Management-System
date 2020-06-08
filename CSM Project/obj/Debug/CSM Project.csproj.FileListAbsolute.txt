@@ -15,3 +15,19 @@ C:\Users\Muhammad Faisal\Desktop\CSM Project\CSM Project\obj\Debug\CSM_Project.L
 C:\Users\Muhammad Faisal\Desktop\CSM Project\CSM Project\obj\Debug\CSM Project.csproj.CoreCompileInputs.cache
 C:\Users\Muhammad Faisal\Desktop\CSM Project\CSM Project\bin\Debug\Bunifu_UI_v1.52.dll
 C:\Users\Muhammad Faisal\Desktop\CSM Project\CSM Project\obj\Debug\CSM Project.csproj.CopyComplete
+D:\Projects\CSM Project\CSM Project\bin\Debug\CSM Project.exe.config
+D:\Projects\CSM Project\CSM Project\bin\Debug\CSM Project.exe
+D:\Projects\CSM Project\CSM Project\bin\Debug\CSM Project.pdb
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.csprojAssemblyReference.cache
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.LogInForm.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.SMMenu.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.Manager_Menu.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.CarSell.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.SaleManCtrl.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.carCtrl.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.Properties.Resources.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.csproj.GenerateResource.cache
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.csproj.CoreCompileInputs.cache
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.csproj.CopyComplete
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.exe
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.pdb

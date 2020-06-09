@@ -44,7 +44,7 @@ namespace CSM_Project
         private void viewCarGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            DataGridViewRow row = dataGridView1.Rows[rowIndex];
+            DataGridViewRow row = viewCarGrid.Rows[rowIndex];
 
             string id = Convert.ToString(row.Cells[5].Value);
             string status = Convert.ToString(row.Cells[4].Value);
@@ -60,7 +60,7 @@ namespace CSM_Project
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
 
-            dataGridView1.Rows.Clear();
+            viewCarGrid.Rows.Clear();
             for (int i = 0; i < (carData.Tables[0].Rows.Count); i++)
             {
                 string ID = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[0]);
@@ -71,7 +71,7 @@ namespace CSM_Project
                 string Price = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[5]);
 
                 DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(dataGridView1);
+                pushData.CreateCells(viewCarGrid);
                 pushData.Cells[0].Value = Name;
                 pushData.Cells[1].Value = Model;
                 pushData.Cells[2].Value = Company;
@@ -79,7 +79,7 @@ namespace CSM_Project
                 pushData.Cells[4].Value = Status;
                 pushData.Cells[5].Value = ID;
 
-                dataGridView1.Rows.Add(pushData);
+                viewCarGrid.Rows.Add(pushData);
 
             }
             
@@ -94,7 +94,7 @@ namespace CSM_Project
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
 
-            dataGridView1.Rows.Clear();
+            viewCarGrid.Rows.Clear();
             for (int i = 0; i < (carData.Tables[0].Rows.Count); i++)
             {
                 string ID = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[0]);
@@ -105,7 +105,7 @@ namespace CSM_Project
                 string Price = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[5]);
 
                 DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(dataGridView1);
+                pushData.CreateCells(viewCarGrid);
                 pushData.Cells[0].Value = Name;
                 pushData.Cells[1].Value = Model;
                 pushData.Cells[2].Value = Company;
@@ -113,7 +113,7 @@ namespace CSM_Project
                 pushData.Cells[4].Value = Status;
                 pushData.Cells[5].Value = ID;
 
-                dataGridView1.Rows.Add(pushData);
+                viewCarGrid.Rows.Add(pushData);
 
             }
             con.Close();
@@ -127,7 +127,7 @@ namespace CSM_Project
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
 
-            dataGridView1.Rows.Clear();
+            viewCarGrid.Rows.Clear();
             for (int i = 0; i < (carData.Tables[0].Rows.Count); i++)
             {
                 string ID = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[0]);
@@ -138,7 +138,7 @@ namespace CSM_Project
                 string Price = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[5]);
 
                 DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(dataGridView1);
+                pushData.CreateCells(viewCarGrid);
                 pushData.Cells[0].Value = Name;
                 pushData.Cells[1].Value = Model;
                 pushData.Cells[2].Value = Company;
@@ -146,7 +146,7 @@ namespace CSM_Project
                 pushData.Cells[4].Value = Status;
                 pushData.Cells[5].Value = ID;
 
-                dataGridView1.Rows.Add(pushData);
+                viewCarGrid.Rows.Add(pushData);
 
             }
             con.Close();
@@ -171,10 +171,10 @@ namespace CSM_Project
             }
             else if (empDesig.ToLower() == "salesman")
             {
-                buyCarBtn.BackColor = Color.Red;
+                //buyCarBtn.BackColor = Color.Red;
                 outLbl.Text = "You are not Allowed";
                 await Task.Delay(2000);
-                buyCarBtn.BackColor = SystemColors.Control;
+                //buyCarBtn.BackColor = SystemColors.Control;
                 outLbl.Text = "";
             }
         }
@@ -187,9 +187,9 @@ namespace CSM_Project
             if (status == "")
             {
                 outputLbl.Text = "Sorry No Car";
-                carSellBtn.BackColor = Color.Red;
+                //carSellBtn.BackColor = Color.Red;
                 await Task.Delay(2000);
-                carSellBtn.BackColor = SystemColors.Control;
+                //carSellBtn.BackColor = SystemColors.Control;
                 outputLbl.Text = "";
             }
             else if (status.ToLower() == "available")
@@ -200,9 +200,9 @@ namespace CSM_Project
             else if (status.ToLower() == "sold")
             {
                 outputLbl.Text = "Sold Select Another";
-                carSellBtn.BackColor = Color.Red;
+                //carSellBtn.BackColor = Color.Red;
                 await Task.Delay(2000);
-                carSellBtn.BackColor = SystemColors.Control;
+                //carSellBtn.BackColor = SystemColors.Control;
                 outputLbl.Text = "";
             }
         }
@@ -250,6 +250,23 @@ namespace CSM_Project
         private void viewAvailPanel_MouseClick(object sender, MouseEventArgs e)
         {
             viewAvailable();
+        }
+
+        private void SMMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitBtn_MouseEnter(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Red;
+            exitBtn.ForeColor = Color.White;
+        }
+
+        private void exitBtn_MouseLeave(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.White;
+            exitBtn.ForeColor = Color.Red;
         }
     }
 }

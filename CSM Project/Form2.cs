@@ -44,7 +44,7 @@ namespace CSM_Project
         private void viewCarGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            DataGridViewRow row = viewCarGrid.Rows[rowIndex];
+            DataGridViewRow row = dataGridView1.Rows[rowIndex];
 
             string id = Convert.ToString(row.Cells[5].Value);
             string status = Convert.ToString(row.Cells[4].Value);
@@ -60,7 +60,7 @@ namespace CSM_Project
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
 
-            viewCarGrid.Rows.Clear();
+            dataGridView1.Rows.Clear();
             for (int i = 0; i < (carData.Tables[0].Rows.Count); i++)
             {
                 string ID = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[0]);
@@ -71,7 +71,7 @@ namespace CSM_Project
                 string Price = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[5]);
 
                 DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(viewCarGrid);
+                pushData.CreateCells(dataGridView1);
                 pushData.Cells[0].Value = Name;
                 pushData.Cells[1].Value = Model;
                 pushData.Cells[2].Value = Company;
@@ -79,19 +79,14 @@ namespace CSM_Project
                 pushData.Cells[4].Value = Status;
                 pushData.Cells[5].Value = ID;
 
-                viewCarGrid.Rows.Add(pushData);
+                dataGridView1.Rows.Add(pushData);
 
             }
             
             con.Close();
         }
 
-        private void viewAllBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            gridFill();
-        }
-
-        private void viewAvailBtn_MouseClick(object sender, MouseEventArgs e)
+        private void viewAvailable()
         {
             con.Open();
             SqlCommand viewCarCmd = new SqlCommand("select * from CAR where car_status = 'Available'", con);
@@ -99,7 +94,7 @@ namespace CSM_Project
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
 
-            viewCarGrid.Rows.Clear();
+            dataGridView1.Rows.Clear();
             for (int i = 0; i < (carData.Tables[0].Rows.Count); i++)
             {
                 string ID = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[0]);
@@ -110,7 +105,7 @@ namespace CSM_Project
                 string Price = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[5]);
 
                 DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(viewCarGrid);
+                pushData.CreateCells(dataGridView1);
                 pushData.Cells[0].Value = Name;
                 pushData.Cells[1].Value = Model;
                 pushData.Cells[2].Value = Company;
@@ -118,13 +113,13 @@ namespace CSM_Project
                 pushData.Cells[4].Value = Status;
                 pushData.Cells[5].Value = ID;
 
-                viewCarGrid.Rows.Add(pushData);
+                dataGridView1.Rows.Add(pushData);
 
             }
             con.Close();
         }
 
-        private void viewSoldBtn_MouseClick(object sender, MouseEventArgs e)
+        private void viewSold()
         {
             con.Open();
             SqlCommand viewCarCmd = new SqlCommand("select * from CAR where car_status = 'Sold'", con);
@@ -132,7 +127,7 @@ namespace CSM_Project
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
 
-            viewCarGrid.Rows.Clear();
+            dataGridView1.Rows.Clear();
             for (int i = 0; i < (carData.Tables[0].Rows.Count); i++)
             {
                 string ID = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[0]);
@@ -143,7 +138,7 @@ namespace CSM_Project
                 string Price = Convert.ToString(carData.Tables[0].Rows[i].ItemArray[5]);
 
                 DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(viewCarGrid);
+                pushData.CreateCells(dataGridView1);
                 pushData.Cells[0].Value = Name;
                 pushData.Cells[1].Value = Model;
                 pushData.Cells[2].Value = Company;
@@ -151,13 +146,13 @@ namespace CSM_Project
                 pushData.Cells[4].Value = Status;
                 pushData.Cells[5].Value = ID;
 
-                viewCarGrid.Rows.Add(pushData);
+                dataGridView1.Rows.Add(pushData);
 
             }
             con.Close();
         }
 
-        private async void buyCarBtn_MouseClick(object sender, MouseEventArgs e)
+        private async void buyCar()
         {
             con.Open();
             string checkEmpQuery = "select employee_designation from employee where employee_id = @id";
@@ -169,12 +164,12 @@ namespace CSM_Project
 
             string empDesig = Convert.ToString(empData.Tables[0].Rows[0].ItemArray[0]);
             con.Close();
-            if(empDesig.ToLower() == "manager")
+            if (empDesig.ToLower() == "manager")
             {
                 new carCtrl(empId).Show();
                 this.Hide();
             }
-            else if(empDesig.ToLower() == "salesman")
+            else if (empDesig.ToLower() == "salesman")
             {
                 buyCarBtn.BackColor = Color.Red;
                 outLbl.Text = "You are not Allowed";
@@ -182,16 +177,14 @@ namespace CSM_Project
                 buyCarBtn.BackColor = SystemColors.Control;
                 outLbl.Text = "";
             }
-        
-        
         }
 
-        private async void carSellBtn_MouseClick(object sender, MouseEventArgs e)
+        private async void carSell()
         {
             string id, status;
             id = CarID;
             status = C_Status;
-            if(status == "")
+            if (status == "")
             {
                 outputLbl.Text = "Sorry No Car";
                 carSellBtn.BackColor = Color.Red;
@@ -201,10 +194,10 @@ namespace CSM_Project
             }
             else if (status.ToLower() == "available")
             {
-                new CarSell(empId,CarID).Show();
+                new CarSell(empId, CarID).Show();
                 this.Hide();
             }
-            else if(status.ToLower() == "sold")
+            else if (status.ToLower() == "sold")
             {
                 outputLbl.Text = "Sold Select Another";
                 carSellBtn.BackColor = Color.Red;
@@ -214,5 +207,49 @@ namespace CSM_Project
             }
         }
 
+        private void viewAllBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            gridFill();
+        }
+
+        private void viewAvailBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            viewAvailable();
+        }
+
+        private void viewSoldBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            viewSold();
+        }
+
+        private void buyCarBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            buyCar();
+        }
+
+        private void carSellBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            carSell();
+        }
+
+        private void sellCarPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            carSell();
+        }
+
+        private void buyCarPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            buyCar();
+        }
+
+        private void viewSoldPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            viewSold();
+        }
+
+        private void viewAvailPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            viewAvailable();
+        }
     }
 }

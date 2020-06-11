@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMMenu));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.outputLbl = new System.Windows.Forms.Label();
             this.buyCarPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -93,32 +93,37 @@
             this.buyCarPanel.BackColor = System.Drawing.Color.Transparent;
             this.buyCarPanel.Controls.Add(this.label5);
             this.buyCarPanel.Controls.Add(this.pictureBox3);
+            this.buyCarPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buyCarPanel.Location = new System.Drawing.Point(0, 201);
             this.buyCarPanel.Name = "buyCarPanel";
             this.buyCarPanel.Size = new System.Drawing.Size(197, 90);
             this.buyCarPanel.TabIndex = 33;
             this.buyCarPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buyCarPanel_MouseClick);
+            this.buyCarPanel.MouseEnter += new System.EventHandler(this.buyCarPanel_MouseEnter);
+            this.buyCarPanel.MouseLeave += new System.EventHandler(this.buyCarPanel_MouseLeave);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Enabled = false;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(88, 40);
+            this.label5.Location = new System.Drawing.Point(88, 33);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 22);
+            this.label5.Size = new System.Drawing.Size(71, 18);
             this.label5.TabIndex = 30;
             this.label5.Text = "Buy Car";
+            this.label5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buyCarPanel_MouseClick);
+            this.label5.MouseEnter += new System.EventHandler(this.buyCarPanel_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.buyCarPanel_MouseLeave);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Enabled = false;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 14);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(69, 69);
             this.pictureBox3.TabIndex = 29;
@@ -129,18 +134,21 @@
             this.sellCarPanel.BackColor = System.Drawing.Color.Transparent;
             this.sellCarPanel.Controls.Add(this.pictureBox6);
             this.sellCarPanel.Controls.Add(this.label9);
+            this.sellCarPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sellCarPanel.Location = new System.Drawing.Point(0, 111);
             this.sellCarPanel.Name = "sellCarPanel";
             this.sellCarPanel.Size = new System.Drawing.Size(197, 90);
             this.sellCarPanel.TabIndex = 32;
             this.sellCarPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sellCarPanel_MouseClick);
+            this.sellCarPanel.MouseEnter += new System.EventHandler(this.sellCarPanel_MouseEnter);
+            this.sellCarPanel.MouseLeave += new System.EventHandler(this.sellCarPanel_MouseLeave);
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox6.Enabled = false;
-            this.pictureBox6.Location = new System.Drawing.Point(0, 9);
+            this.pictureBox6.Location = new System.Drawing.Point(12, 14);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(69, 70);
             this.pictureBox6.TabIndex = 29;
@@ -150,32 +158,37 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Enabled = false;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(88, 38);
+            this.label9.Location = new System.Drawing.Point(88, 34);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 22);
+            this.label9.Size = new System.Drawing.Size(68, 18);
             this.label9.TabIndex = 30;
             this.label9.Text = "Sell Car";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sellCarPanel_MouseClick);
+            this.label9.MouseEnter += new System.EventHandler(this.sellCarPanel_MouseEnter);
+            this.label9.MouseLeave += new System.EventHandler(this.sellCarPanel_MouseLeave);
             // 
             // viewAvailPanel
             // 
             this.viewAvailPanel.BackColor = System.Drawing.Color.Transparent;
             this.viewAvailPanel.Controls.Add(this.label8);
             this.viewAvailPanel.Controls.Add(this.pictureBox5);
+            this.viewAvailPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewAvailPanel.Location = new System.Drawing.Point(0, 380);
             this.viewAvailPanel.Name = "viewAvailPanel";
             this.viewAvailPanel.Size = new System.Drawing.Size(197, 90);
             this.viewAvailPanel.TabIndex = 34;
             this.viewAvailPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewAvailPanel_MouseClick);
+            this.viewAvailPanel.MouseEnter += new System.EventHandler(this.viewAvailPanel_MouseEnter);
+            this.viewAvailPanel.MouseLeave += new System.EventHandler(this.viewAvailPanel_MouseLeave);
             // 
             // label8
             // 
-            this.label8.Enabled = false;
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(78, 18);
             this.label8.Name = "label8";
@@ -183,13 +196,16 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "Available Cars";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewAvailPanel_MouseClick);
+            this.label8.MouseEnter += new System.EventHandler(this.viewAvailPanel_MouseEnter);
+            this.label8.MouseLeave += new System.EventHandler(this.viewAvailPanel_MouseLeave);
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox5.Enabled = false;
-            this.pictureBox5.Location = new System.Drawing.Point(0, 11);
+            this.pictureBox5.Location = new System.Drawing.Point(11, 6);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(67, 70);
             this.pictureBox5.TabIndex = 29;
@@ -200,31 +216,36 @@
             this.viewSoldPanel.BackColor = System.Drawing.Color.Transparent;
             this.viewSoldPanel.Controls.Add(this.label7);
             this.viewSoldPanel.Controls.Add(this.pictureBox4);
+            this.viewSoldPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewSoldPanel.Location = new System.Drawing.Point(1, 290);
             this.viewSoldPanel.Name = "viewSoldPanel";
             this.viewSoldPanel.Size = new System.Drawing.Size(197, 90);
             this.viewSoldPanel.TabIndex = 35;
             this.viewSoldPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewSoldPanel_MouseClick);
+            this.viewSoldPanel.MouseEnter += new System.EventHandler(this.viewSoldPanel_MouseEnter);
+            this.viewSoldPanel.MouseLeave += new System.EventHandler(this.viewSoldPanel_MouseLeave);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Enabled = false;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(77, 35);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 22);
+            this.label7.Size = new System.Drawing.Size(83, 18);
             this.label7.TabIndex = 30;
             this.label7.Text = "Sold Cars";
+            this.label7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewSoldPanel_MouseClick);
+            this.label7.MouseEnter += new System.EventHandler(this.viewSoldPanel_MouseEnter);
+            this.label7.MouseLeave += new System.EventHandler(this.viewSoldPanel_MouseLeave);
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox4.Enabled = false;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 12);
+            this.pictureBox4.Location = new System.Drawing.Point(11, 7);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(66, 69);
             this.pictureBox4.TabIndex = 29;
@@ -241,15 +262,15 @@
             this.viewCarGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.viewCarGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.viewCarGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.viewCarGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.viewCarGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NameC,
@@ -258,15 +279,15 @@
             this.Price,
             this.Status,
             this.CAR_ID});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.viewCarGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.viewCarGrid.EnableHeadersVisualStyles = false;
             this.viewCarGrid.GridColor = System.Drawing.Color.White;
             this.viewCarGrid.Location = new System.Drawing.Point(198, 159);
@@ -275,7 +296,7 @@
             this.viewCarGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.viewCarGrid.RowHeadersVisible = false;
             this.viewCarGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.viewCarGrid.Size = new System.Drawing.Size(812, 354);
+            this.viewCarGrid.Size = new System.Drawing.Size(812, 366);
             this.viewCarGrid.TabIndex = 36;
             this.viewCarGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.viewCarGrid_CellEnter);
             // 
@@ -464,7 +485,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SMMenu";
             this.Text = "Salesman Menu";
-            this.Load += new System.EventHandler(this.SMMenu_Load);
             this.buyCarPanel.ResumeLayout(false);
             this.buyCarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

@@ -171,10 +171,8 @@ namespace CSM_Project
             }
             else if (empDesig.ToLower() == "salesman")
             {
-                //buyCarBtn.BackColor = Color.Red;
                 outLbl.Text = "You are not Allowed";
                 await Task.Delay(2000);
-                //buyCarBtn.BackColor = SystemColors.Control;
                 outLbl.Text = "";
             }
         }
@@ -187,9 +185,7 @@ namespace CSM_Project
             if (status == "")
             {
                 outputLbl.Text = "Sorry No Car";
-                //carSellBtn.BackColor = Color.Red;
                 await Task.Delay(2000);
-                //carSellBtn.BackColor = SystemColors.Control;
                 outputLbl.Text = "";
             }
             else if (status.ToLower() == "available")
@@ -200,36 +196,9 @@ namespace CSM_Project
             else if (status.ToLower() == "sold")
             {
                 outputLbl.Text = "Sold Select Another";
-                //carSellBtn.BackColor = Color.Red;
                 await Task.Delay(2000);
-                //carSellBtn.BackColor = SystemColors.Control;
                 outputLbl.Text = "";
             }
-        }
-
-        private void viewAllBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            gridFill();
-        }
-
-        private void viewAvailBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            viewAvailable();
-        }
-
-        private void viewSoldBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            viewSold();
-        }
-
-        private void buyCarBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            buyCar();
-        }
-
-        private void carSellBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            carSell();
         }
 
         private void sellCarPanel_MouseClick(object sender, MouseEventArgs e)
@@ -252,11 +221,6 @@ namespace CSM_Project
             viewAvailable();
         }
 
-        private void SMMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void exitBtn_MouseEnter(object sender, EventArgs e)
         {
             exitBtn.BackColor = Color.Red;
@@ -267,6 +231,46 @@ namespace CSM_Project
         {
             exitBtn.BackColor = Color.White;
             exitBtn.ForeColor = Color.Red;
+        }
+
+        private void sellCarPanel_MouseEnter(object sender, EventArgs e)
+        {
+            sellCarPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void sellCarPanel_MouseLeave(object sender, EventArgs e)
+        {
+            sellCarPanel.BackColor = Color.Transparent;
+        }
+
+        private void buyCarPanel_MouseEnter(object sender, EventArgs e)
+        {
+            buyCarPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void buyCarPanel_MouseLeave(object sender, EventArgs e)
+        {
+            buyCarPanel.BackColor = Color.Transparent;
+        }
+
+        private void viewSoldPanel_MouseEnter(object sender, EventArgs e)
+        {
+            viewSoldPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void viewSoldPanel_MouseLeave(object sender, EventArgs e)
+        {
+            viewSoldPanel.BackColor = Color.Transparent;
+        }
+
+        private void viewAvailPanel_MouseEnter(object sender, EventArgs e)
+        {
+            viewAvailPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void viewAvailPanel_MouseLeave(object sender, EventArgs e)
+        {
+            viewAvailPanel.BackColor = Color.Transparent;
         }
     }
 }

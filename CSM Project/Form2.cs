@@ -152,7 +152,7 @@ namespace CSM_Project
             con.Close();
         }
 
-        private async void buyCar()
+        private void buyCar()
         {
             con.Open();
             string checkEmpQuery = "select employee_designation from employee where employee_id = @id";
@@ -171,9 +171,7 @@ namespace CSM_Project
             }
             else if (empDesig.ToLower() == "salesman")
             {
-                outLbl.Text = "You are not Allowed";
-                await Task.Delay(2000);
-                outLbl.Text = "";
+                CustomMsgBox.Show("You do not have Administrator Privilages.\nFor Addition of new stock inform higher authority.","OK");
             }
         }
 
@@ -184,9 +182,7 @@ namespace CSM_Project
             status = C_Status;
             if (status == "")
             {
-                outputLbl.Text = "Sorry No Car";
-                await Task.Delay(2000);
-                outputLbl.Text = "";
+                CustomMsgBox.Show("No Stock Remaining.\nContact Higher Authority.", "OK");
             }
             else if (status.ToLower() == "available")
             {
@@ -195,9 +191,7 @@ namespace CSM_Project
             }
             else if (status.ToLower() == "sold")
             {
-                outputLbl.Text = "Sold Select Another";
-                await Task.Delay(2000);
-                outputLbl.Text = "";
+                CustomMsgBox.Show("This Car has already been Sold Select Another.", "OK");
             }
         }
 

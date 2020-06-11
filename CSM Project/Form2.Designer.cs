@@ -269,7 +269,7 @@
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.viewCarGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.viewCarGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

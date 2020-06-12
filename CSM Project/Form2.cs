@@ -175,7 +175,7 @@ namespace CSM_Project
             }
         }
 
-        private async void carSell()
+        private void carSell()
         {
             string id, status;
             id = CarID;
@@ -191,7 +191,7 @@ namespace CSM_Project
             }
             else if (status.ToLower() == "sold")
             {
-                CustomMsgBox.Show("This Car has already been Sold Select Another.", "OK");
+                CustomMsgBox.Show("This Car has already been Sold.\nSelect Another.", "OK");
             }
         }
 

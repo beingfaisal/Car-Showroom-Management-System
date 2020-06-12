@@ -46,6 +46,18 @@ namespace CSM_Project
             this.Hide();
         }
 
+        private void exitBtn_MouseEnter(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Red;
+            exitBtn.ForeColor = Color.White;
+        }
+
+        private void exitBtn_MouseLeave(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Transparent;
+            exitBtn.ForeColor = Color.Red;
+        }
+
         private void sellBtn_MouseClick(object sender, MouseEventArgs e)
         {
             string cust_name, cust_cnic, cust_address, cust_contact;
@@ -126,6 +138,95 @@ namespace CSM_Project
             cnicBox.Text = "";
             addressBox.Text = "";
             contactBox.Text = "";
+        }
+
+        private void nameBox_Enter(object sender, EventArgs e)
+        {
+            if (nameBox.Text == "Full Name (Max 50 Char)")
+            {
+                nameBox.Text = "";
+            }
+
+            nameBox.BorderStyle = BorderStyle.None;
+            nameBox.BackColor = Color.FromArgb(77, 74, 82);
+            nameBox.ForeColor = Color.White;
+        }
+
+        private void nameBox_Leave(object sender, EventArgs e)
+        {
+            if (nameBox.Text == "")
+            {
+                nameBox.Text = "Full Name (Max 50 Char)";
+            }
+            nameBox.BorderStyle = BorderStyle.Fixed3D;
+            nameBox.BackColor = Color.White;
+            nameBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void cnicBox_Enter(object sender, EventArgs e)
+        {
+            if (cnicBox.Text == "*****-*******-*")
+            {
+                cnicBox.Text = "";
+            }
+            cnicBox.BorderStyle = BorderStyle.None;
+            cnicBox.BackColor = Color.FromArgb(77, 74, 82);
+            cnicBox.ForeColor = Color.White;
+        }
+
+        private void cnicBox_Leave(object sender, EventArgs e)
+        {
+            if (cnicBox.Text == "")
+            {
+                cnicBox.Text = "*****-*******-*";
+            }
+            cnicBox.BorderStyle = BorderStyle.Fixed3D;
+            cnicBox.BackColor = Color.White;
+            cnicBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void addressBox_Enter(object sender, EventArgs e)
+        {
+            if (addressBox.Text == "Max 150 Char")
+            {
+                addressBox.Text = "";
+            }
+            addressBox.BorderStyle = BorderStyle.None;
+            addressBox.BackColor = Color.FromArgb(77, 74, 82);
+            addressBox.ForeColor = Color.White;
+        }
+
+        private void addressBox_Leave(object sender, EventArgs e)
+        {
+            if (addressBox.Text == "")
+            {
+                addressBox.Text = "Max 150 Char";
+            }
+            addressBox.BorderStyle = BorderStyle.Fixed3D;
+            addressBox.BackColor = Color.White;
+            addressBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void contactBox_Enter(object sender, EventArgs e)
+        {
+            if (contactBox.Text == "03xx-xxxxxxx")
+            {
+                contactBox.Text = "";
+            }
+            contactBox.BorderStyle = BorderStyle.None;
+            contactBox.BackColor = Color.FromArgb(77, 74, 82);
+            contactBox.ForeColor = Color.White;
+        }
+
+        private void contactBox_Leave(object sender, EventArgs e)
+        {
+            if (contactBox.Text == "")
+            {
+                contactBox.Text = "03xx-xxxxxxx";
+            }
+            contactBox.BorderStyle = BorderStyle.Fixed3D;
+            contactBox.BackColor = Color.White;
+            contactBox.ForeColor = Color.FromArgb(77, 74, 82);
         }
 
         private string idGenerator(string id)

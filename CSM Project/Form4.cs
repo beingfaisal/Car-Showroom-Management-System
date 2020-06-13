@@ -15,6 +15,7 @@ namespace CSM_Project
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string empId,carID;
+        bool nameTest, cnicTest, addTest, contactTest;
 
         public CarSell()
         {

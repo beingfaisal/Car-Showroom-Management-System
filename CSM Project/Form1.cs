@@ -53,6 +53,7 @@ namespace CSM_Project
             if (pinBox.Text == "Password")
             {
                 pinBox.Text = "";
+                pinBox.PasswordChar = '*';
             }
             pinPnl.BackColor = Color.Black;
             pinBox.BackColor = Color.Black;
@@ -60,21 +61,18 @@ namespace CSM_Project
             lockImage.BackColor = Color.Black;
             userImage.BackColor = Color.White;
             LblVanish();
-
-
         }
         private void pinBox_Leave(object sender, EventArgs e)
         {
             if (pinBox.Text == "")
             {
                 pinBox.Text = "Password";
+                pinBox.PasswordChar = '\0';
             }
-
             pinPnl.BackColor = Color.White;
             pinBox.BackColor = Color.White;
             pinBox.ForeColor = Color.Black;
             lockImage.BackColor = Color.White;
-
         }
         private void logBtn_MouseEnter(object sender, EventArgs e)
         {

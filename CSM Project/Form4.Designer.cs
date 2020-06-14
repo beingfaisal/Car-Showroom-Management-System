@@ -43,8 +43,20 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nameBoxErrorIcon = new System.Windows.Forms.PictureBox();
+            this.cnicBoxErrorIcon = new System.Windows.Forms.PictureBox();
+            this.addressBoxErrorIcon = new System.Windows.Forms.PictureBox();
+            this.contactBoxErrorIcon = new System.Windows.Forms.PictureBox();
+            this.nameExpLbl = new System.Windows.Forms.Label();
+            this.cnicExpLbl = new System.Windows.Forms.Label();
+            this.addressExpLbl = new System.Windows.Forms.Label();
+            this.contactExpLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nameBoxErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cnicBoxErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressBoxErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBoxErrorIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // backBtn
@@ -67,9 +79,9 @@
             this.label1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(35, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 25);
+            this.label1.Size = new System.Drawing.Size(118, 25);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Name";
+            this.label1.Text = "Full Name";
             // 
             // label2
             // 
@@ -87,9 +99,9 @@
             this.label3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(35, 216);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 25);
+            this.label3.Size = new System.Drawing.Size(157, 25);
             this.label3.TabIndex = 12;
-            this.label3.Text = "CNIC";
+            this.label3.Text = "CNIC Number";
             // 
             // label4
             // 
@@ -97,21 +109,21 @@
             this.label4.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(416, 216);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 25);
+            this.label4.Size = new System.Drawing.Size(184, 25);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Contact";
+            this.label4.Text = "Contact Number";
             // 
             // nameBox
             // 
             this.nameBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBox.ForeColor = System.Drawing.Color.Gray;
             this.nameBox.Location = new System.Drawing.Point(40, 154);
-            this.nameBox.MaxLength = 50;
+            this.nameBox.MaxLength = 1000;
             this.nameBox.Multiline = true;
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(273, 28);
+            this.nameBox.Size = new System.Drawing.Size(300, 28);
             this.nameBox.TabIndex = 14;
-            this.nameBox.Text = "Full Name (Max 50 Char)";
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
             this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
@@ -123,9 +135,9 @@
             this.cnicBox.MaxLength = 13;
             this.cnicBox.Multiline = true;
             this.cnicBox.Name = "cnicBox";
-            this.cnicBox.Size = new System.Drawing.Size(273, 28);
+            this.cnicBox.Size = new System.Drawing.Size(300, 28);
             this.cnicBox.TabIndex = 15;
-            this.cnicBox.Text = "*****-*******-*";
+            this.cnicBox.TextChanged += new System.EventHandler(this.cnicBox_TextChanged);
             this.cnicBox.Enter += new System.EventHandler(this.cnicBox_Enter);
             this.cnicBox.Leave += new System.EventHandler(this.cnicBox_Leave);
             // 
@@ -137,9 +149,9 @@
             this.addressBox.MaxLength = 150;
             this.addressBox.Multiline = true;
             this.addressBox.Name = "addressBox";
-            this.addressBox.Size = new System.Drawing.Size(273, 28);
+            this.addressBox.Size = new System.Drawing.Size(300, 28);
             this.addressBox.TabIndex = 16;
-            this.addressBox.Text = "Max 150 Char";
+            this.addressBox.TextChanged += new System.EventHandler(this.addressBox_TextChanged);
             this.addressBox.Enter += new System.EventHandler(this.addressBox_Enter);
             this.addressBox.Leave += new System.EventHandler(this.addressBox_Leave);
             // 
@@ -151,9 +163,9 @@
             this.contactBox.MaxLength = 11;
             this.contactBox.Multiline = true;
             this.contactBox.Name = "contactBox";
-            this.contactBox.Size = new System.Drawing.Size(273, 28);
+            this.contactBox.Size = new System.Drawing.Size(300, 28);
             this.contactBox.TabIndex = 17;
-            this.contactBox.Text = "03xx-xxxxxxx";
+            this.contactBox.TextChanged += new System.EventHandler(this.contactBox_TextChanged);
             this.contactBox.Enter += new System.EventHandler(this.contactBox_Enter);
             this.contactBox.Leave += new System.EventHandler(this.contactBox_Leave);
             // 
@@ -192,7 +204,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(220, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(224, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(57, 63);
             this.pictureBox1.TabIndex = 39;
@@ -219,8 +231,96 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 86);
+            this.panel1.Size = new System.Drawing.Size(764, 79);
             this.panel1.TabIndex = 41;
+            // 
+            // nameBoxErrorIcon
+            // 
+            this.nameBoxErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.nameBoxErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nameBoxErrorIcon.BackgroundImage")));
+            this.nameBoxErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.nameBoxErrorIcon.Location = new System.Drawing.Point(317, 156);
+            this.nameBoxErrorIcon.Name = "nameBoxErrorIcon";
+            this.nameBoxErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.nameBoxErrorIcon.TabIndex = 42;
+            this.nameBoxErrorIcon.TabStop = false;
+            // 
+            // cnicBoxErrorIcon
+            // 
+            this.cnicBoxErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.cnicBoxErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cnicBoxErrorIcon.BackgroundImage")));
+            this.cnicBoxErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.cnicBoxErrorIcon.Location = new System.Drawing.Point(317, 246);
+            this.cnicBoxErrorIcon.Name = "cnicBoxErrorIcon";
+            this.cnicBoxErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.cnicBoxErrorIcon.TabIndex = 43;
+            this.cnicBoxErrorIcon.TabStop = false;
+            // 
+            // addressBoxErrorIcon
+            // 
+            this.addressBoxErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.addressBoxErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addressBoxErrorIcon.BackgroundImage")));
+            this.addressBoxErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addressBoxErrorIcon.Location = new System.Drawing.Point(698, 156);
+            this.addressBoxErrorIcon.Name = "addressBoxErrorIcon";
+            this.addressBoxErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.addressBoxErrorIcon.TabIndex = 44;
+            this.addressBoxErrorIcon.TabStop = false;
+            // 
+            // contactBoxErrorIcon
+            // 
+            this.contactBoxErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.contactBoxErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contactBoxErrorIcon.BackgroundImage")));
+            this.contactBoxErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.contactBoxErrorIcon.Location = new System.Drawing.Point(698, 246);
+            this.contactBoxErrorIcon.Name = "contactBoxErrorIcon";
+            this.contactBoxErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.contactBoxErrorIcon.TabIndex = 45;
+            this.contactBoxErrorIcon.TabStop = false;
+            // 
+            // nameExpLbl
+            // 
+            this.nameExpLbl.AutoSize = true;
+            this.nameExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.nameExpLbl.Location = new System.Drawing.Point(151, 182);
+            this.nameExpLbl.Name = "nameExpLbl";
+            this.nameExpLbl.Size = new System.Drawing.Size(189, 14);
+            this.nameExpLbl.TabIndex = 46;
+            this.nameExpLbl.Text = "e.g. Ali Ahmad (Max 50 Char)";
+            // 
+            // cnicExpLbl
+            // 
+            this.cnicExpLbl.AutoSize = true;
+            this.cnicExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cnicExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.cnicExpLbl.Location = new System.Drawing.Point(122, 272);
+            this.cnicExpLbl.Name = "cnicExpLbl";
+            this.cnicExpLbl.Size = new System.Drawing.Size(218, 14);
+            this.cnicExpLbl.TabIndex = 47;
+            this.cnicExpLbl.Text = "e.g. 34302-1234567-8 (13 Digits)";
+            // 
+            // addressExpLbl
+            // 
+            this.addressExpLbl.AutoSize = true;
+            this.addressExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.addressExpLbl.Location = new System.Drawing.Point(468, 182);
+            this.addressExpLbl.Name = "addressExpLbl";
+            this.addressExpLbl.Size = new System.Drawing.Size(253, 14);
+            this.addressExpLbl.TabIndex = 48;
+            this.addressExpLbl.Text = "e.g. Street #11 Lahore (Max 150 Char)";
+            // 
+            // contactExpLbl
+            // 
+            this.contactExpLbl.AutoSize = true;
+            this.contactExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.contactExpLbl.Location = new System.Drawing.Point(524, 272);
+            this.contactExpLbl.Name = "contactExpLbl";
+            this.contactExpLbl.Size = new System.Drawing.Size(197, 14);
+            this.contactExpLbl.TabIndex = 49;
+            this.contactExpLbl.Text = "e.g. 0321-1234567 (11 Digits)";
             // 
             // CarSell
             // 
@@ -228,6 +328,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(764, 397);
+            this.Controls.Add(this.contactExpLbl);
+            this.Controls.Add(this.addressExpLbl);
+            this.Controls.Add(this.cnicExpLbl);
+            this.Controls.Add(this.nameExpLbl);
+            this.Controls.Add(this.contactBoxErrorIcon);
+            this.Controls.Add(this.addressBoxErrorIcon);
+            this.Controls.Add(this.cnicBoxErrorIcon);
+            this.Controls.Add(this.nameBoxErrorIcon);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sellBtn);
             this.Controls.Add(this.contactBox);
@@ -242,10 +350,13 @@
             this.Name = "CarSell";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sell Car";
-            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nameBoxErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cnicBoxErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressBoxErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBoxErrorIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +377,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox nameBoxErrorIcon;
+        private System.Windows.Forms.PictureBox cnicBoxErrorIcon;
+        private System.Windows.Forms.PictureBox addressBoxErrorIcon;
+        private System.Windows.Forms.PictureBox contactBoxErrorIcon;
+        private System.Windows.Forms.Label nameExpLbl;
+        private System.Windows.Forms.Label cnicExpLbl;
+        private System.Windows.Forms.Label addressExpLbl;
+        private System.Windows.Forms.Label contactExpLbl;
     }
 }

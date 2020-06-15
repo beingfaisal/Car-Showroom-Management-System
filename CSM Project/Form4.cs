@@ -37,7 +37,6 @@ namespace CSM_Project
             carID = carid;
             this.CenterToScreen();
             pictureVanish();
-            LblVanish();
             startChecker();
         }
 
@@ -47,13 +46,6 @@ namespace CSM_Project
             cnicBoxErrorIcon.Visible = false;
             addressBoxErrorIcon.Visible = false;
             contactBoxErrorIcon.Visible = false;
-        }
-        private void LblVanish()
-        {
-            nameExpLbl.Visible = false;
-            cnicExpLbl.Visible = false;
-            addressExpLbl.Visible = false;
-            contactExpLbl.Visible = false;
         }
 
         private void startChecker()
@@ -109,91 +101,111 @@ namespace CSM_Project
             cust_contact = contactBox.Text;
             if ((nameFlag || cnicFlag || addressFlag || contactFlag) == true)
             {
-                CustomMsgBox.Show("The given input is invalid.\nPlease enter correct information","OK");
+                if (nameFlag) nameBoxErrorIcon.Visible = true;
+                if (cnicFlag) cnicBoxErrorIcon.Visible = true;
+                if (addressFlag) addressBoxErrorIcon.Visible = true;
+                if (contactFlag) contactBoxErrorIcon.Visible = true;
+
+                CustomMsgBox.Show("The given input is invalid.\nPlease enter correct information and leave no field empty.", "OK");
             }
             else
             {
-                //this block is used to insert the values in the column of customer
                 con.Open();
-                string insertQuery = "Insert into CUSTOMER(CUSTOMER_CNIC,CUSTOMER_NAME,CUSTOMER_CONTACT,CUSTOMER_ADDRESS) VALUES(@cnic,@name,@contact,@address)";
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
-                cmd.Parameters.AddWithValue("@cnic", cust_cnic);
-                cmd.Parameters.AddWithValue("@name", cust_name);
-                cmd.Parameters.AddWithValue("@contact", cust_contact);
-                cmd.Parameters.AddWithValue("@address", cust_address);
-                cmd.ExecuteNonQuery();
-
-                //this block is used to generate new order id by getting id from database just the digit part
-                string getOrderQuery = "Select max(substring(CUSTOMER_ORDER.ORDER_ID,4,len(customer_order.order_id))) from CUSTOMER_ORDER ";
-                SqlCommand getCmd = new SqlCommand(getOrderQuery, con);
-                SqlDataAdapter orderAdapter = new SqlDataAdapter(getCmd);
-                DataSet orderData = new DataSet();
-                orderAdapter.Fill(orderData);
-                string id;
-                if ((orderData.Tables[0].Rows.Count) > 0)
-                {
-                    id = Convert.ToString(orderData.Tables[0].Rows[0].ItemArray[0]);
-                }
-                else
-                {
-                    id = string.Empty;
-                }
-                string OrderID = idGenerator(id); //function that generates the Order_ID
-
-                //this block of code gets the price of car from database and increases it by 10%
-                string getPriceQuery = "Select car.car_price from car where car.car_id = @id";
-                SqlCommand getPriceCmd = new SqlCommand(getPriceQuery, con);
-                getPriceCmd.Parameters.AddWithValue("@id", carID);
-                SqlDataAdapter priceAdapter = new SqlDataAdapter(getPriceCmd);
-                DataSet priceData = new DataSet();
-                priceAdapter.Fill(priceData);
-                int price = Convert.ToInt32(priceData.Tables[0].Rows[0].ItemArray[0]);
-                int newBill = price + ((price * 10) / 100);
-
-                //this block of code is used to store data for the order given by customer
-                string upOrderQuery = "Insert into Customer_Order(order_id,employee_id,car_id,customer_cnic,order_date,bill) values(@Oid,@EmpID,@CiD,@cnic,getDate(),@bill)";
-                SqlCommand upCMD = new SqlCommand(upOrderQuery, con);
-                upCMD.Parameters.AddWithValue("@Oid", OrderID);
-                upCMD.Parameters.AddWithValue("@EmpID", empId);
-                upCMD.Parameters.AddWithValue("@CiD", carID);
-                upCMD.Parameters.AddWithValue("@cnic", cust_cnic);
-                upCMD.Parameters.AddWithValue("@bill", newBill);
-                upCMD.ExecuteNonQuery();
-
-                //this block of code is used to store data about the payment of sold car
-                string paymentQuery = "insert into SELL_PAYMENT(Order_ID,payment_Date) values(@order,getDate())";
-                SqlCommand paymentCMD = new SqlCommand(paymentQuery, con);
-                paymentCMD.Parameters.AddWithValue("@order", OrderID);
-                paymentCMD.ExecuteNonQuery();
-
-                //this block of code runs query that changes the status of car from available to sold
-                string updateCarQuery = "update Car set car.car_status='Sold' where car_id = @carid";
-                SqlCommand updateCMD = new SqlCommand(updateCarQuery, con);
-                updateCMD.Parameters.AddWithValue("@carid", carID);
-                updateCMD.ExecuteNonQuery();
-
-                //this block of Code will update the number of sales for that employee
-                string updateSalesQuery = "Update employee set EMPLOYEE_SALES = (Employee_sales+1) where EMPLOYEE_ID = @id";
-                SqlCommand updateSaleCMD = new SqlCommand(updateSalesQuery, con);
-                updateSaleCMD.Parameters.AddWithValue("@id", empId);
-                updateSaleCMD.ExecuteNonQuery();
-
-
+                string cnicCheckQuery = "select * from customer where customer_cnic = @id";
+                SqlCommand cnicCheckCMD = new SqlCommand(cnicCheckQuery, con);
+                cnicCheckCMD.Parameters.AddWithValue("@id",cust_cnic);
+                SqlDataAdapter cnicCheckAdapter = new SqlDataAdapter(cnicCheckCMD);
+                DataSet cnicCheckSet = new DataSet();
+                cnicCheckAdapter.Fill(cnicCheckSet);
                 con.Close();
-                MessageBox.Show("success");
-                this.Close();
 
-                nameBox.Text = "";
-                cnicBox.Text = "";
-                addressBox.Text = "";
-                contactBox.Text = "";
-            }
+                if ((cnicCheckSet.Tables[0].Rows.Count) > 0)
+                {
+                    CustomMsgBox.Show("The given CNIC already exists. Please recheck CNIC of customer or inform manager.", "OK");
+                }
+                else 
+                {
+                    //this block is used to insert the values in the column of customer
+                    con.Open();
+                    string insertQuery = "Insert into CUSTOMER(CUSTOMER_CNIC,CUSTOMER_NAME,CUSTOMER_CONTACT,CUSTOMER_ADDRESS) VALUES(@cnic,@name,@contact,@address)";
+                    SqlCommand cmd = new SqlCommand(insertQuery, con);
+                    cmd.Parameters.AddWithValue("@cnic", cust_cnic);
+                    cmd.Parameters.AddWithValue("@name", cust_name);
+                    cmd.Parameters.AddWithValue("@contact", cust_contact);
+                    cmd.Parameters.AddWithValue("@address", cust_address);
+                    cmd.ExecuteNonQuery();
+
+                    //this block is used to generate new order id by getting id from database just the digit part
+                    string getOrderQuery = "Select max(substring(CUSTOMER_ORDER.ORDER_ID,4,len(customer_order.order_id))) from CUSTOMER_ORDER ";
+                    SqlCommand getCmd = new SqlCommand(getOrderQuery, con);
+                    SqlDataAdapter orderAdapter = new SqlDataAdapter(getCmd);
+                    DataSet orderData = new DataSet();
+                    orderAdapter.Fill(orderData);
+                    string id;
+                    if ((orderData.Tables[0].Rows.Count) > 0)
+                    {
+                        id = Convert.ToString(orderData.Tables[0].Rows[0].ItemArray[0]);
+                    }
+                    else
+                    {
+                        id = string.Empty;
+                    }
+                    string OrderID = idGenerator(id); //function that generates the Order_ID
+
+                    //this block of code gets the price of car from database and increases it by 10%
+                    string getPriceQuery = "Select car.car_price from car where car.car_id = @id";
+                    SqlCommand getPriceCmd = new SqlCommand(getPriceQuery, con);
+                    getPriceCmd.Parameters.AddWithValue("@id", carID);
+                    SqlDataAdapter priceAdapter = new SqlDataAdapter(getPriceCmd);
+                    DataSet priceData = new DataSet();
+                    priceAdapter.Fill(priceData);
+                    int price = Convert.ToInt32(priceData.Tables[0].Rows[0].ItemArray[0]);
+                    int newBill = price + ((price * 10) / 100);
+
+                    //this block of code is used to store data for the order given by customer
+                    string upOrderQuery = "Insert into Customer_Order(order_id,employee_id,car_id,customer_cnic,order_date,bill) values(@Oid,@EmpID,@CiD,@cnic,getDate(),@bill)";
+                    SqlCommand upCMD = new SqlCommand(upOrderQuery, con);
+                    upCMD.Parameters.AddWithValue("@Oid", OrderID);
+                    upCMD.Parameters.AddWithValue("@EmpID", empId);
+                    upCMD.Parameters.AddWithValue("@CiD", carID);
+                    upCMD.Parameters.AddWithValue("@cnic", cust_cnic);
+                    upCMD.Parameters.AddWithValue("@bill", newBill);
+                    upCMD.ExecuteNonQuery();
+
+                    //this block of code is used to store data about the payment of sold car
+                    string paymentQuery = "insert into SELL_PAYMENT(Order_ID,payment_Date) values(@order,getDate())";
+                    SqlCommand paymentCMD = new SqlCommand(paymentQuery, con);
+                    paymentCMD.Parameters.AddWithValue("@order", OrderID);
+                    paymentCMD.ExecuteNonQuery();
+
+                    //this block of code runs query that changes the status of car from available to sold
+                    string updateCarQuery = "update Car set car.car_status='Sold' where car_id = @carid";
+                    SqlCommand updateCMD = new SqlCommand(updateCarQuery, con);
+                    updateCMD.Parameters.AddWithValue("@carid", carID);
+                    updateCMD.ExecuteNonQuery();
+
+                    //this block of Code will update the number of sales for that employee
+                    string updateSalesQuery = "Update employee set EMPLOYEE_SALES = (Employee_sales+1) where EMPLOYEE_ID = @id";
+                    SqlCommand updateSaleCMD = new SqlCommand(updateSalesQuery, con);
+                    updateSaleCMD.Parameters.AddWithValue("@id", empId);
+                    updateSaleCMD.ExecuteNonQuery();
+
+
+                    con.Close();
+                    MessageBox.Show("success");
+                    this.Close();
+
+                    nameBox.Text = "";
+                    cnicBox.Text = "";
+                    addressBox.Text = "";
+                    contactBox.Text = "";
+            }   }
         }
 
         // This Block Contains the code for when does the focus comes into the textboxes
         private void nameBox_Enter(object sender, EventArgs e)
         {
-            nameBoxErrorIcon.Visible = false;
+            nameBoxErrorIcon.BackColor = Color.FromArgb(77, 74, 82);
             nameBox.BorderStyle = BorderStyle.None;
             nameBox.BackColor = Color.FromArgb(77, 74, 82);
             nameBox.ForeColor = Color.White;
@@ -204,9 +216,9 @@ namespace CSM_Project
             if(nameBox.Text == "")
             {
                 nameBoxErrorIcon.Visible = true;
-                nameExpLbl.Visible = true;
                 nameFlag = true;
             }
+            nameBoxErrorIcon.BackColor = Color.Transparent;
             nameBox.BorderStyle = BorderStyle.Fixed3D;
             nameBox.BackColor = Color.White;
             nameBox.ForeColor = Color.FromArgb(77, 74, 82);
@@ -214,7 +226,7 @@ namespace CSM_Project
 
         private void cnicBox_Enter(object sender, EventArgs e)
         {
-            cnicBoxErrorIcon.Visible = false;
+            cnicBoxErrorIcon.BackColor = Color.FromArgb(77, 74, 82);
             cnicBox.BorderStyle = BorderStyle.None;
             cnicBox.BackColor = Color.FromArgb(77, 74, 82);
             cnicBox.ForeColor = Color.White;
@@ -222,12 +234,12 @@ namespace CSM_Project
 
         private void cnicBox_Leave(object sender, EventArgs e)
         {
-            if(cnicBox.Text == "")
+            if((cnicBox.Text == "") || (cnicBox.Text.Length != 13))
             {
-                cnicExpLbl.Visible = true;
                 cnicBoxErrorIcon.Visible = true;
                 cnicFlag = true;
             }
+            cnicBoxErrorIcon.BackColor = Color.Transparent;
             cnicBox.BorderStyle = BorderStyle.Fixed3D;
             cnicBox.BackColor = Color.White;
             cnicBox.ForeColor = Color.FromArgb(77, 74, 82);
@@ -235,7 +247,7 @@ namespace CSM_Project
 
         private void addressBox_Enter(object sender, EventArgs e)
         {
-            addressBoxErrorIcon.Visible = false;
+            addressBoxErrorIcon.BackColor = Color.FromArgb(77, 74, 82);
             addressBox.BorderStyle = BorderStyle.None;
             addressBox.BackColor = Color.FromArgb(77, 74, 82);
             addressBox.ForeColor = Color.White;
@@ -246,9 +258,9 @@ namespace CSM_Project
             if(addressBox.Text == "")
             {
                 addressBoxErrorIcon.Visible = true;
-                addressExpLbl.Visible = true;
                 addressFlag = true;
             }
+            addressBoxErrorIcon.BackColor = Color.Transparent;
             addressBox.BorderStyle = BorderStyle.Fixed3D;
             addressBox.BackColor = Color.White;
             addressBox.ForeColor = Color.FromArgb(77, 74, 82);
@@ -256,7 +268,7 @@ namespace CSM_Project
 
         private void contactBox_Enter(object sender, EventArgs e)
         {
-            contactBoxErrorIcon.Visible = false;
+            contactBox.BackColor = Color.FromArgb(77, 74, 82);
             contactBox.BorderStyle = BorderStyle.None;
             contactBox.BackColor = Color.FromArgb(77, 74, 82);
             contactBox.ForeColor = Color.White;
@@ -264,12 +276,12 @@ namespace CSM_Project
 
         private void contactBox_Leave(object sender, EventArgs e)
         {
-            if(contactBox.Text == "")
+            if((contactBox.Text == "") || ((contactBox.Text.Length) != 11 ))
             {
                 contactBoxErrorIcon.Visible = true;
-                contactExpLbl.Visible = true;
                 contactFlag = true;
             }
+            contactBoxErrorIcon.BackColor = Color.Transparent;
             contactBox.BorderStyle = BorderStyle.Fixed3D;
             contactBox.BackColor = Color.White;
             contactBox.ForeColor = Color.FromArgb(77, 74, 82);
@@ -282,18 +294,21 @@ namespace CSM_Project
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
             string nameCheck = nameBox.Text;
-            if (nameCheck.Any(char.IsSymbol) || nameCheck.Any(char.IsDigit))
+            if ((nameCheck.Any(char.IsSymbol)) || nameCheck.Any(char.IsDigit))
             {
                 nameBoxErrorIcon.Visible = true;
-                nameExpLbl.Visible = true;
                 nameFlag = true;
             }
             else
             {
                 nameBoxErrorIcon.Visible = false;
-                nameExpLbl.Visible = false;
                 nameFlag = false;
             }
+
+        }
+
+        private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
 
         }
 
@@ -304,13 +319,11 @@ namespace CSM_Project
                 || cnicCheck.Any(char.IsSymbol) || cnicCheck.Any(char.IsPunctuation) || cnicCheck.Any(char.IsSeparator))
             {
                 cnicBoxErrorIcon.Visible = true;
-                cnicExpLbl.Visible = true;
                 cnicFlag = true;
             }
             else
             {
                 cnicBoxErrorIcon.Visible = false;
-                cnicExpLbl.Visible = false;
                 cnicFlag = false;
             }
         }
@@ -322,13 +335,11 @@ namespace CSM_Project
             {
                 addressFlag = true;
                 addressBoxErrorIcon.Visible = true;
-                addressExpLbl.Visible = true;
             }
             else
             {
                 addressFlag = false;
                 addressBoxErrorIcon.Visible = false;
-                addressExpLbl.Visible = false;
             }
         }
 
@@ -338,13 +349,11 @@ namespace CSM_Project
             if (contactCheck.Any(char.IsLetter) || contactCheck.Any(char.IsWhiteSpace))
             {
                 contactBoxErrorIcon.Visible = true;
-                contactExpLbl.Visible = true;
                 contactFlag = true;
             }
             else
             {
                 contactBoxErrorIcon.Visible = false;
-                contactExpLbl.Visible = false;
                 contactFlag = false;
             }
         }

@@ -282,7 +282,7 @@
             // 
             this.nameExpLbl.AutoSize = true;
             this.nameExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.nameExpLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.nameExpLbl.Location = new System.Drawing.Point(151, 182);
             this.nameExpLbl.Name = "nameExpLbl";
             this.nameExpLbl.Size = new System.Drawing.Size(189, 14);
@@ -293,7 +293,7 @@
             // 
             this.cnicExpLbl.AutoSize = true;
             this.cnicExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cnicExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.cnicExpLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.cnicExpLbl.Location = new System.Drawing.Point(122, 272);
             this.cnicExpLbl.Name = "cnicExpLbl";
             this.cnicExpLbl.Size = new System.Drawing.Size(218, 14);
@@ -304,7 +304,7 @@
             // 
             this.addressExpLbl.AutoSize = true;
             this.addressExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.addressExpLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.addressExpLbl.Location = new System.Drawing.Point(468, 182);
             this.addressExpLbl.Name = "addressExpLbl";
             this.addressExpLbl.Size = new System.Drawing.Size(253, 14);
@@ -315,7 +315,7 @@
             // 
             this.contactExpLbl.AutoSize = true;
             this.contactExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactExpLbl.ForeColor = System.Drawing.Color.Red;
+            this.contactExpLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.contactExpLbl.Location = new System.Drawing.Point(524, 272);
             this.contactExpLbl.Name = "contactExpLbl";
             this.contactExpLbl.Size = new System.Drawing.Size(197, 14);
@@ -340,12 +340,12 @@
             this.Controls.Add(this.sellBtn);
             this.Controls.Add(this.contactBox);
             this.Controls.Add(this.addressBox);
-            this.Controls.Add(this.cnicBox);
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.cnicBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CarSell";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

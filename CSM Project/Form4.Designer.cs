@@ -123,8 +123,8 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(300, 28);
             this.nameBox.TabIndex = 14;
-            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
+            this.nameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameBox_KeyPress);
             this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
             // cnicBox
@@ -137,8 +137,8 @@
             this.cnicBox.Name = "cnicBox";
             this.cnicBox.Size = new System.Drawing.Size(300, 28);
             this.cnicBox.TabIndex = 15;
-            this.cnicBox.TextChanged += new System.EventHandler(this.cnicBox_TextChanged);
             this.cnicBox.Enter += new System.EventHandler(this.cnicBox_Enter);
+            this.cnicBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cnicBox_KeyPress);
             this.cnicBox.Leave += new System.EventHandler(this.cnicBox_Leave);
             // 
             // addressBox
@@ -151,8 +151,8 @@
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(300, 28);
             this.addressBox.TabIndex = 16;
-            this.addressBox.TextChanged += new System.EventHandler(this.addressBox_TextChanged);
             this.addressBox.Enter += new System.EventHandler(this.addressBox_Enter);
+            this.addressBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addressBox_KeyPress);
             this.addressBox.Leave += new System.EventHandler(this.addressBox_Leave);
             // 
             // contactBox
@@ -165,8 +165,8 @@
             this.contactBox.Name = "contactBox";
             this.contactBox.Size = new System.Drawing.Size(300, 28);
             this.contactBox.TabIndex = 17;
-            this.contactBox.TextChanged += new System.EventHandler(this.contactBox_TextChanged);
             this.contactBox.Enter += new System.EventHandler(this.contactBox_Enter);
+            this.contactBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactBox_KeyPress);
             this.contactBox.Leave += new System.EventHandler(this.contactBox_Leave);
             // 
             // sellBtn

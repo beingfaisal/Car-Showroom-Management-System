@@ -106,10 +106,11 @@ namespace CSM_Project
                 if (addressFlag) addressBoxErrorIcon.Visible = true;
                 if (contactFlag) contactBoxErrorIcon.Visible = true;
 
-                CustomMsgBox.Show("The given input is invalid.\nPlease enter correct information and leave no field empty.", "OK");
+                CustomMsgBox.Show("The given input is invalid.\nPlease enter correct information and fill fields to required information.", "OK");
             }
             else
             {
+                //this piece of code checks whether the primary key is repeated or not
                 con.Open();
                 string cnicCheckQuery = "select * from customer where customer_cnic = @id";
                 SqlCommand cnicCheckCMD = new SqlCommand(cnicCheckQuery, con);
@@ -123,7 +124,7 @@ namespace CSM_Project
                 {
                     CustomMsgBox.Show("The given CNIC already exists. Please recheck CNIC of customer or inform manager.", "OK");
                 }
-                else 
+                else  //here starts the real process in selling a car
                 {
                     //this block is used to insert the values in the column of customer
                     con.Open();
@@ -218,6 +219,11 @@ namespace CSM_Project
                 nameBoxErrorIcon.Visible = true;
                 nameFlag = true;
             }
+            else
+            {
+                nameBoxErrorIcon.Visible = false;
+                nameFlag = false;
+            }
             nameBoxErrorIcon.BackColor = Color.Transparent;
             nameBox.BorderStyle = BorderStyle.Fixed3D;
             nameBox.BackColor = Color.White;
@@ -238,6 +244,11 @@ namespace CSM_Project
             {
                 cnicBoxErrorIcon.Visible = true;
                 cnicFlag = true;
+            }
+            else if(cnicBox.Text.Length == 13)
+            {
+                cnicBoxErrorIcon.Visible = false;
+                cnicFlag = false;
             }
             cnicBoxErrorIcon.BackColor = Color.Transparent;
             cnicBox.BorderStyle = BorderStyle.Fixed3D;
@@ -260,6 +271,11 @@ namespace CSM_Project
                 addressBoxErrorIcon.Visible = true;
                 addressFlag = true;
             }
+            else
+            {
+                addressBoxErrorIcon.Visible = false;
+                addressFlag = false;
+            }
             addressBoxErrorIcon.BackColor = Color.Transparent;
             addressBox.BorderStyle = BorderStyle.Fixed3D;
             addressBox.BackColor = Color.White;
@@ -281,82 +297,76 @@ namespace CSM_Project
                 contactBoxErrorIcon.Visible = true;
                 contactFlag = true;
             }
+            else if(contactBox.Text.Length == 11)
+            {
+                contactBoxErrorIcon.Visible = false;
+                contactFlag = false;
+            }
             contactBoxErrorIcon.BackColor = Color.Transparent;
             contactBox.BorderStyle = BorderStyle.Fixed3D;
             contactBox.BackColor = Color.White;
             contactBox.ForeColor = Color.FromArgb(77, 74, 82);
         }
 
-        
+
 
 
         //this code will help in validating the input
-        private void nameBox_TextChanged(object sender, EventArgs e)
-        {
-            string nameCheck = nameBox.Text;
-            if ((nameCheck.Any(char.IsSymbol)) || nameCheck.Any(char.IsDigit))
-            {
-                nameBoxErrorIcon.Visible = true;
-                nameFlag = true;
-            }
-            else
-            {
-                nameBoxErrorIcon.Visible = false;
-                nameFlag = false;
-            }
-
-        }
 
         private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void cnicBox_TextChanged(object sender, EventArgs e)
-        {
-            string cnicCheck = cnicBox.Text;
-            if (cnicCheck.Any(char.IsLetter) || cnicCheck.Any(char.IsWhiteSpace)
-                || cnicCheck.Any(char.IsSymbol) || cnicCheck.Any(char.IsPunctuation) || cnicCheck.Any(char.IsSeparator))
+            if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
             {
-                cnicBoxErrorIcon.Visible = true;
-                cnicFlag = true;
+                e.Handled = false;
             }
             else
             {
-                cnicBoxErrorIcon.Visible = false;
-                cnicFlag = false;
-            }
-        }
-       
-        private void addressBox_TextChanged(object sender, EventArgs e)
-        {
-            string addressCheck = addressBox.Text;
-            if(addressCheck.Any(char.IsSymbol)  || addressCheck.Any(char.IsPunctuation))
-            {
-                addressFlag = true;
-                addressBoxErrorIcon.Visible = true;
-            }
-            else
-            {
-                addressFlag = false;
-                addressBoxErrorIcon.Visible = false;
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
             }
         }
 
-        private void contactBox_TextChanged(object sender, EventArgs e)
+        private void contactBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string contactCheck = contactBox.Text;
-            if (contactCheck.Any(char.IsLetter) || contactCheck.Any(char.IsWhiteSpace))
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
             {
-                contactBoxErrorIcon.Visible = true;
-                contactFlag = true;
+                e.Handled = false;
             }
             else
             {
-                contactBoxErrorIcon.Visible = false;
-                contactFlag = false;
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
             }
         }
+
+        private void addressBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || (e.KeyChar == '/') 
+                || (e.KeyChar == '#') || (e.KeyChar == ',') || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+
+        }
+
+        private void cnicBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+
 
         private string idGenerator(string id)
         {

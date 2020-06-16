@@ -146,10 +146,28 @@ namespace CSM_Project
             new SMMenu(empID).Show();
             this.Hide();
         }
+        private void backBtn_MouseEnter(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+        }
+        private void backBtn_MouseLeave(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.Transparent;
+        }
 
         private void exitBtn_MouseClick(object sender, MouseEventArgs e)
         {
             Application.Exit();
+        }
+        private void exitBtn_MouseEnter(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Red;
+            exitBtn.ForeColor = Color.White;
+        }
+        private void exitBtn_MouseLeave(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Transparent;
+            exitBtn.ForeColor = Color.Red;
         }
     }
 }

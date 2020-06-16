@@ -266,5 +266,15 @@ namespace CSM_Project
         {
             viewAvailPanel.BackColor = Color.Transparent;
         }
+
+        private void backBtn_MouseEnter(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+        }
+
+        private void backBtn_MouseLeave(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.Transparent;
+        }
     }
 }

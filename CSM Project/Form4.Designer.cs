@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarSell));
-            this.backBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.nameBoxErrorIcon = new System.Windows.Forms.PictureBox();
             this.cnicBoxErrorIcon = new System.Windows.Forms.PictureBox();
             this.addressBoxErrorIcon = new System.Windows.Forms.PictureBox();
@@ -58,20 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.addressBoxErrorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBoxErrorIcon)).BeginInit();
             this.SuspendLayout();
-            // 
-            // backBtn
-            // 
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(12, 21);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(50, 35);
-            this.backBtn.TabIndex = 9;
-            this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
             // 
             // label1
             // 
@@ -171,15 +157,21 @@
             // 
             // sellBtn
             // 
-            this.sellBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.sellBtn.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sellBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.sellBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sellBtn.FlatAppearance.BorderSize = 0;
+            this.sellBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sellBtn.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sellBtn.ForeColor = System.Drawing.Color.White;
             this.sellBtn.Location = new System.Drawing.Point(302, 328);
             this.sellBtn.Name = "sellBtn";
             this.sellBtn.Size = new System.Drawing.Size(100, 43);
             this.sellBtn.TabIndex = 20;
             this.sellBtn.Text = "Sell";
-            this.sellBtn.UseVisualStyleBackColor = true;
+            this.sellBtn.UseVisualStyleBackColor = false;
             this.sellBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sellBtn_MouseClick);
+            this.sellBtn.MouseEnter += new System.EventHandler(this.sellBtn_MouseEnter);
+            this.sellBtn.MouseLeave += new System.EventHandler(this.sellBtn_MouseLeave);
             // 
             // exitBtn
             // 
@@ -224,15 +216,32 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.exitBtn);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(764, 79);
             this.panel1.TabIndex = 41;
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Location = new System.Drawing.Point(0, 0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(87, 79);
+            this.backBtn.TabIndex = 41;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
+            this.backBtn.MouseEnter += new System.EventHandler(this.backBtn_MouseEnter);
+            this.backBtn.MouseLeave += new System.EventHandler(this.backBtn_MouseLeave);
             // 
             // nameBoxErrorIcon
             // 
@@ -363,7 +372,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -385,5 +393,6 @@
         private System.Windows.Forms.Label cnicExpLbl;
         private System.Windows.Forms.Label addressExpLbl;
         private System.Windows.Forms.Label contactExpLbl;
+        private System.Windows.Forms.Button backBtn;
     }
 }

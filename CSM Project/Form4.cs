@@ -35,7 +35,6 @@ namespace CSM_Project
             InitializeComponent();
             empId = id;
             carID = carid;
-            this.CenterToScreen();
             pictureVanish();
             startChecker();
         }
@@ -47,7 +46,6 @@ namespace CSM_Project
             addressBoxErrorIcon.Visible = false;
             contactBoxErrorIcon.Visible = false;
         }
-
         private void startChecker()
         {
             if (nameBox.Text == "")
@@ -70,28 +68,46 @@ namespace CSM_Project
             }
         }
 
+       
         private void exitBtn_MouseClick(object sender, MouseEventArgs e)
         {
             Application.Exit();
         }
-        private void backBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            new SMMenu(empId).Show();
-            this.Hide();
-        }
-
         private void exitBtn_MouseEnter(object sender, EventArgs e)
         {
             exitBtn.BackColor = Color.Red;
             exitBtn.ForeColor = Color.White;
         }
-
         private void exitBtn_MouseLeave(object sender, EventArgs e)
         {
             exitBtn.BackColor = Color.Transparent;
             exitBtn.ForeColor = Color.Red;
         }
 
+       
+        private void backBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            new SMMenu(empId).Show();
+            this.Hide();
+        }
+        private void backBtn_MouseEnter(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+        }
+        private void backBtn_MouseLeave(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.Transparent;
+        }
+
+
+        private void sellBtn_MouseEnter(object sender, EventArgs e)
+        {
+            sellBtn.BackColor = Color.Black;
+        }
+        private void sellBtn_MouseLeave(object sender, EventArgs e)
+        {
+            sellBtn.BackColor = Color.FromArgb(77, 74, 82);
+        }
         private void sellBtn_MouseClick(object sender, MouseEventArgs e)
         {
             string cust_name, cust_cnic, cust_address, cust_contact;
@@ -203,6 +219,8 @@ namespace CSM_Project
             }   }
         }
 
+      
+        
         // This Block Contains the code for when does the focus comes into the textboxes
         private void nameBox_Enter(object sender, EventArgs e)
         {
@@ -211,7 +229,6 @@ namespace CSM_Project
             nameBox.BackColor = Color.FromArgb(77, 74, 82);
             nameBox.ForeColor = Color.White;
         }
-
         private void nameBox_Leave(object sender, EventArgs e)
         {
             if(nameBox.Text == "")
@@ -237,7 +254,6 @@ namespace CSM_Project
             cnicBox.BackColor = Color.FromArgb(77, 74, 82);
             cnicBox.ForeColor = Color.White;
         }
-
         private void cnicBox_Leave(object sender, EventArgs e)
         {
             if((cnicBox.Text == "") || (cnicBox.Text.Length != 13))
@@ -263,7 +279,6 @@ namespace CSM_Project
             addressBox.BackColor = Color.FromArgb(77, 74, 82);
             addressBox.ForeColor = Color.White;
         }
-
         private void addressBox_Leave(object sender, EventArgs e)
         {
             if(addressBox.Text == "")
@@ -289,7 +304,6 @@ namespace CSM_Project
             contactBox.BackColor = Color.FromArgb(77, 74, 82);
             contactBox.ForeColor = Color.White;
         }
-
         private void contactBox_Leave(object sender, EventArgs e)
         {
             if((contactBox.Text == "") || ((contactBox.Text.Length) != 11 ))

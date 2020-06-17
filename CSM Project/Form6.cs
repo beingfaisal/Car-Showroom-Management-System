@@ -175,6 +175,8 @@ namespace CSM_Project
                 clearRows();
             }
         }
+        
+        
         //Basic Styling of Textboxes
         private void licenseBox_Enter(object sender, EventArgs e)
         {

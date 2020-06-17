@@ -224,6 +224,7 @@
             this.cPriceBox.Size = new System.Drawing.Size(300, 28);
             this.cPriceBox.TabIndex = 20;
             this.cPriceBox.Enter += new System.EventHandler(this.cPriceBox_Enter);
+            this.cPriceBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cPriceBox_KeyPress);
             this.cPriceBox.Leave += new System.EventHandler(this.cPriceBox_Leave);
             // 
             // cCmpyBox
@@ -236,6 +237,7 @@
             this.cCmpyBox.Size = new System.Drawing.Size(300, 28);
             this.cCmpyBox.TabIndex = 19;
             this.cCmpyBox.Enter += new System.EventHandler(this.cCmpyBox_Enter);
+            this.cCmpyBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cCmpyBox_KeyPress);
             this.cCmpyBox.Leave += new System.EventHandler(this.cCmpyBox_Leave);
             // 
             // cModelBox
@@ -248,6 +250,7 @@
             this.cModelBox.Size = new System.Drawing.Size(300, 28);
             this.cModelBox.TabIndex = 18;
             this.cModelBox.Enter += new System.EventHandler(this.cModelBox_Enter);
+            this.cModelBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cModelBox_KeyPress);
             this.cModelBox.Leave += new System.EventHandler(this.cModelBox_Leave);
             // 
             // cNameBox
@@ -260,6 +263,7 @@
             this.cNameBox.Size = new System.Drawing.Size(300, 28);
             this.cNameBox.TabIndex = 17;
             this.cNameBox.Enter += new System.EventHandler(this.cNameBox_Enter);
+            this.cNameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cNameBox_KeyPress);
             this.cNameBox.Leave += new System.EventHandler(this.cNameBox_Leave);
             // 
             // cIDBox
@@ -272,6 +276,7 @@
             this.cIDBox.Size = new System.Drawing.Size(300, 28);
             this.cIDBox.TabIndex = 16;
             this.cIDBox.Enter += new System.EventHandler(this.cIDBox_Enter);
+            this.cIDBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cIDBox_KeyPress);
             this.cIDBox.Leave += new System.EventHandler(this.cIDBox_Leave);
             // 
             // label6

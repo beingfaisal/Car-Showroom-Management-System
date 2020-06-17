@@ -404,7 +404,6 @@ namespace CSM_Project
                 e.Handled = true;
             }
         }
-
         private void contactBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
@@ -417,7 +416,6 @@ namespace CSM_Project
                 e.Handled = true;
             }
         }
-
         private void addressBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || (e.KeyChar == '/')
@@ -431,7 +429,6 @@ namespace CSM_Project
                 e.Handled = true;
             }
         }
-
         private void emailBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || (e.KeyChar == '@')
@@ -445,7 +442,6 @@ namespace CSM_Project
                 e.Handled = true;
             }
         }
-
         private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
@@ -458,6 +454,69 @@ namespace CSM_Project
                 e.Handled = true;
             }
         }
+
+
+        private void cNameBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        private void cCmpyBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        private void cPriceBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        private void cModelBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        private void cIDBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+
 
 
 

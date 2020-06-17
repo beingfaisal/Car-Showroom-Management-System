@@ -65,28 +65,28 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.nameBoxErrorIcon = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.manufLicenseErrorIcon = new System.Windows.Forms.PictureBox();
+            this.manufNameErrorIcon = new System.Windows.Forms.PictureBox();
+            this.manufContactErrorIcon = new System.Windows.Forms.PictureBox();
+            this.manufAddressErrorIcon = new System.Windows.Forms.PictureBox();
+            this.manufEmailErrorIcon = new System.Windows.Forms.PictureBox();
+            this.carIDErrorIcon = new System.Windows.Forms.PictureBox();
+            this.carNameErrorIcon = new System.Windows.Forms.PictureBox();
+            this.carModelErrorIcon = new System.Windows.Forms.PictureBox();
+            this.carCompanyErrorIcon = new System.Windows.Forms.PictureBox();
+            this.carPriceErrorIcon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nameBoxErrorIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufLicenseErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufNameErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufContactErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufAddressErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufEmailErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carIDErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carNameErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carModelErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carCompanyErrorIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carPriceErrorIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -148,6 +148,9 @@
             this.licenseBox.Name = "licenseBox";
             this.licenseBox.Size = new System.Drawing.Size(300, 28);
             this.licenseBox.TabIndex = 5;
+            this.licenseBox.Enter += new System.EventHandler(this.licenseBox_Enter);
+            this.licenseBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.licenseBox_KeyPress);
+            this.licenseBox.Leave += new System.EventHandler(this.licenseBox_Leave);
             // 
             // nameBox
             // 
@@ -158,6 +161,9 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(300, 28);
             this.nameBox.TabIndex = 6;
+            this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
+            this.nameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameBox_KeyPress);
+            this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
             // contactBox
             // 
@@ -168,6 +174,9 @@
             this.contactBox.Name = "contactBox";
             this.contactBox.Size = new System.Drawing.Size(300, 28);
             this.contactBox.TabIndex = 7;
+            this.contactBox.Enter += new System.EventHandler(this.contactBox_Enter);
+            this.contactBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactBox_KeyPress);
+            this.contactBox.Leave += new System.EventHandler(this.contactBox_Leave);
             // 
             // addressBox
             // 
@@ -178,6 +187,9 @@
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(300, 28);
             this.addressBox.TabIndex = 8;
+            this.addressBox.Enter += new System.EventHandler(this.addressBox_Enter);
+            this.addressBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addressBox_KeyPress);
+            this.addressBox.Leave += new System.EventHandler(this.addressBox_Leave);
             // 
             // emailBox
             // 
@@ -188,6 +200,9 @@
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(300, 28);
             this.emailBox.TabIndex = 9;
+            this.emailBox.Enter += new System.EventHandler(this.emailBox_Enter);
+            this.emailBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.emailBox_KeyPress);
+            this.emailBox.Leave += new System.EventHandler(this.emailBox_Leave);
             // 
             // buyBtn
             // 
@@ -208,6 +223,8 @@
             this.cPriceBox.Name = "cPriceBox";
             this.cPriceBox.Size = new System.Drawing.Size(300, 28);
             this.cPriceBox.TabIndex = 20;
+            this.cPriceBox.Enter += new System.EventHandler(this.cPriceBox_Enter);
+            this.cPriceBox.Leave += new System.EventHandler(this.cPriceBox_Leave);
             // 
             // cCmpyBox
             // 
@@ -218,6 +235,8 @@
             this.cCmpyBox.Name = "cCmpyBox";
             this.cCmpyBox.Size = new System.Drawing.Size(300, 28);
             this.cCmpyBox.TabIndex = 19;
+            this.cCmpyBox.Enter += new System.EventHandler(this.cCmpyBox_Enter);
+            this.cCmpyBox.Leave += new System.EventHandler(this.cCmpyBox_Leave);
             // 
             // cModelBox
             // 
@@ -228,6 +247,8 @@
             this.cModelBox.Name = "cModelBox";
             this.cModelBox.Size = new System.Drawing.Size(300, 28);
             this.cModelBox.TabIndex = 18;
+            this.cModelBox.Enter += new System.EventHandler(this.cModelBox_Enter);
+            this.cModelBox.Leave += new System.EventHandler(this.cModelBox_Leave);
             // 
             // cNameBox
             // 
@@ -238,6 +259,8 @@
             this.cNameBox.Name = "cNameBox";
             this.cNameBox.Size = new System.Drawing.Size(300, 28);
             this.cNameBox.TabIndex = 17;
+            this.cNameBox.Enter += new System.EventHandler(this.cNameBox_Enter);
+            this.cNameBox.Leave += new System.EventHandler(this.cNameBox_Leave);
             // 
             // cIDBox
             // 
@@ -248,6 +271,8 @@
             this.cIDBox.Name = "cIDBox";
             this.cIDBox.Size = new System.Drawing.Size(300, 28);
             this.cIDBox.TabIndex = 16;
+            this.cIDBox.Enter += new System.EventHandler(this.cIDBox_Enter);
+            this.cIDBox.Leave += new System.EventHandler(this.cIDBox_Leave);
             // 
             // label6
             // 
@@ -479,115 +504,115 @@
             this.label19.TabIndex = 56;
             this.label19.Text = "e.g. Ali Ahmad (Max 50 Char)";
             // 
-            // nameBoxErrorIcon
+            // manufLicenseErrorIcon
             // 
-            this.nameBoxErrorIcon.BackColor = System.Drawing.Color.Transparent;
-            this.nameBoxErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nameBoxErrorIcon.BackgroundImage")));
-            this.nameBoxErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.nameBoxErrorIcon.Location = new System.Drawing.Point(341, 135);
-            this.nameBoxErrorIcon.Name = "nameBoxErrorIcon";
-            this.nameBoxErrorIcon.Size = new System.Drawing.Size(21, 23);
-            this.nameBoxErrorIcon.TabIndex = 57;
-            this.nameBoxErrorIcon.TabStop = false;
+            this.manufLicenseErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.manufLicenseErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("manufLicenseErrorIcon.BackgroundImage")));
+            this.manufLicenseErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.manufLicenseErrorIcon.Location = new System.Drawing.Point(341, 135);
+            this.manufLicenseErrorIcon.Name = "manufLicenseErrorIcon";
+            this.manufLicenseErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.manufLicenseErrorIcon.TabIndex = 57;
+            this.manufLicenseErrorIcon.TabStop = false;
             // 
-            // pictureBox2
+            // manufNameErrorIcon
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(340, 218);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox2.TabIndex = 58;
-            this.pictureBox2.TabStop = false;
+            this.manufNameErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.manufNameErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("manufNameErrorIcon.BackgroundImage")));
+            this.manufNameErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.manufNameErrorIcon.Location = new System.Drawing.Point(340, 218);
+            this.manufNameErrorIcon.Name = "manufNameErrorIcon";
+            this.manufNameErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.manufNameErrorIcon.TabIndex = 58;
+            this.manufNameErrorIcon.TabStop = false;
             // 
-            // pictureBox3
+            // manufContactErrorIcon
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(341, 299);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox3.TabIndex = 59;
-            this.pictureBox3.TabStop = false;
+            this.manufContactErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.manufContactErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("manufContactErrorIcon.BackgroundImage")));
+            this.manufContactErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.manufContactErrorIcon.Location = new System.Drawing.Point(341, 299);
+            this.manufContactErrorIcon.Name = "manufContactErrorIcon";
+            this.manufContactErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.manufContactErrorIcon.TabIndex = 59;
+            this.manufContactErrorIcon.TabStop = false;
             // 
-            // pictureBox4
+            // manufAddressErrorIcon
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(340, 388);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox4.TabIndex = 60;
-            this.pictureBox4.TabStop = false;
+            this.manufAddressErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.manufAddressErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("manufAddressErrorIcon.BackgroundImage")));
+            this.manufAddressErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.manufAddressErrorIcon.Location = new System.Drawing.Point(340, 388);
+            this.manufAddressErrorIcon.Name = "manufAddressErrorIcon";
+            this.manufAddressErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.manufAddressErrorIcon.TabIndex = 60;
+            this.manufAddressErrorIcon.TabStop = false;
             // 
-            // pictureBox5
+            // manufEmailErrorIcon
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(340, 471);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox5.TabIndex = 61;
-            this.pictureBox5.TabStop = false;
+            this.manufEmailErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.manufEmailErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("manufEmailErrorIcon.BackgroundImage")));
+            this.manufEmailErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.manufEmailErrorIcon.Location = new System.Drawing.Point(340, 471);
+            this.manufEmailErrorIcon.Name = "manufEmailErrorIcon";
+            this.manufEmailErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.manufEmailErrorIcon.TabIndex = 61;
+            this.manufEmailErrorIcon.TabStop = false;
             // 
-            // pictureBox6
+            // carIDErrorIcon
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Location = new System.Drawing.Point(790, 135);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox6.TabIndex = 62;
-            this.pictureBox6.TabStop = false;
+            this.carIDErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.carIDErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("carIDErrorIcon.BackgroundImage")));
+            this.carIDErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.carIDErrorIcon.Location = new System.Drawing.Point(790, 135);
+            this.carIDErrorIcon.Name = "carIDErrorIcon";
+            this.carIDErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.carIDErrorIcon.TabIndex = 62;
+            this.carIDErrorIcon.TabStop = false;
             // 
-            // pictureBox7
+            // carNameErrorIcon
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox7.Location = new System.Drawing.Point(790, 218);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox7.TabIndex = 63;
-            this.pictureBox7.TabStop = false;
+            this.carNameErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.carNameErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("carNameErrorIcon.BackgroundImage")));
+            this.carNameErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.carNameErrorIcon.Location = new System.Drawing.Point(790, 218);
+            this.carNameErrorIcon.Name = "carNameErrorIcon";
+            this.carNameErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.carNameErrorIcon.TabIndex = 63;
+            this.carNameErrorIcon.TabStop = false;
             // 
-            // pictureBox8
+            // carModelErrorIcon
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox8.Location = new System.Drawing.Point(790, 299);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox8.TabIndex = 64;
-            this.pictureBox8.TabStop = false;
+            this.carModelErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.carModelErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("carModelErrorIcon.BackgroundImage")));
+            this.carModelErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.carModelErrorIcon.Location = new System.Drawing.Point(790, 299);
+            this.carModelErrorIcon.Name = "carModelErrorIcon";
+            this.carModelErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.carModelErrorIcon.TabIndex = 64;
+            this.carModelErrorIcon.TabStop = false;
             // 
-            // pictureBox9
+            // carCompanyErrorIcon
             // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox9.Location = new System.Drawing.Point(790, 388);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox9.TabIndex = 65;
-            this.pictureBox9.TabStop = false;
+            this.carCompanyErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.carCompanyErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("carCompanyErrorIcon.BackgroundImage")));
+            this.carCompanyErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.carCompanyErrorIcon.Location = new System.Drawing.Point(790, 388);
+            this.carCompanyErrorIcon.Name = "carCompanyErrorIcon";
+            this.carCompanyErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.carCompanyErrorIcon.TabIndex = 65;
+            this.carCompanyErrorIcon.TabStop = false;
             // 
-            // pictureBox10
+            // carPriceErrorIcon
             // 
-            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.BackgroundImage")));
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox10.Location = new System.Drawing.Point(790, 471);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox10.TabIndex = 66;
-            this.pictureBox10.TabStop = false;
+            this.carPriceErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.carPriceErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("carPriceErrorIcon.BackgroundImage")));
+            this.carPriceErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.carPriceErrorIcon.Location = new System.Drawing.Point(790, 471);
+            this.carPriceErrorIcon.Name = "carPriceErrorIcon";
+            this.carPriceErrorIcon.Size = new System.Drawing.Size(21, 23);
+            this.carPriceErrorIcon.TabIndex = 66;
+            this.carPriceErrorIcon.TabStop = false;
             // 
             // carCtrl
             // 
@@ -595,16 +620,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(916, 576);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.nameBoxErrorIcon);
+            this.Controls.Add(this.carPriceErrorIcon);
+            this.Controls.Add(this.carCompanyErrorIcon);
+            this.Controls.Add(this.carModelErrorIcon);
+            this.Controls.Add(this.carNameErrorIcon);
+            this.Controls.Add(this.carIDErrorIcon);
+            this.Controls.Add(this.manufEmailErrorIcon);
+            this.Controls.Add(this.manufAddressErrorIcon);
+            this.Controls.Add(this.manufContactErrorIcon);
+            this.Controls.Add(this.manufNameErrorIcon);
+            this.Controls.Add(this.manufLicenseErrorIcon);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -643,16 +668,16 @@
             this.Text = "Car Management";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nameBoxErrorIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufLicenseErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufNameErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufContactErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufAddressErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufEmailErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carIDErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carNameErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carModelErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carCompanyErrorIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carPriceErrorIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -696,15 +721,15 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.PictureBox nameBoxErrorIcon;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox manufLicenseErrorIcon;
+        private System.Windows.Forms.PictureBox manufNameErrorIcon;
+        private System.Windows.Forms.PictureBox manufContactErrorIcon;
+        private System.Windows.Forms.PictureBox manufAddressErrorIcon;
+        private System.Windows.Forms.PictureBox manufEmailErrorIcon;
+        private System.Windows.Forms.PictureBox carIDErrorIcon;
+        private System.Windows.Forms.PictureBox carNameErrorIcon;
+        private System.Windows.Forms.PictureBox carModelErrorIcon;
+        private System.Windows.Forms.PictureBox carCompanyErrorIcon;
+        private System.Windows.Forms.PictureBox carPriceErrorIcon;
     }
 }

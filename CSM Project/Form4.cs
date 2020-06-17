@@ -224,7 +224,7 @@ namespace CSM_Project
         // This Block Contains the code for when does the focus comes into the textboxes
         private void nameBox_Enter(object sender, EventArgs e)
         {
-            nameBoxErrorIcon.BackColor = Color.FromArgb(77, 74, 82);
+            nameBoxErrorIcon.Visible = false;
             nameBox.BorderStyle = BorderStyle.None;
             nameBox.BackColor = Color.FromArgb(77, 74, 82);
             nameBox.ForeColor = Color.White;
@@ -249,7 +249,7 @@ namespace CSM_Project
 
         private void cnicBox_Enter(object sender, EventArgs e)
         {
-            cnicBoxErrorIcon.BackColor = Color.FromArgb(77, 74, 82);
+            cnicBoxErrorIcon.Visible = false;
             cnicBox.BorderStyle = BorderStyle.None;
             cnicBox.BackColor = Color.FromArgb(77, 74, 82);
             cnicBox.ForeColor = Color.White;
@@ -274,7 +274,7 @@ namespace CSM_Project
 
         private void addressBox_Enter(object sender, EventArgs e)
         {
-            addressBoxErrorIcon.BackColor = Color.FromArgb(77, 74, 82);
+            addressBoxErrorIcon.Visible = false;
             addressBox.BorderStyle = BorderStyle.None;
             addressBox.BackColor = Color.FromArgb(77, 74, 82);
             addressBox.ForeColor = Color.White;
@@ -299,7 +299,7 @@ namespace CSM_Project
 
         private void contactBox_Enter(object sender, EventArgs e)
         {
-            contactBox.BackColor = Color.FromArgb(77, 74, 82);
+            contactBoxErrorIcon.Visible = false;
             contactBox.BorderStyle = BorderStyle.None;
             contactBox.BackColor = Color.FromArgb(77, 74, 82);
             contactBox.ForeColor = Color.White;

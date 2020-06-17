@@ -15,6 +15,8 @@ namespace CSM_Project
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string empID;
+        bool mLicenceFlag, mNameFlag, mAddressFlag, mContactFlag, mEmailFlag;
+        bool cIDFlag, cNameFlag, cModelFlag, cCompanyFlag, cPriceFlag;
         public carCtrl()
         {
             InitializeComponent();
@@ -22,9 +24,38 @@ namespace CSM_Project
         public carCtrl(string id)
         {
             InitializeComponent();
+            pictureVanish();
             empID = id;
         }
 
+        private void pictureVanish()
+        {
+            manufLicenseErrorIcon.Visible = false;
+            manufNameErrorIcon.Visible = false;
+            manufContactErrorIcon.Visible = false;
+            manufAddressErrorIcon.Visible = false;
+            manufEmailErrorIcon.Visible = false;
+
+            carIDErrorIcon.Visible = false;
+            carNameErrorIcon.Visible = false;
+            carModelErrorIcon.Visible = false;
+            carCompanyErrorIcon.Visible = false;
+            carPriceErrorIcon.Visible = false;
+        }
+        private void clearRows()
+        {
+            licenseBox.Text = "";
+            nameBox.Text = "";
+            emailBox.Text = "";
+            addressBox.Text = "";
+            contactBox.Text = "";
+
+            cIDBox.Text = "";
+            cNameBox.Text = "";
+            cModelBox.Text = "";
+            cCmpyBox.Text = "";
+            cPriceBox.Text = "";
+        }
 
         private void buyBtn_MouseClick(object sender, MouseEventArgs e)
         {
@@ -106,41 +137,351 @@ namespace CSM_Project
             clearRows();
         }
 
-
-        private string idGenerator(string id)
+        //Basic Styling of Textboxes
+        private void licenseBox_Enter(object sender, EventArgs e)
         {
-            string digits, letters;
-            letters = "MOD";
-            if (id == string.Empty)
+            manufLicenseErrorIcon.Visible = false;
+            licenseBox.BorderStyle = BorderStyle.None;
+            licenseBox.BackColor = Color.FromArgb(77, 74, 82);
+            licenseBox.ForeColor = Color.White;
+        }
+        private void licenseBox_Leave(object sender, EventArgs e)
+        {
+            if (licenseBox.Text == "")
             {
-                digits = "000";
+                manufLicenseErrorIcon.Visible = true;
+                mLicenceFlag = true;
             }
             else
             {
-                digits = new string(id.Where(char.IsDigit).ToArray());
+                manufLicenseErrorIcon.Visible = false;
+                mLicenceFlag = false;
             }
-            int number;
-            int.TryParse(digits, out number);
-            string new_id = letters + (++number).ToString("D4");
-
-            return new_id;
+            manufLicenseErrorIcon.BackColor = Color.Transparent;
+            licenseBox.BorderStyle = BorderStyle.Fixed3D;
+            licenseBox.BackColor = Color.White;
+            licenseBox.ForeColor = Color.FromArgb(77, 74, 82);
         }
 
-        private void clearRows()
+        private void nameBox_Enter(object sender, EventArgs e)
         {
-            licenseBox.Text = "";
-            nameBox.Text= "";
-            emailBox.Text = "";
-            addressBox.Text = "";
-            contactBox.Text = "";
-
-            cIDBox.Text = "";
-            cNameBox.Text = "";
-            cModelBox.Text = "";
-            cCmpyBox.Text = "";
-            cPriceBox.Text = "";
+            manufNameErrorIcon.Visible = false;
+            nameBox.BorderStyle = BorderStyle.None;
+            nameBox.BackColor = Color.FromArgb(77, 74, 82);
+            nameBox.ForeColor = Color.White;
+        }
+        private void nameBox_Leave(object sender, EventArgs e)
+        {
+            if (nameBox.Text == "")
+            {
+                manufNameErrorIcon.Visible = true;
+                mNameFlag = true;
+            }
+            else
+            {
+                manufNameErrorIcon.Visible = false;
+                mNameFlag = false;
+            }
+            manufNameErrorIcon.BackColor = Color.Transparent;
+            nameBox.BorderStyle = BorderStyle.Fixed3D;
+            nameBox.BackColor = Color.White;
+            nameBox.ForeColor = Color.FromArgb(77, 74, 82);
         }
 
+        private void contactBox_Enter(object sender, EventArgs e)
+        {
+            manufContactErrorIcon.Visible = false;
+            contactBox.BorderStyle = BorderStyle.None;
+            contactBox.BackColor = Color.FromArgb(77, 74, 82);
+            contactBox.ForeColor = Color.White;
+        }
+        private void contactBox_Leave(object sender, EventArgs e)
+        {
+            if (contactBox.Text == "")
+            {
+                manufContactErrorIcon.Visible = true;
+                mContactFlag = true;
+            }
+            else
+            {
+                manufContactErrorIcon.Visible = false;
+                mContactFlag = false;
+            }
+            manufContactErrorIcon.BackColor = Color.Transparent;
+            contactBox.BorderStyle = BorderStyle.Fixed3D;
+            contactBox.BackColor = Color.White;
+            contactBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void addressBox_Enter(object sender, EventArgs e)
+        {
+            manufAddressErrorIcon.Visible = false;
+            addressBox.BorderStyle = BorderStyle.None;
+            addressBox.BackColor = Color.FromArgb(77, 74, 82);
+            addressBox.ForeColor = Color.White;
+        }
+        private void addressBox_Leave(object sender, EventArgs e)
+        {
+            if (addressBox.Text == "")
+            {
+                manufAddressErrorIcon.Visible = true;
+                mAddressFlag = true;
+            }
+            else
+            {
+                manufAddressErrorIcon.Visible = false;
+                mAddressFlag = false;
+            }
+            manufAddressErrorIcon.BackColor = Color.Transparent;
+            addressBox.BorderStyle = BorderStyle.Fixed3D;
+            addressBox.BackColor = Color.White;
+            addressBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+      
+        private void emailBox_Enter(object sender, EventArgs e)
+        {
+            manufEmailErrorIcon.Visible = false;
+            emailBox.BorderStyle = BorderStyle.None;
+            emailBox.BackColor = Color.FromArgb(77, 74, 82);
+            emailBox.ForeColor = Color.White;
+        }
+        private void emailBox_Leave(object sender, EventArgs e)
+        {
+            if (emailBox.Text == "")
+            {
+                manufEmailErrorIcon.Visible = true;
+                mEmailFlag = true;
+            }
+            else
+            {
+                manufEmailErrorIcon.Visible = false;
+                mEmailFlag = false;
+            }
+            manufEmailErrorIcon.BackColor = Color.Transparent;
+            emailBox.BorderStyle = BorderStyle.Fixed3D;
+            emailBox.BackColor = Color.White;
+            emailBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+
+
+        private void cIDBox_Enter(object sender, EventArgs e)
+        {
+            carIDErrorIcon.Visible = false;
+            cIDBox.BorderStyle = BorderStyle.None;
+            cIDBox.BackColor = Color.FromArgb(77, 74, 82);
+            cIDBox.ForeColor = Color.White;
+        }
+        private void cIDBox_Leave(object sender, EventArgs e)
+        {
+            if (cIDBox.Text == "")
+            {
+                carIDErrorIcon.Visible = true;
+                cIDFlag = true;
+            }
+            else
+            {
+                carIDErrorIcon.Visible = false;
+                cIDFlag = false;
+            }
+            carIDErrorIcon.BackColor = Color.Transparent;
+            cIDBox.BorderStyle = BorderStyle.Fixed3D;
+            cIDBox.BackColor = Color.White;
+            cIDBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+     
+        private void cNameBox_Enter(object sender, EventArgs e)
+        {
+            carNameErrorIcon.Visible = false;
+            cNameBox.BorderStyle = BorderStyle.None;
+            cNameBox.BackColor = Color.FromArgb(77, 74, 82);
+            cNameBox.ForeColor = Color.White;
+        }
+        private void cNameBox_Leave(object sender, EventArgs e)
+        {
+            if (cNameBox.Text == "")
+            {
+                carNameErrorIcon.Visible = true;
+                cNameFlag = true;
+            }
+            else
+            {
+                carNameErrorIcon.Visible = false;
+                cNameFlag = false;
+            }
+            carIDErrorIcon.BackColor = Color.Transparent;
+            cNameBox.BorderStyle = BorderStyle.Fixed3D;
+            cNameBox.BackColor = Color.White;
+            cNameBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void cModelBox_Enter(object sender, EventArgs e)
+        {
+            carModelErrorIcon.Visible = false;
+            cModelBox.BorderStyle = BorderStyle.None;
+            cModelBox.BackColor = Color.FromArgb(77, 74, 82);
+            cModelBox.ForeColor = Color.White;
+        }
+        private void cModelBox_Leave(object sender, EventArgs e)
+        {
+            if (cModelBox.Text == "")
+            {
+                carModelErrorIcon.Visible = true;
+                cModelFlag = true;
+            }
+            else
+            {
+                carModelErrorIcon.Visible = false;
+                cModelFlag = false;
+            }
+            carModelErrorIcon.BackColor = Color.Transparent;
+            cModelBox.BorderStyle = BorderStyle.Fixed3D;
+            cModelBox.BackColor = Color.White;
+            cModelBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void cCmpyBox_Enter(object sender, EventArgs e)
+        {
+            carCompanyErrorIcon.Visible = false;
+            cCmpyBox.BorderStyle = BorderStyle.None;
+            cCmpyBox.BackColor = Color.FromArgb(77, 74, 82);
+            cCmpyBox.ForeColor = Color.White;
+        }
+        private void cCmpyBox_Leave(object sender, EventArgs e)
+        {
+            if (cCmpyBox.Text == "")
+            {
+                carCompanyErrorIcon.Visible = true;
+                cCompanyFlag = true;
+            }
+            else
+            {
+                carCompanyErrorIcon.Visible = false;
+                cCompanyFlag = false;
+            }
+            carCompanyErrorIcon.BackColor = Color.Transparent;
+            cCmpyBox.BorderStyle = BorderStyle.Fixed3D;
+            cCmpyBox.BackColor = Color.White;
+            cCmpyBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void cPriceBox_Enter(object sender, EventArgs e)
+        {
+            carPriceErrorIcon.Visible = false;
+            cPriceBox.BorderStyle = BorderStyle.None;
+            cPriceBox.BackColor = Color.FromArgb(77, 74, 82);
+            cPriceBox.ForeColor = Color.White;
+        }
+        private void cPriceBox_Leave(object sender, EventArgs e)
+        {
+            if (cPriceBox.Text == "")
+            {
+                carPriceErrorIcon.Visible = true;
+                cPriceFlag = true;
+            }
+            else
+            {
+                carPriceErrorIcon.Visible = false;
+                cPriceFlag = false;
+            }
+            carPriceErrorIcon.BackColor = Color.Transparent;
+            cPriceBox.BorderStyle = BorderStyle.Fixed3D;
+            cPriceBox.BackColor = Color.White;
+            cPriceBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        
+        //Code for validating each input
+        private void licenseBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+
+        private void contactBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+
+        private void addressBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || (e.KeyChar == '/')
+                || (e.KeyChar == '#') || (e.KeyChar == ',') || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+
+        private void emailBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || (e.KeyChar == '@')
+                || (e.KeyChar == '.'))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+
+        private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Back Button and Exit Button Styling
         private void backBtn_MouseClick(object sender, MouseEventArgs e)
         {
             new SMMenu(empID).Show();
@@ -168,6 +509,28 @@ namespace CSM_Project
         {
             exitBtn.BackColor = Color.Transparent;
             exitBtn.ForeColor = Color.Red;
+        }
+
+
+
+
+        private string idGenerator(string id)
+        {
+            string digits, letters;
+            letters = "MOD";
+            if (id == string.Empty)
+            {
+                digits = "000";
+            }
+            else
+            {
+                digits = new string(id.Where(char.IsDigit).ToArray());
+            }
+            int number;
+            int.TryParse(digits, out number);
+            string new_id = letters + (++number).ToString("D4");
+
+            return new_id;
         }
     }
 }

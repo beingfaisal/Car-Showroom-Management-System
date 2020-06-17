@@ -25,9 +25,25 @@ namespace CSM_Project
         {
             InitializeComponent();
             pictureVanish();
+            emptyChecker();
             empID = id;
         }
 
+        private void emptyChecker()
+        {
+            if (licenseBox.Text == "")  mLicenceFlag = true;
+            if (nameBox.Text == "")   mNameFlag = true;
+            if (contactBox.Text == "") mContactFlag = true;
+            if(addressBox.Text == "") mAddressFlag = true;
+            if (emailBox.Text == "") mEmailFlag = true;
+
+            if (cIDBox.Text == "") cIDFlag = true;
+            if (cNameBox.Text == "") cNameFlag = true;
+            if (cModelBox.Text == "") cModelFlag = true;
+            if (cCmpyBox.Text == "") cCompanyFlag = true;
+            if (cPriceBox.Text == "") cPriceFlag = true;
+
+        }
         private void pictureVanish()
         {
             manufLicenseErrorIcon.Visible = false;
@@ -64,79 +80,101 @@ namespace CSM_Project
             string manfEmail = emailBox.Text;
             string manfAddress = addressBox.Text;
             string manfContact = contactBox.Text;
-            
+
             string carID = cIDBox.Text;
             string carName = cNameBox.Text;
             string carModel = cModelBox.Text;
             string carCompany = cCmpyBox.Text;
             string carPrice = cPriceBox.Text;
 
-            con.Open();
-
-            //this block of code adds a new dealer or manufacturer
-            string manufAddQuery = "INSERT INTO MANUFACTURER(MANUFACTURER_ID,MANUFACTURER_NAME,MANUFACTURER_CONTACT,MANUFACTURER_EMAIL,MANUFACTURER_ADDRESS) Values(@id,@name,@contact,@email,@address)";
-            SqlCommand manufAddCMD = new SqlCommand(manufAddQuery, con);
-            manufAddCMD.Parameters.AddWithValue("@id", manfID);
-            manufAddCMD.Parameters.AddWithValue("@name", manfName);
-            manufAddCMD.Parameters.AddWithValue("@email", manfEmail);
-            manufAddCMD.Parameters.AddWithValue("@address", manfAddress); 
-            manufAddCMD.Parameters.AddWithValue("@contact", manfContact);
-            manufAddCMD.ExecuteNonQuery();
-
-            //this block of code adds new car
-            string carAddQuery = "INSERT INTO CAR(CAR_ID,CAR_NAME,CAR_MODEL,CAR_COMPANY,CAR_STATUS,CAR_PRICE) Values(@cID,@cName,@cModel,@cCompany,'Available',@cPrice)";
-            SqlCommand carAddCMD = new SqlCommand(carAddQuery, con);
-            carAddCMD.Parameters.AddWithValue("@cID", carID);
-            carAddCMD.Parameters.AddWithValue("@cName", carName);
-            carAddCMD.Parameters.AddWithValue("@cModel", carModel);
-            carAddCMD.Parameters.AddWithValue("@cCompany", carCompany);
-            carAddCMD.Parameters.AddWithValue("@cPrice", carPrice);
-            carAddCMD.ExecuteNonQuery();
-
-            //this block is used to generate new order id by getting id from database just the digit part
-            string getOrderQuery = "Select max(substring(manuf_order.ORDER_ID,4,len(manuf_order.order_id))) from MANUF_ORDER ";
-            SqlCommand getCmd = new SqlCommand(getOrderQuery, con);
-            SqlDataAdapter orderAdapter = new SqlDataAdapter(getCmd);
-            DataSet orderData = new DataSet();
-            orderAdapter.Fill(orderData);
-            string id;
-            if ((orderData.Tables[0].Rows.Count) > 0)
+            if ((mLicenceFlag || mNameFlag || mContactFlag || mAddressFlag || mEmailFlag
+                || cIDFlag || cNameFlag || cModelFlag || cPriceFlag || cCompanyFlag) == true)
             {
-                id = Convert.ToString(orderData.Tables[0].Rows[0].ItemArray[0]);
+                if (mLicenceFlag) manufLicenseErrorIcon.Visible = true;
+                if (mNameFlag) manufNameErrorIcon.Visible = true;
+                if (mContactFlag) manufContactErrorIcon.Visible = true;
+                if (mAddressFlag) manufAddressErrorIcon.Visible = true;
+                if (mEmailFlag) manufEmailErrorIcon.Visible = true;
+
+                if (cIDFlag) carIDErrorIcon.Visible = true;
+                if (cNameFlag) carNameErrorIcon.Visible = true;
+                if (cModelFlag) carModelErrorIcon.Visible = true;
+                if (cCompanyFlag) carCompanyErrorIcon.Visible = true;
+                if (cPriceFlag) carPriceErrorIcon.Visible = true;
+
+                CustomMsgBox.Show("The given input is invalid.\nPlease enter correct information and fill fields to required information.", "OK");
+
             }
             else
             {
-                id = string.Empty;
+
+
+                con.Open();
+
+                //this block of code adds a new dealer or manufacturer
+                string manufAddQuery = "INSERT INTO MANUFACTURER(MANUFACTURER_ID,MANUFACTURER_NAME,MANUFACTURER_CONTACT,MANUFACTURER_EMAIL,MANUFACTURER_ADDRESS) Values(@id,@name,@contact,@email,@address)";
+                SqlCommand manufAddCMD = new SqlCommand(manufAddQuery, con);
+                manufAddCMD.Parameters.AddWithValue("@id", manfID);
+                manufAddCMD.Parameters.AddWithValue("@name", manfName);
+                manufAddCMD.Parameters.AddWithValue("@email", manfEmail);
+                manufAddCMD.Parameters.AddWithValue("@address", manfAddress);
+                manufAddCMD.Parameters.AddWithValue("@contact", manfContact);
+                manufAddCMD.ExecuteNonQuery();
+
+                //this block of code adds new car
+                string carAddQuery = "INSERT INTO CAR(CAR_ID,CAR_NAME,CAR_MODEL,CAR_COMPANY,CAR_STATUS,CAR_PRICE) Values(@cID,@cName,@cModel,@cCompany,'Available',@cPrice)";
+                SqlCommand carAddCMD = new SqlCommand(carAddQuery, con);
+                carAddCMD.Parameters.AddWithValue("@cID", carID);
+                carAddCMD.Parameters.AddWithValue("@cName", carName);
+                carAddCMD.Parameters.AddWithValue("@cModel", carModel);
+                carAddCMD.Parameters.AddWithValue("@cCompany", carCompany);
+                carAddCMD.Parameters.AddWithValue("@cPrice", carPrice);
+                carAddCMD.ExecuteNonQuery();
+
+                //this block is used to generate new order id by getting id from database just the digit part
+                string getOrderQuery = "Select max(substring(manuf_order.ORDER_ID,4,len(manuf_order.order_id))) from MANUF_ORDER ";
+                SqlCommand getCmd = new SqlCommand(getOrderQuery, con);
+                SqlDataAdapter orderAdapter = new SqlDataAdapter(getCmd);
+                DataSet orderData = new DataSet();
+                orderAdapter.Fill(orderData);
+                string id;
+                if ((orderData.Tables[0].Rows.Count) > 0)
+                {
+                    id = Convert.ToString(orderData.Tables[0].Rows[0].ItemArray[0]);
+                }
+                else
+                {
+                    id = string.Empty;
+                }
+                string OrderID = idGenerator(id); //function that generates the Order_ID
+
+                //this block of code adds a new order given to the manufacturer
+                string addOrderQuery = "INSERT INTO MANUF_ORDER(ORDER_ID,EMPLOYEE_ID,CAR_ID,MANUFACTURER_ID,ORDER_DATE,BILL) Values(@orderID,@empID,@carID,@manfID,getdate(),@bill)";
+                SqlCommand addOrderCMD = new SqlCommand(addOrderQuery, con);
+                addOrderCMD.Parameters.AddWithValue("@orderID", OrderID);
+                addOrderCMD.Parameters.AddWithValue("@empID", empID);
+                addOrderCMD.Parameters.AddWithValue("@carID", carID);
+                addOrderCMD.Parameters.AddWithValue("@manfID", manfID);
+                addOrderCMD.Parameters.AddWithValue("@bill", carPrice);
+                addOrderCMD.ExecuteNonQuery();
+
+                //this block of code generates the payment for the purchase
+                string addBill = "INSERT INTO STOCK_PAYMENT(ORDER_ID,PAYMENT_DATE) Values(@id,getdate())";
+                SqlCommand addBillCMD = new SqlCommand(addBill, con);
+                addBillCMD.Parameters.AddWithValue("@id", OrderID);
+                addBillCMD.ExecuteNonQuery();
+
+                //this block of code adds the new car into the stock
+                string addStock = "INSERT INTO Stock(Order_ID,Car_ID,REC_DATE) Values(@oID,@cID,getdate())";
+                SqlCommand addStockCMD = new SqlCommand(addStock, con);
+                addStockCMD.Parameters.AddWithValue("@oID", OrderID);
+                addStockCMD.Parameters.AddWithValue("@cID", carID);
+                addStockCMD.ExecuteNonQuery();
+
+                con.Close();
+                clearRows();
             }
-            string OrderID = idGenerator(id); //function that generates the Order_ID
-
-            //this block of code adds a new order given to the manufacturer
-            string addOrderQuery = "INSERT INTO MANUF_ORDER(ORDER_ID,EMPLOYEE_ID,CAR_ID,MANUFACTURER_ID,ORDER_DATE,BILL) Values(@orderID,@empID,@carID,@manfID,getdate(),@bill)";
-            SqlCommand addOrderCMD = new SqlCommand(addOrderQuery, con);
-            addOrderCMD.Parameters.AddWithValue("@orderID", OrderID);
-            addOrderCMD.Parameters.AddWithValue("@empID", empID);
-            addOrderCMD.Parameters.AddWithValue("@carID", carID);
-            addOrderCMD.Parameters.AddWithValue("@manfID", manfID);
-            addOrderCMD.Parameters.AddWithValue("@bill", carPrice);
-            addOrderCMD.ExecuteNonQuery();
-
-            //this block of code generates the payment for the purchase
-            string addBill = "INSERT INTO STOCK_PAYMENT(ORDER_ID,PAYMENT_DATE) Values(@id,getdate())";
-            SqlCommand addBillCMD = new SqlCommand(addBill, con);
-            addBillCMD.Parameters.AddWithValue("@id", OrderID);
-            addBillCMD.ExecuteNonQuery();
-
-            //this block of code adds the new car into the stock
-            string addStock = "INSERT INTO Stock(Order_ID,Car_ID,REC_DATE) Values(@oID,@cID,getdate())";
-            SqlCommand addStockCMD = new SqlCommand(addStock, con);
-            addStockCMD.Parameters.AddWithValue("@oID", OrderID);
-            addStockCMD.Parameters.AddWithValue("@cID", carID);
-            addStockCMD.ExecuteNonQuery();
-
-            con.Close();
-            clearRows();
         }
-
         //Basic Styling of Textboxes
         private void licenseBox_Enter(object sender, EventArgs e)
         {
@@ -197,7 +235,7 @@ namespace CSM_Project
         }
         private void contactBox_Leave(object sender, EventArgs e)
         {
-            if (contactBox.Text == "")
+            if (contactBox.Text == "" || contactBox.Text.Length != 11)
             {
                 manufContactErrorIcon.Visible = true;
                 mContactFlag = true;
@@ -324,7 +362,7 @@ namespace CSM_Project
         }
         private void cModelBox_Leave(object sender, EventArgs e)
         {
-            if (cModelBox.Text == "")
+            if (cModelBox.Text == "" || cModelBox.Text.Length != 4)
             {
                 carModelErrorIcon.Visible = true;
                 cModelFlag = true;
@@ -519,27 +557,6 @@ namespace CSM_Project
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //Back Button and Exit Button Styling
         private void backBtn_MouseClick(object sender, MouseEventArgs e)
         {
@@ -569,9 +586,6 @@ namespace CSM_Project
             exitBtn.BackColor = Color.Transparent;
             exitBtn.ForeColor = Color.Red;
         }
-
-
-
 
         private string idGenerator(string id)
         {

@@ -126,6 +126,7 @@ namespace CSM_Project
                 }
                 else //if it is valid then validating manufacturer
                 {
+
                     //this piece of code checks whether the primary key of manufacturer is repeated or not
                     con.Open();
                     string mIDCheckQuery = "select * from manufacturer where MANUFACTURER_ID = @id";
@@ -158,18 +159,38 @@ namespace CSM_Project
                     }
                     if (isnewSeller)
                     {
+                        //this block of code will check whether the manufacturer email is valid or not as it is also a unique value
                         con.Open();
-                        //this block of code adds a new dealer or manufacturer
-                        string manufAddQuery = "INSERT INTO MANUFACTURER(MANUFACTURER_ID,MANUFACTURER_NAME,MANUFACTURER_CONTACT,MANUFACTURER_EMAIL,MANUFACTURER_ADDRESS) Values(@id,@name,@contact,@email,@address)";
-                        SqlCommand manufAddCMD = new SqlCommand(manufAddQuery, con);
-                        manufAddCMD.Parameters.AddWithValue("@id", manfID);
-                        manufAddCMD.Parameters.AddWithValue("@name", manfName);
-                        manufAddCMD.Parameters.AddWithValue("@email", manfEmail);
-                        manufAddCMD.Parameters.AddWithValue("@address", manfAddress);
-                        manufAddCMD.Parameters.AddWithValue("@contact", manfContact);
-                        manufAddCMD.ExecuteNonQuery();
+                        string mEmailCheckQuery = "select * from manufacturer where manufacturer_email = @email";
+                        SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, con);
+                        mEmailCheckCMD.Parameters.AddWithValue("@email", manfEmail);
+                        SqlDataAdapter mEmailCheckAdapter = new SqlDataAdapter(mEmailCheckCMD);
+                        DataSet mEmailCheckSet = new DataSet();
+                        mEmailCheckAdapter.Fill(mEmailCheckSet);
                         con.Close();
+                        if (mEmailCheckSet.Tables[0].Rows.Count == 0)
+                        {
+                            con.Open();
+                            //this block of code adds a new dealer or manufacturer
+                            string manufAddQuery = "INSERT INTO MANUFACTURER(MANUFACTURER_ID,MANUFACTURER_NAME,MANUFACTURER_CONTACT,MANUFACTURER_EMAIL,MANUFACTURER_ADDRESS) Values(@id,@name,@contact,@email,@address)";
+                            SqlCommand manufAddCMD = new SqlCommand(manufAddQuery, con);
+                            manufAddCMD.Parameters.AddWithValue("@id", manfID);
+                            manufAddCMD.Parameters.AddWithValue("@name", manfName);
+                            manufAddCMD.Parameters.AddWithValue("@email", manfEmail);
+                            manufAddCMD.Parameters.AddWithValue("@address", manfAddress);
+                            manufAddCMD.Parameters.AddWithValue("@contact", manfContact);
+                            manufAddCMD.ExecuteNonQuery();
+                            con.Close();
+                        }
+                        else
+                        {
+                            isnewSeller = false; //so that it doesnt go ahead storing data and getting an exception
+                            CustomMsgBox.Show("The given Email is invalid.\nPlease recheck it", "OK");
+                            manufEmailErrorIcon.Visible = true;
+
+                        }
                     }
+
                     if (isOldSeller || isnewSeller)
                     {
                         con.Open();

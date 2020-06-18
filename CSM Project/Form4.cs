@@ -145,7 +145,7 @@ namespace CSM_Project
                 if ((cnicCheckSet.Tables[0].Rows.Count) > 0)
                 {
                     newCustomer = false;
-                    con.Open();     //if its repeated then checking name
+                    con.Open();     //if CNIC is repeated then checking name
                     string nameCheckQuery = "select * from customer where customer_name = @name and customer_cnic = @id";
                     SqlCommand nameCheckCMD = new SqlCommand(nameCheckQuery, con);
                     nameCheckCMD.Parameters.AddWithValue("@name", cust_name);
@@ -156,7 +156,7 @@ namespace CSM_Project
                     con.Close();
                     //if its true then its an old customer otherwise invalid input
                     if (nameCheckSet.Tables[0].Rows.Count > 0) oldCustomer = true;
-                    else CustomMsgBox.Show("The given CNIC already exists. Please Input Correct CNIC and Name.", "OK");
+                    else CustomMsgBox.Show("The given CNIC/Name are Invalid. Please Input Correct CNIC and Name.", "OK");
                 }
                 if (newCustomer) 
                 {

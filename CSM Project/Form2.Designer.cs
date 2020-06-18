@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMMenu));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.outputLbl = new System.Windows.Forms.Label();
             this.buyCarPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -58,7 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.outLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -76,17 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // outputLbl
-            // 
-            this.outputLbl.AutoSize = true;
-            this.outputLbl.BackColor = System.Drawing.Color.Red;
-            this.outputLbl.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outputLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.outputLbl.Location = new System.Drawing.Point(729, 111);
-            this.outputLbl.Name = "outputLbl";
-            this.outputLbl.Size = new System.Drawing.Size(0, 14);
-            this.outputLbl.TabIndex = 12;
             // 
             // buyCarPanel
             // 
@@ -261,7 +248,7 @@
             this.viewCarGrid.BackgroundColor = System.Drawing.Color.White;
             this.viewCarGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.viewCarGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.viewCarGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.viewCarGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,17 +418,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Automobile Showroom \r\n";
             // 
-            // outLbl
-            // 
-            this.outLbl.AutoSize = true;
-            this.outLbl.BackColor = System.Drawing.Color.Red;
-            this.outLbl.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.outLbl.Location = new System.Drawing.Point(928, 111);
-            this.outLbl.Name = "outLbl";
-            this.outLbl.Size = new System.Drawing.Size(0, 14);
-            this.outLbl.TabIndex = 14;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -476,15 +452,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 525);
+            this.ClientSize = new System.Drawing.Size(1010, 525);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.viewCarGrid);
-            this.Controls.Add(this.outLbl);
-            this.Controls.Add(this.outputLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SMMenu";
             this.Text = "Salesman Menu";
@@ -511,7 +485,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label outputLbl;
         private System.Windows.Forms.Panel buyCarPanel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -537,7 +510,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label outLbl;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button exitBtn;

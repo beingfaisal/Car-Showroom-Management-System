@@ -111,6 +111,8 @@ namespace CSM_Project
         private void sellBtn_MouseClick(object sender, MouseEventArgs e)
         {
             string cust_name, cust_cnic, cust_address, cust_contact;
+            bool oldCustomer = false;
+            bool newCustomer = true;
             cust_name = nameBox.Text;
             cust_cnic = cnicBox.Text;
             cust_address = addressBox.Text;
@@ -126,22 +128,39 @@ namespace CSM_Project
             }
             else
             {
+                /*so the way this thing works is that it first checks repition of cnic
+                 if its not repeated then it is a new customer else it checks the name whether its an 
+                old customer or invalid input*/
+               
                 //this piece of code checks whether the primary key is repeated or not
                 con.Open();
                 string cnicCheckQuery = "select * from customer where customer_cnic = @id";
                 SqlCommand cnicCheckCMD = new SqlCommand(cnicCheckQuery, con);
-                cnicCheckCMD.Parameters.AddWithValue("@id",cust_cnic);
+                cnicCheckCMD.Parameters.AddWithValue("@id", cust_cnic);
                 SqlDataAdapter cnicCheckAdapter = new SqlDataAdapter(cnicCheckCMD);
                 DataSet cnicCheckSet = new DataSet();
                 cnicCheckAdapter.Fill(cnicCheckSet);
                 con.Close();
-
+                
                 if ((cnicCheckSet.Tables[0].Rows.Count) > 0)
                 {
-                    CustomMsgBox.Show("The given CNIC already exists. Please recheck CNIC of customer or inform manager.", "OK");
+                    newCustomer = false;
+                    con.Open();     //if its repeated then checking name
+                    string nameCheckQuery = "select * from customer where customer_name = @name and customer_cnic = @id";
+                    SqlCommand nameCheckCMD = new SqlCommand(nameCheckQuery, con);
+                    nameCheckCMD.Parameters.AddWithValue("@name", cust_name);
+                    nameCheckCMD.Parameters.AddWithValue("@id", cust_cnic);
+                    SqlDataAdapter nameCheckAdapter = new SqlDataAdapter(nameCheckCMD);
+                    DataSet nameCheckSet = new DataSet();
+                    nameCheckAdapter.Fill(nameCheckSet);
+                    con.Close();
+                    //if its true then its an old customer otherwise invalid input
+                    if (nameCheckSet.Tables[0].Rows.Count > 0) oldCustomer = true;
+                    else CustomMsgBox.Show("The given CNIC already exists. Please Input Correct CNIC and Name.", "OK");
                 }
-                else  //here starts the real process in selling a car
+                if (newCustomer) 
                 {
+                    //if its a new customer we add it in the database
                     //this block is used to insert the values in the column of customer
                     con.Open();
                     string insertQuery = "Insert into CUSTOMER(CUSTOMER_CNIC,CUSTOMER_NAME,CUSTOMER_CONTACT,CUSTOMER_ADDRESS) VALUES(@cnic,@name,@contact,@address)";
@@ -151,7 +170,12 @@ namespace CSM_Project
                     cmd.Parameters.AddWithValue("@contact", cust_contact);
                     cmd.Parameters.AddWithValue("@address", cust_address);
                     cmd.ExecuteNonQuery();
-
+                    con.Close();
+                }
+                if (oldCustomer || newCustomer)
+                {
+                    //from  here we have validated or added customer so we just resume the selling process
+                    con.Open();
                     //this block is used to generate new order id by getting id from database just the digit part
                     string getOrderQuery = "Select max(substring(CUSTOMER_ORDER.ORDER_ID,4,len(customer_order.order_id))) from CUSTOMER_ORDER ";
                     SqlCommand getCmd = new SqlCommand(getOrderQuery, con);
@@ -216,7 +240,9 @@ namespace CSM_Project
                     cnicBox.Text = "";
                     addressBox.Text = "";
                     contactBox.Text = "";
-            }   }
+                }
+            }
+        
         }
 
       

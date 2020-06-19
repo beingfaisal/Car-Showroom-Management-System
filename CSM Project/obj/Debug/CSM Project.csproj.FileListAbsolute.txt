@@ -32,4 +32,4 @@ D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.csproj.CopyComplete
 D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.exe
 D:\Projects\CSM Project\CSM Project\obj\Debug\CSM Project.pdb
 D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.CustomMsgBox.resources
-D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.Form7.resources
+D:\Projects\CSM Project\CSM Project\obj\Debug\CSM_Project.empControl.resources

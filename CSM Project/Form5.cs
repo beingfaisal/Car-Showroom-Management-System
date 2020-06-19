@@ -18,90 +18,14 @@ namespace CSM_Project
         public SaleManCtrl()
         {
             InitializeComponent();
-            gridFill();
-            this.CenterToScreen();
         }
         public SaleManCtrl(string id)
         {
             InitializeComponent();
-            gridFill();
             mainEmpID = id;
             EmpId = "";
             empStatus = "";
-            this.CenterToScreen();
         }
-
-        private void gridFill()
-        {
-            con.Open();
-            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman'", con);
-            SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
-            DataSet empDataset = new DataSet();
-            empAdapter.Fill(empDataset);
-
-            empGrid.Rows.Clear();
-            for (int i = 0; i < (empDataset.Tables[0].Rows.Count); i++)
-            {
-                string id = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[0]);
-                string name = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[1]);
-                string pin = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[2]);
-                string contact = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[3]);
-                string address = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[4]);
-                string email = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[5]);
-                string designation = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[6]);
-                string hire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[7]);
-                string fire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[8]);
-                string status = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[9]);
-                string sales = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[10]);
-
-                DateTime hireDate = (Convert.ToDateTime(hire)).Date;
-                if(fire == string.Empty)
-                {
-                    fire = "---";
-                }
-
-                DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(empGrid);
-                pushData.Cells[0].Value = id;
-                pushData.Cells[1].Value = name;
-                pushData.Cells[2].Value = pin;
-                pushData.Cells[3].Value = contact;
-                pushData.Cells[4].Value = address;
-                pushData.Cells[5].Value = email;
-                pushData.Cells[6].Value = hireDate;
-                pushData.Cells[7].Value = fire;
-                pushData.Cells[8].Value = status;
-                pushData.Cells[9].Value = sales;
-                empGrid.Rows.Add(pushData);
-
-            }
-            con.Close();
-        }
-
-        private void empGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int rowIndex = e.RowIndex;
-            DataGridViewRow row = empGrid.Rows[rowIndex];
-
-            nameBox.Text = Convert.ToString(row.Cells[1].Value);
-            pinBox.Text = Convert.ToString(row.Cells[2].Value);
-            contactBox.Text = Convert.ToString(row.Cells[3].Value);
-            addressBox.Text = Convert.ToString(row.Cells[4].Value);
-            emailBox.Text = Convert.ToString(row.Cells[5].Value);
-            EmpId = Convert.ToString(row.Cells[0].Value);
-            empStatus = Convert.ToString(row.Cells[8].Value);
-
-        }
-        private void clearRows()
-        {
-            nameBox.Text = "";
-            pinBox.Text = "";
-            contactBox.Text = "";
-            addressBox.Text = "";
-            emailBox.Text = "";
-        }
-
-        
 
         private async void hireBtn_MouseClick_1(object sender, MouseEventArgs e)
         {
@@ -149,8 +73,6 @@ namespace CSM_Project
                 newEmpCmd.ExecuteNonQuery();
 
                 con.Close();
-                gridFill();
-                clearRows();
             }
         }
 
@@ -183,132 +105,10 @@ namespace CSM_Project
                 updateEmpCMD.Parameters.AddWithValue("@updateId", employeeId);
                 updateEmpCMD.ExecuteNonQuery();
                 con.Close();
-                gridFill();
-                clearRows();
             }
         }
 
-        private async void fireBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (EmpId == "" || empStatus == "Fired")
-            {
-                fireBtn.BackColor = Color.Red;
-                await Task.Delay(1500);
-                fireBtn.BackColor = SystemColors.Control;
-            }
-            else
-            {
-                con.Open();
-                string fireQuery = "Update employee set EMPLOYEE_Status = 'Fired',Employee_FIREDATE = CONVERT(DATE, GETDATE()) where EMPLOYEE_ID = @id";
-                SqlCommand fireCmd = new SqlCommand(fireQuery, con);
-                fireCmd.Parameters.AddWithValue("@id", EmpId);
-                fireCmd.ExecuteNonQuery();
-                con.Close();
-                gridFill();
-                clearRows();
-            }
-        }
-
-        private void viewBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            gridFill();
-            clearRows();
-        }
-
-        private void viewFireBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            con.Open();
-            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'fired'", con);
-            SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
-            DataSet empDataset = new DataSet();
-            empAdapter.Fill(empDataset);
-
-            empGrid.Rows.Clear();
-            for (int i = 0; i < (empDataset.Tables[0].Rows.Count); i++)
-            {
-                string id = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[0]);
-                string name = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[1]);
-                string pin = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[2]);
-                string contact = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[3]);
-                string address = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[4]);
-                string email = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[5]);
-                string designation = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[6]);
-                string hire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[7]);
-                string fire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[8]);
-                string status = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[9]);
-                string sales = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[10]);
-
-                DateTime hireDate = (Convert.ToDateTime(hire)).Date;
-                if (fire == string.Empty)
-                {
-                    fire = "---";
-                }
-
-                DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(empGrid);
-                pushData.Cells[0].Value = id;
-                pushData.Cells[1].Value = name;
-                pushData.Cells[2].Value = pin;
-                pushData.Cells[3].Value = contact;
-                pushData.Cells[4].Value = address;
-                pushData.Cells[5].Value = email;
-                pushData.Cells[6].Value = hireDate;
-                pushData.Cells[7].Value = fire;
-                pushData.Cells[8].Value = status;
-                pushData.Cells[9].Value = sales;
-                empGrid.Rows.Add(pushData);
-
-            }
-            con.Close();
-        }
-
-        private void viewHireBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            con.Open();
-            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'working'", con);
-            SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
-            DataSet empDataset = new DataSet();
-            empAdapter.Fill(empDataset);
-
-            empGrid.Rows.Clear();
-            for (int i = 0; i < (empDataset.Tables[0].Rows.Count); i++)
-            {
-                string id = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[0]);
-                string name = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[1]);
-                string pin = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[2]);
-                string contact = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[3]);
-                string address = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[4]);
-                string email = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[5]);
-                string designation = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[6]);
-                string hire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[7]);
-                string fire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[8]);
-                string status = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[9]);
-                string sales = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[10]);
-
-                DateTime hireDate = (Convert.ToDateTime(hire)).Date;
-                if (fire == string.Empty)
-                {
-                    fire = "---";
-                }
-
-                DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(empGrid);
-                pushData.Cells[0].Value = id;
-                pushData.Cells[1].Value = name;
-                pushData.Cells[2].Value = pin;
-                pushData.Cells[3].Value = contact;
-                pushData.Cells[4].Value = address;
-                pushData.Cells[5].Value = email;
-                pushData.Cells[6].Value = hireDate;
-                pushData.Cells[7].Value = fire;
-                pushData.Cells[8].Value = status;
-                pushData.Cells[9].Value = sales;
-                empGrid.Rows.Add(pushData);
-
-            }
-            con.Close();
-        }
-
+   
         private void backBtn_MouseClick(object sender, MouseEventArgs e)
         {
             new Manager_Menu(mainEmpID).Show();

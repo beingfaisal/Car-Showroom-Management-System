@@ -40,7 +40,7 @@ namespace CSM_Project
 
         private void SmmBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            new SaleManCtrl(empId).Show();
+            new empControl(empId).Show();
             this.Hide();
 
         }

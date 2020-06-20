@@ -41,13 +41,10 @@ namespace CSM_Project
             mainEmpID = id;
             
         }
-        private void empGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-
-        }
         private void gridFill()
         {
+            bool isFired = false;
+            DateTime fireDate = default(DateTime);
             con.Open();
             SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman'", con);
             SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
@@ -72,7 +69,13 @@ namespace CSM_Project
                 DateTime hireDate = (Convert.ToDateTime(hire)).Date;
                 if (fire == string.Empty)
                 {
+                    isFired = false;
                     fire = "---";
+                }
+                else
+                {
+                    isFired = true;
+                    fireDate = (Convert.ToDateTime(fire)).Date;
                 }
 
                 DataGridViewRow pushData = new DataGridViewRow();
@@ -84,7 +87,8 @@ namespace CSM_Project
                 pushData.Cells[4].Value = address;
                 pushData.Cells[5].Value = email;
                 pushData.Cells[6].Value = hireDate;
-                pushData.Cells[7].Value = fire;
+                if (isFired) pushData.Cells[7].Value = fireDate;
+                else pushData.Cells[7].Value = fire;
                 pushData.Cells[8].Value = status;
                 pushData.Cells[9].Value = sales;
                 empGrid.Rows.Add(pushData);
@@ -94,20 +98,55 @@ namespace CSM_Project
         }
         private void fireEmp()
         {
-            if (empUpdateInfo.id == "")
+            if (empUpdateInfo.status == "Fired")
             {
-
+                CustomMsgBox.Show("The selected employee is already fired.\nPlease Select Valid Employee.", "OK");
             }
             else
             {
-                con.Open();
-                string fireQuery = "Update employee set EMPLOYEE_Status = 'Fired',Employee_FIREDATE = CONVERT(DATE, GETDATE()) where EMPLOYEE_ID = @id";
-                SqlCommand fireCmd = new SqlCommand(fireQuery, con);
-                fireCmd.Parameters.AddWithValue("@id", empUpdateInfo.id);
-                fireCmd.ExecuteNonQuery();
-                con.Close();
-                gridFill();
 
+                if (empUpdateInfo.id == "")
+                {
+                    CustomMsgBox.Show("Please Select the Employee you want to fire.", "OK");
+                }
+                else
+                {
+                    con.Open();
+                    string fireQuery = "Update employee set EMPLOYEE_Status = 'Fired',Employee_FIREDATE = CONVERT(DATE, GETDATE()) where EMPLOYEE_ID = @id";
+                    SqlCommand fireCmd = new SqlCommand(fireQuery, con);
+                    fireCmd.Parameters.AddWithValue("@id", empUpdateInfo.id);
+                    fireCmd.ExecuteNonQuery();
+                    con.Close();
+                    gridFill();
+
+                }
+            }
+            
+        }
+        private void rehireEmp()
+        {
+            if (empUpdateInfo.status == "Working")
+            {
+                CustomMsgBox.Show("The selected employee is already Working.\nPlease Select Valid Employee.", "OK");
+            }
+            else
+            {
+
+                if (empUpdateInfo.id == "")
+                {
+                    CustomMsgBox.Show("Please Select the Employee you want to Hire.", "OK");
+                }
+                else
+                {
+                    con.Open();
+                    string fireQuery = "Update employee set EMPLOYEE_Status = 'Working',Employee_HIREDATE = CONVERT(DATE, GETDATE()),Employee_firedate = NULL where EMPLOYEE_ID = @id";
+                    SqlCommand fireCmd = new SqlCommand(fireQuery, con);
+                    fireCmd.Parameters.AddWithValue("@id", empUpdateInfo.id);
+                    fireCmd.ExecuteNonQuery();
+                    con.Close();
+                    gridFill();
+
+                }
             }
         }
 
@@ -180,6 +219,8 @@ namespace CSM_Project
         }
         private void viewHiredPanel_MouseClick(object sender, MouseEventArgs e)
         {
+            bool isFired = false;
+            DateTime fireDate = default(DateTime);
             con.Open();
             SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'working'", con);
             SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
@@ -204,7 +245,13 @@ namespace CSM_Project
                 DateTime hireDate = (Convert.ToDateTime(hire)).Date;
                 if (fire == string.Empty)
                 {
+                    isFired = false;
                     fire = "---";
+                }
+                else
+                {
+                    isFired = true;
+                    fireDate = (Convert.ToDateTime(fire)).Date;
                 }
 
                 DataGridViewRow pushData = new DataGridViewRow();
@@ -216,7 +263,8 @@ namespace CSM_Project
                 pushData.Cells[4].Value = address;
                 pushData.Cells[5].Value = email;
                 pushData.Cells[6].Value = hireDate;
-                pushData.Cells[7].Value = fire;
+                if (isFired) pushData.Cells[7].Value = fireDate;
+                else pushData.Cells[7].Value = fire;
                 pushData.Cells[8].Value = status;
                 pushData.Cells[9].Value = sales;
                 empGrid.Rows.Add(pushData);
@@ -238,6 +286,8 @@ namespace CSM_Project
         }
         private void viewFiredPanel_MouseClick(object sender, MouseEventArgs e)
         {
+            bool isFired = false;
+            DateTime fireDate = default(DateTime);
             con.Open();
             SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'fired'", con);
             SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
@@ -262,9 +312,14 @@ namespace CSM_Project
                 DateTime hireDate = (Convert.ToDateTime(hire)).Date;
                 if (fire == string.Empty)
                 {
+                    isFired = false;
                     fire = "---";
                 }
-
+                else
+                {
+                    isFired = true;
+                    fireDate = (Convert.ToDateTime(fire)).Date;
+                }
                 DataGridViewRow pushData = new DataGridViewRow();
                 pushData.CreateCells(empGrid);
                 pushData.Cells[0].Value = id;
@@ -274,7 +329,8 @@ namespace CSM_Project
                 pushData.Cells[4].Value = address;
                 pushData.Cells[5].Value = email;
                 pushData.Cells[6].Value = hireDate;
-                pushData.Cells[7].Value = fire;
+                if(isFired) pushData.Cells[7].Value = fireDate;
+                else pushData.Cells[7].Value = fire;
                 pushData.Cells[8].Value = status;
                 pushData.Cells[9].Value = sales;
                 empGrid.Rows.Add(pushData);
@@ -285,9 +341,21 @@ namespace CSM_Project
 
 
 
-
-
-       
+        private void exitBtn_MouseEnter(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Red;
+            exitBtn.ForeColor = Color.White;
+        }
+        private void exitBtn_MouseLeave(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.White;
+            exitBtn.ForeColor = Color.Red;
+        }
+        private void exitBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
+        
         private void backBtn_MouseEnter(object sender, EventArgs e)
         {
             backBtn.BackColor = Color.FromArgb(54, 54, 56);
@@ -295,6 +363,11 @@ namespace CSM_Project
         private void backBtn_MouseLeave(object sender, EventArgs e)
         {
             backBtn.BackColor = Color.Transparent;
+        }
+        private void backBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            new Manager_Menu(mainEmpID).Show();
+            this.Hide();
         }
 
         private void empGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -309,6 +382,11 @@ namespace CSM_Project
             empUpdateInfo.email = Convert.ToString(row.Cells[5].Value);
             empUpdateInfo.id = Convert.ToString(row.Cells[0].Value);
             empUpdateInfo.status = Convert.ToString(row.Cells[8].Value);
+        }
+
+        private void rehireEmpPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            rehireEmp();
         }
     }
 }

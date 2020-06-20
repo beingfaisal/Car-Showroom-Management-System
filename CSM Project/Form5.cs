@@ -201,7 +201,7 @@ namespace CSM_Project
    
         private void backBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            new Manager_Menu(mainEmpID).Show();
+            new empControl(mainEmpID).Show();
             this.Hide();
         }
 
@@ -444,8 +444,21 @@ namespace CSM_Project
         {
             updateBtn.BackColor = Color.FromArgb(77, 74, 82);
         }
-        
-        
+
+        private void exitBtn_MouseEnter(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Red;
+            exitBtn.ForeColor = Color.White;
+        }
+        private void exitBtn_MouseLeave(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.White;
+            exitBtn.ForeColor = Color.Red;
+        }
+        private void exitBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
         private string idGenerator(string id)
         {
             string digits, letters;

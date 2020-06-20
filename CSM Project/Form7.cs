@@ -15,12 +15,19 @@ namespace CSM_Project
     public partial class empControl : Form
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
-        string mainEmpID, EmpId, empStatus;
-        struct empInfo
+        string mainEmpID;
+       
+        public struct empInfo
         {
-            public string id,pin, name, contact, address, email ,status;
+            public string id, pin, name, contact, address, email ,status;
+            public empInfo(string s)
+            {
+                id = pin =name = contact = address = email = status = s;
+            }
         }
-        empInfo empUpdateInfo;
+        empInfo empUpdateInfo = new empInfo("");
+       
+        
         public empControl()
         {
             InitializeComponent();
@@ -36,16 +43,7 @@ namespace CSM_Project
         }
         private void empGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = e.RowIndex;
-            DataGridViewRow row = empGrid.Rows[rowIndex];
-
-            empUpdateInfo.name = Convert.ToString(row.Cells[1].Value);
-            empUpdateInfo.pin = Convert.ToString(row.Cells[2].Value);
-            empUpdateInfo.contact = Convert.ToString(row.Cells[3].Value);
-            empUpdateInfo.address = Convert.ToString(row.Cells[4].Value);
-            empUpdateInfo.email= Convert.ToString(row.Cells[5].Value);
-            empUpdateInfo.id = Convert.ToString(row.Cells[0].Value);
-            empUpdateInfo.status = Convert.ToString(row.Cells[8].Value);
+            
 
         }
         private void gridFill()
@@ -96,7 +94,7 @@ namespace CSM_Project
         }
         private void fireEmp()
         {
-            if (EmpId == "" || empStatus == "Fired")
+            if (empUpdateInfo.id == "")
             {
 
             }
@@ -105,7 +103,7 @@ namespace CSM_Project
                 con.Open();
                 string fireQuery = "Update employee set EMPLOYEE_Status = 'Fired',Employee_FIREDATE = CONVERT(DATE, GETDATE()) where EMPLOYEE_ID = @id";
                 SqlCommand fireCmd = new SqlCommand(fireQuery, con);
-                fireCmd.Parameters.AddWithValue("@id", EmpId);
+                fireCmd.Parameters.AddWithValue("@id", empUpdateInfo.id);
                 fireCmd.ExecuteNonQuery();
                 con.Close();
                 gridFill();
@@ -139,7 +137,7 @@ namespace CSM_Project
         }
         private void updateEmpPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            new SaleManCtrl().Show();
+            new SaleManCtrl(empUpdateInfo).Show();
             this.Hide();
         }
        
@@ -297,6 +295,20 @@ namespace CSM_Project
         private void backBtn_MouseLeave(object sender, EventArgs e)
         {
             backBtn.BackColor = Color.Transparent;
+        }
+
+        private void empGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            DataGridViewRow row = empGrid.Rows[rowIndex];
+
+            empUpdateInfo.name = Convert.ToString(row.Cells[1].Value);
+            empUpdateInfo.pin = Convert.ToString(row.Cells[2].Value);
+            empUpdateInfo.contact = Convert.ToString(row.Cells[3].Value);
+            empUpdateInfo.address = Convert.ToString(row.Cells[4].Value);
+            empUpdateInfo.email = Convert.ToString(row.Cells[5].Value);
+            empUpdateInfo.id = Convert.ToString(row.Cells[0].Value);
+            empUpdateInfo.status = Convert.ToString(row.Cells[8].Value);
         }
     }
 }

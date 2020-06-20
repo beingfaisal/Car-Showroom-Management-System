@@ -14,7 +14,11 @@ namespace CSM_Project
     public partial class SaleManCtrl : Form
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
-        string mainEmpID,EmpId,empStatus;
+        string mainEmpID;
+        bool isUpdateData = false;
+        bool nameChange, contactChange, pinChange, addressChange, emailChange = false;
+        empControl.empInfo updateEmp;
+       
         public SaleManCtrl()
         {
             InitializeComponent();
@@ -23,11 +27,20 @@ namespace CSM_Project
         {
             InitializeComponent();
             mainEmpID = id;
-            EmpId = "";
-            empStatus = "";
         }
+        public SaleManCtrl(empControl.empInfo emp)
+        {
+            InitializeComponent();
+            isUpdateData = true;
+            updateEmp = emp;
+            nameBox.Text = emp.name;
+            pinBox.Text = emp.pin;
+            addressBox.Text = emp.address;
+            contactBox.Text = emp.contact;
+            emailBox.Text = emp.email;
 
-        private async void hireBtn_MouseClick_1(object sender, MouseEventArgs e)
+        }
+        private void hireBtn_MouseClick_1(object sender, MouseEventArgs e)
         {
             string name = nameBox.Text;
             string pin = pinBox.Text;
@@ -37,9 +50,7 @@ namespace CSM_Project
 
             if (name == string.Empty || contact == string.Empty || address == string.Empty || email == string.Empty || pin == string.Empty)
             {
-                hireBtn.BackColor = Color.Red;
-                await Task.Delay(1500);
-                hireBtn.BackColor = SystemColors.Control;
+                
             }
             else
             {
@@ -77,34 +88,38 @@ namespace CSM_Project
         }
 
 
-        private async void updateBtn_MouseClick(object sender, MouseEventArgs e)
+        private void updateBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            string name = nameBox.Text;
-            string pin = pinBox.Text;
-            string contact = contactBox.Text;
-            string address = addressBox.Text;
-            string email = emailBox.Text;
-            string employeeId = EmpId;
+            if (isUpdateData)
+            {
+                
+                if (nameChange || pinChange || addressChange || contactChange || emailChange)
+                {
+                    string name = nameBox.Text;
+                    string pin = pinBox.Text;
+                    string contact = contactBox.Text;
+                    string address = addressBox.Text;
+                    string email = emailBox.Text;
+                    string employeeId = updateEmp.id;
 
-            if (EmpId == "")
-            {
-                updateBtn.BackColor = Color.Red;
-                await Task.Delay(1500);
-                updateBtn.BackColor = SystemColors.Control;
-            }
-            else
-            {
-                con.Open();
-                string updateEmpQuery = "Update employee set EMPLOYEE_Name = @newName, EMPLOYEE_Password = @newPin, EMPLOYEE_Contact = @newContact, EMPLOYEE_Address = @newAddress, EMPLOYEE_Email = @newEmail  where EMPLOYEE_ID = @updateId";
-                SqlCommand updateEmpCMD = new SqlCommand(updateEmpQuery, con);
-                updateEmpCMD.Parameters.AddWithValue("@newName", name);
-                updateEmpCMD.Parameters.AddWithValue("@newPin", pin);
-                updateEmpCMD.Parameters.AddWithValue("@newContact", contact);
-                updateEmpCMD.Parameters.AddWithValue("@newAddress", address);
-                updateEmpCMD.Parameters.AddWithValue("@newEmail", email);
-                updateEmpCMD.Parameters.AddWithValue("@updateId", employeeId);
-                updateEmpCMD.ExecuteNonQuery();
-                con.Close();
+                    con.Open();
+                    string updateEmpQuery = "Update employee set EMPLOYEE_Name = @newName, EMPLOYEE_Password = @newPin, EMPLOYEE_Contact = @newContact, EMPLOYEE_Address = @newAddress, EMPLOYEE_Email = @newEmail  where EMPLOYEE_ID = @updateId";
+                    SqlCommand updateEmpCMD = new SqlCommand(updateEmpQuery, con);
+                    updateEmpCMD.Parameters.AddWithValue("@newName", name);
+                    updateEmpCMD.Parameters.AddWithValue("@newPin", pin);
+                    updateEmpCMD.Parameters.AddWithValue("@newContact", contact);
+                    updateEmpCMD.Parameters.AddWithValue("@newAddress", address);
+                    updateEmpCMD.Parameters.AddWithValue("@newEmail", email);
+                    updateEmpCMD.Parameters.AddWithValue("@updateId", employeeId);
+                    updateEmpCMD.ExecuteNonQuery();
+                    con.Close();
+                    
+                    
+                }
+                else
+                {
+                    CustomMsgBox.Show("You Haven't Changed any Data.", "OK");
+                }
             }
         }
 
@@ -113,6 +128,31 @@ namespace CSM_Project
         {
             new Manager_Menu(mainEmpID).Show();
             this.Hide();
+        }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+            nameChange = true;
+        }
+
+        private void contactBox_TextChanged(object sender, EventArgs e)
+        {
+            contactChange = true;
+        }
+
+        private void pinBox_TextChanged(object sender, EventArgs e)
+        {
+            pinChange = true;
+        }
+
+        private void addressBox_TextChanged(object sender, EventArgs e)
+        {
+            addressChange = true;
+        }
+
+        private void emailBox_TextChanged(object sender, EventArgs e)
+        {
+            emailChange = true;
         }
 
         private void exitBtn_MouseClick(object sender, MouseEventArgs e)

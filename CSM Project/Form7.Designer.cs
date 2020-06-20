@@ -502,7 +502,7 @@
             this.empGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.empGrid.Size = new System.Drawing.Size(1031, 421);
             this.empGrid.TabIndex = 45;
-            this.empGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empGrid_CellClick);
+            this.empGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.empGrid_CellEnter);
             // 
             // ID
             // 

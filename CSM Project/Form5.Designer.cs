@@ -84,6 +84,7 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(300, 28);
             this.nameBox.TabIndex = 3;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // pinBox
             // 
@@ -94,6 +95,7 @@
             this.pinBox.Name = "pinBox";
             this.pinBox.Size = new System.Drawing.Size(300, 28);
             this.pinBox.TabIndex = 4;
+            this.pinBox.TextChanged += new System.EventHandler(this.pinBox_TextChanged);
             // 
             // contactBox
             // 
@@ -104,6 +106,7 @@
             this.contactBox.Name = "contactBox";
             this.contactBox.Size = new System.Drawing.Size(300, 28);
             this.contactBox.TabIndex = 5;
+            this.contactBox.TextChanged += new System.EventHandler(this.contactBox_TextChanged);
             // 
             // addressBox
             // 
@@ -114,6 +117,7 @@
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(300, 28);
             this.addressBox.TabIndex = 6;
+            this.addressBox.TextChanged += new System.EventHandler(this.addressBox_TextChanged);
             // 
             // emailBox
             // 
@@ -124,6 +128,7 @@
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(300, 28);
             this.emailBox.TabIndex = 7;
+            this.emailBox.TextChanged += new System.EventHandler(this.emailBox_TextChanged);
             // 
             // label2
             // 

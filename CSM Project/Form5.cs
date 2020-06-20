@@ -32,11 +32,15 @@ namespace CSM_Project
             startChecker();
             isNewData = true;
             mainEmpID = id;
+            hireBtn.Location = new Point(383, 384);
+            updateBtn.Enabled = updateBtn.Visible = false;
         }
         public SaleManCtrl(empControl.empInfo emp)
         {
             InitializeComponent();
             pictureVanish();
+            updateBtn.Location = new Point(383, 384);
+            hireBtn.Enabled =  hireBtn.Visible = false;
             isUpdateData = true;
             updateEmp = emp;
             nameBox.Text = emp.name;
@@ -126,6 +130,9 @@ namespace CSM_Project
                         newEmpCmd.ExecuteNonQuery();
 
                         con.Close();
+                        MessageBox.Show("Suuccess");
+                        nameBox.Text = contactBox.Text = pinBox.Text = addressBox.Text = contactBox.Text = emailBox.Text = "";
+
                     }
                     else
                     {
@@ -417,7 +424,26 @@ namespace CSM_Project
                 e.Handled = true;
             }
         }
-        
+
+       
+        //for button styling
+        private void hireBtn_MouseEnter(object sender, EventArgs e)
+        {
+            hireBtn.BackColor = Color.Black;
+        }
+        private void hireBtn_MouseLeave(object sender, EventArgs e)
+        {
+            hireBtn.BackColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void updateBtn_MouseEnter(object sender, EventArgs e)
+        {
+            updateBtn.BackColor = Color.Black;
+        }
+        private void updateBtn_MouseLeave(object sender, EventArgs e)
+        {
+            updateBtn.BackColor = Color.FromArgb(77, 74, 82);
+        }
         
         
         private string idGenerator(string id)

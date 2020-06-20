@@ -105,7 +105,7 @@
             this.nameBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBox.ForeColor = System.Drawing.Color.Gray;
             this.nameBox.Location = new System.Drawing.Point(40, 154);
-            this.nameBox.MaxLength = 1000;
+            this.nameBox.MaxLength = 25;
             this.nameBox.Multiline = true;
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(300, 28);
@@ -133,7 +133,7 @@
             this.addressBox.Font = new System.Drawing.Font("Verdana", 14.25F);
             this.addressBox.ForeColor = System.Drawing.Color.Gray;
             this.addressBox.Location = new System.Drawing.Point(421, 154);
-            this.addressBox.MaxLength = 150;
+            this.addressBox.MaxLength = 50;
             this.addressBox.Multiline = true;
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(300, 28);
@@ -297,7 +297,7 @@
             this.nameExpLbl.Name = "nameExpLbl";
             this.nameExpLbl.Size = new System.Drawing.Size(189, 14);
             this.nameExpLbl.TabIndex = 46;
-            this.nameExpLbl.Text = "e.g. Ali Ahmad (Max 50 Char)";
+            this.nameExpLbl.Text = "e.g. Ali Ahmad (Max 25 Char)";
             // 
             // cnicExpLbl
             // 
@@ -315,11 +315,11 @@
             this.addressExpLbl.AutoSize = true;
             this.addressExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressExpLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.addressExpLbl.Location = new System.Drawing.Point(468, 182);
+            this.addressExpLbl.Location = new System.Drawing.Point(476, 182);
             this.addressExpLbl.Name = "addressExpLbl";
-            this.addressExpLbl.Size = new System.Drawing.Size(253, 14);
+            this.addressExpLbl.Size = new System.Drawing.Size(245, 14);
             this.addressExpLbl.TabIndex = 48;
-            this.addressExpLbl.Text = "e.g. Street #11 Lahore (Max 150 Char)";
+            this.addressExpLbl.Text = "e.g. Street #11 Lahore (Max 50 Char)";
             // 
             // contactExpLbl
             // 

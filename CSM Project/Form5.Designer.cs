@@ -51,6 +51,11 @@
             this.addressBoxErrorIcon = new System.Windows.Forms.PictureBox();
             this.pinBoxErrorIcon = new System.Windows.Forms.PictureBox();
             this.emailBoxErrorIcon = new System.Windows.Forms.PictureBox();
+            this.nameExpLbl = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameBoxErrorIcon)).BeginInit();
@@ -62,24 +67,27 @@
             // 
             // hireBtn
             // 
-            this.hireBtn.BackColor = System.Drawing.Color.Black;
+            this.hireBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.hireBtn.FlatAppearance.BorderSize = 0;
             this.hireBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hireBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hireBtn.ForeColor = System.Drawing.Color.White;
-            this.hireBtn.Location = new System.Drawing.Point(338, 383);
+            this.hireBtn.Location = new System.Drawing.Point(383, 384);
             this.hireBtn.Name = "hireBtn";
             this.hireBtn.Size = new System.Drawing.Size(88, 53);
             this.hireBtn.TabIndex = 2;
             this.hireBtn.Text = "Hire";
             this.hireBtn.UseVisualStyleBackColor = false;
             this.hireBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.hireBtn_MouseClick_1);
+            this.hireBtn.MouseEnter += new System.EventHandler(this.hireBtn_MouseEnter);
+            this.hireBtn.MouseLeave += new System.EventHandler(this.hireBtn_MouseLeave);
             // 
             // nameBox
             // 
             this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBox.Location = new System.Drawing.Point(62, 148);
+            this.nameBox.MaxLength = 25;
             this.nameBox.Multiline = true;
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(300, 28);
@@ -94,6 +102,7 @@
             this.pinBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pinBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pinBox.Location = new System.Drawing.Point(505, 148);
+            this.pinBox.MaxLength = 8;
             this.pinBox.Multiline = true;
             this.pinBox.Name = "pinBox";
             this.pinBox.Size = new System.Drawing.Size(300, 28);
@@ -108,6 +117,7 @@
             this.contactBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.contactBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactBox.Location = new System.Drawing.Point(62, 224);
+            this.contactBox.MaxLength = 11;
             this.contactBox.Multiline = true;
             this.contactBox.Name = "contactBox";
             this.contactBox.Size = new System.Drawing.Size(300, 28);
@@ -122,6 +132,7 @@
             this.addressBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.addressBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressBox.Location = new System.Drawing.Point(505, 224);
+            this.addressBox.MaxLength = 50;
             this.addressBox.Multiline = true;
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(300, 28);
@@ -136,6 +147,7 @@
             this.emailBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailBox.Location = new System.Drawing.Point(283, 297);
+            this.emailBox.MaxLength = 25;
             this.emailBox.Multiline = true;
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(300, 28);
@@ -197,18 +209,20 @@
             // 
             // updateBtn
             // 
-            this.updateBtn.BackColor = System.Drawing.Color.Black;
+            this.updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.updateBtn.FlatAppearance.BorderSize = 0;
             this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(480, 383);
+            this.updateBtn.Location = new System.Drawing.Point(535, 384);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(88, 53);
             this.updateBtn.TabIndex = 13;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
             this.updateBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.updateBtn_MouseClick);
+            this.updateBtn.MouseEnter += new System.EventHandler(this.updateBtn_MouseEnter);
+            this.updateBtn.MouseLeave += new System.EventHandler(this.updateBtn_MouseLeave);
             // 
             // panel1
             // 
@@ -331,12 +345,72 @@
             this.emailBoxErrorIcon.TabIndex = 47;
             this.emailBoxErrorIcon.TabStop = false;
             // 
+            // nameExpLbl
+            // 
+            this.nameExpLbl.AutoSize = true;
+            this.nameExpLbl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameExpLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.nameExpLbl.Location = new System.Drawing.Point(173, 176);
+            this.nameExpLbl.Name = "nameExpLbl";
+            this.nameExpLbl.Size = new System.Drawing.Size(189, 14);
+            this.nameExpLbl.TabIndex = 48;
+            this.nameExpLbl.Text = "e.g. Ali Ahmad (Max 25 Char)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.label12.Location = new System.Drawing.Point(170, 252);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(192, 14);
+            this.label12.TabIndex = 50;
+            this.label12.Text = "e.g. 0321-1234567 (11 Char)";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.label13.Location = new System.Drawing.Point(519, 252);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(286, 14);
+            this.label13.TabIndex = 51;
+            this.label13.Text = "e.g. Main Street # 12, Lahore (Max 50 Char)";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.label14.Location = new System.Drawing.Point(300, 325);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(283, 14);
+            this.label14.TabIndex = 52;
+            this.label14.Text = "e.g. aliahmad123@gmail.com (Max 25 Char)";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.label17.Location = new System.Drawing.Point(621, 176);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(184, 14);
+            this.label17.TabIndex = 55;
+            this.label17.Text = "e.g. 98374673 (Max 8 Char)";
+            // 
             // SaleManCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(883, 524);
+            this.ClientSize = new System.Drawing.Size(883, 468);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.nameExpLbl);
             this.Controls.Add(this.emailBoxErrorIcon);
             this.Controls.Add(this.pinBoxErrorIcon);
             this.Controls.Add(this.addressBoxErrorIcon);
@@ -357,6 +431,7 @@
             this.Controls.Add(this.hireBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SaleManCtrl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Managment";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -394,5 +469,10 @@
         private System.Windows.Forms.PictureBox addressBoxErrorIcon;
         private System.Windows.Forms.PictureBox pinBoxErrorIcon;
         private System.Windows.Forms.PictureBox emailBoxErrorIcon;
+        private System.Windows.Forms.Label nameExpLbl;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label17;
     }
 }

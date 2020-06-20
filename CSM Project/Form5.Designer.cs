@@ -85,6 +85,9 @@
             this.nameBox.Size = new System.Drawing.Size(300, 28);
             this.nameBox.TabIndex = 3;
             this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
+            this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
+            this.nameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameBox_KeyPress);
+            this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
             // pinBox
             // 
@@ -96,6 +99,9 @@
             this.pinBox.Size = new System.Drawing.Size(300, 28);
             this.pinBox.TabIndex = 4;
             this.pinBox.TextChanged += new System.EventHandler(this.pinBox_TextChanged);
+            this.pinBox.Enter += new System.EventHandler(this.pinBox_Enter);
+            this.pinBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pinBox_KeyPress);
+            this.pinBox.Leave += new System.EventHandler(this.pinBox_Leave);
             // 
             // contactBox
             // 
@@ -107,6 +113,9 @@
             this.contactBox.Size = new System.Drawing.Size(300, 28);
             this.contactBox.TabIndex = 5;
             this.contactBox.TextChanged += new System.EventHandler(this.contactBox_TextChanged);
+            this.contactBox.Enter += new System.EventHandler(this.contactBox_Enter);
+            this.contactBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactBox_KeyPress);
+            this.contactBox.Leave += new System.EventHandler(this.contactBox_Leave);
             // 
             // addressBox
             // 
@@ -118,6 +127,9 @@
             this.addressBox.Size = new System.Drawing.Size(300, 28);
             this.addressBox.TabIndex = 6;
             this.addressBox.TextChanged += new System.EventHandler(this.addressBox_TextChanged);
+            this.addressBox.Enter += new System.EventHandler(this.addressBox_Enter);
+            this.addressBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addressBox_KeyPress);
+            this.addressBox.Leave += new System.EventHandler(this.addressBox_Leave);
             // 
             // emailBox
             // 
@@ -129,6 +141,9 @@
             this.emailBox.Size = new System.Drawing.Size(300, 28);
             this.emailBox.TabIndex = 7;
             this.emailBox.TextChanged += new System.EventHandler(this.emailBox_TextChanged);
+            this.emailBox.Enter += new System.EventHandler(this.emailBox_Enter);
+            this.emailBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.emailBox_KeyPress);
+            this.emailBox.Leave += new System.EventHandler(this.emailBox_Leave);
             // 
             // label2
             // 

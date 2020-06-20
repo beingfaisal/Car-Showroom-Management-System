@@ -15,8 +15,10 @@ namespace CSM_Project
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string mainEmpID;
-        bool isUpdateData = false;
-        bool nameChange, contactChange, pinChange, addressChange, emailChange = false;
+        bool isUpdateData,isNewData = false;
+        bool nameChange, contactChange, pinChange, addressChange, emailChange = false; //validate the change for update
+        bool nameFlag, pinFlag, addressFlag, contactFlag ,emailFlag; //for error checking
+
         empControl.empInfo updateEmp;
        
         public SaleManCtrl()
@@ -26,11 +28,15 @@ namespace CSM_Project
         public SaleManCtrl(string id)
         {
             InitializeComponent();
+            pictureVanish();
+            startChecker();
+            isNewData = true;
             mainEmpID = id;
         }
         public SaleManCtrl(empControl.empInfo emp)
         {
             InitializeComponent();
+            pictureVanish();
             isUpdateData = true;
             updateEmp = emp;
             nameBox.Text = emp.name;
@@ -38,52 +44,95 @@ namespace CSM_Project
             addressBox.Text = emp.address;
             contactBox.Text = emp.contact;
             emailBox.Text = emp.email;
-
         }
+
+        private void startChecker()
+        {
+            if (nameBox.Text == "")   nameFlag = true;
+            if (pinBox.Text == "") pinFlag = true;
+            if (addressBox.Text == "") addressFlag = true;
+            if (contactBox.Text == "") contactFlag = true;
+            if (emailBox.Text == "") emailFlag = true;
+        }
+
+        private void pictureVanish()
+        {
+            nameBoxErrorIcon.Visible = false;
+            pinBoxErrorIcon.Visible = false;
+            addressBoxErrorIcon.Visible = false;
+            contactBoxErrorIcon.Visible = false;
+            emailBoxErrorIcon.Visible = false;
+        }
+
         private void hireBtn_MouseClick_1(object sender, MouseEventArgs e)
         {
-            string name = nameBox.Text;
-            string pin = pinBox.Text;
-            string contact = contactBox.Text;
-            string address = addressBox.Text;
-            string email = emailBox.Text;
+            if (isNewData)
+            {
+                string name = nameBox.Text;
+                string pin = pinBox.Text;
+                string contact = contactBox.Text;
+                string address = addressBox.Text;
+                string email = emailBox.Text;
 
-            if (name == string.Empty || contact == string.Empty || address == string.Empty || email == string.Empty || pin == string.Empty)
-            {
-                
-            }
-            else
-            {
-                con.Open();
-                //this block is used to generate new employee id by getting id from database just the digit part
-                string getEmpIdQuery = "Select max(substring(employee.employee_ID,3,len(EMPLOYEE.EMPLOYEE_ID))) from employee where EMPLOYEE_DESIGNATION = 'Salesman' ";
-                SqlCommand getEmpIdCmd = new SqlCommand(getEmpIdQuery, con);
-                SqlDataAdapter empIdAdapter = new SqlDataAdapter(getEmpIdCmd);
-                DataSet empIdDataSet = new DataSet();
-                empIdAdapter.Fill(empIdDataSet);
-                string id;
-                if ((empIdDataSet.Tables[0].Rows.Count) > 0)
+                if ((nameFlag || contactFlag || pinFlag || addressFlag || emailFlag)  == true)
                 {
-                    id = Convert.ToString(empIdDataSet.Tables[0].Rows[0].ItemArray[0]);
+                    if (nameFlag) nameBoxErrorIcon.Visible = true;
+                    if (pinFlag) pinBoxErrorIcon.Visible = true;
+                    if (addressFlag) addressBoxErrorIcon.Visible = true;
+                    if (contactFlag) contactBoxErrorIcon.Visible = true;
+                    if (emailFlag) emailBoxErrorIcon.Visible = true;
+                    CustomMsgBox.Show("The given input is invalid.\nPlease enter correct information and fill fields to required information.", "OK");
                 }
                 else
                 {
-                    id = string.Empty;
+                    //this block of code will check whether the manufacturer email is valid or not as it is also a unique value
+                    con.Open();
+                    string mEmailCheckQuery = "select * from employee where employee_email = @email";
+                    SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, con);
+                    mEmailCheckCMD.Parameters.AddWithValue("@email", email);
+                    SqlDataAdapter mEmailCheckAdapter = new SqlDataAdapter(mEmailCheckCMD);
+                    DataSet mEmailCheckSet = new DataSet();
+                    mEmailCheckAdapter.Fill(mEmailCheckSet);
+                    con.Close();
+                    if (mEmailCheckSet.Tables[0].Rows.Count == 0)
+                    {
+                        con.Open();
+                        //this block is used to generate new employee id by getting id from database just the digit part
+                        string getEmpIdQuery = "Select max(substring(employee.employee_ID,3,len(EMPLOYEE.EMPLOYEE_ID))) from employee where EMPLOYEE_DESIGNATION = 'Salesman' ";
+                        SqlCommand getEmpIdCmd = new SqlCommand(getEmpIdQuery, con);
+                        SqlDataAdapter empIdAdapter = new SqlDataAdapter(getEmpIdCmd);
+                        DataSet empIdDataSet = new DataSet();
+                        empIdAdapter.Fill(empIdDataSet);
+                        string id;
+                        if ((empIdDataSet.Tables[0].Rows.Count) > 0)
+                        {
+                            id = Convert.ToString(empIdDataSet.Tables[0].Rows[0].ItemArray[0]);
+                        }
+                        else
+                        {
+                            id = string.Empty;
+                        }
+                        string newEmpID = idGenerator(id); //function that generates the Order_ID
+
+                        //this block of code is used to add new employees
+                        string newEmpQuery = "INSERT INTO EMPLOYEE(EMPLOYEE_ID,EMPLOYEE_NAME,EMPLOYEE_PASSWORD,EMPLOYEE_CONTACT,EMPLOYEE_ADDRESS,EMPLOYEE_EMAIL,EMPLOYEE_DESIGNATION,EMPLOYEE_HIREDATE,EMPLOYEE_STATUS,EMPLOYEE_SALES) VALUES(@id,@name,@password,@contact,@address,@email,'Salesman',(CONVERT(DATE, GETDATE())),'Working',0)";
+                        SqlCommand newEmpCmd = new SqlCommand(newEmpQuery, con);
+                        newEmpCmd.Parameters.AddWithValue("@id", newEmpID);
+                        newEmpCmd.Parameters.AddWithValue("@name", name);
+                        newEmpCmd.Parameters.AddWithValue("@contact", contact);
+                        newEmpCmd.Parameters.AddWithValue("@address", address);
+                        newEmpCmd.Parameters.AddWithValue("@email", email);
+                        newEmpCmd.Parameters.AddWithValue("@password", pin);
+                        newEmpCmd.ExecuteNonQuery();
+
+                        con.Close();
+                    }
+                    else
+                    {
+                        CustomMsgBox.Show("The given Email is invalid.\nPlease recheck it", "OK");
+                        emailBoxErrorIcon.Visible = true;
+                    }
                 }
-                string newEmpID = idGenerator(id); //function that generates the Order_ID
-
-                //this block of code is used to add new employees
-                string newEmpQuery = "INSERT INTO EMPLOYEE(EMPLOYEE_ID,EMPLOYEE_NAME,EMPLOYEE_PASSWORD,EMPLOYEE_CONTACT,EMPLOYEE_ADDRESS,EMPLOYEE_EMAIL,EMPLOYEE_DESIGNATION,EMPLOYEE_HIREDATE,EMPLOYEE_STATUS,EMPLOYEE_SALES) VALUES(@id,@name,@password,@contact,@address,@email,'Salesman',(CONVERT(DATE, GETDATE())),'Working',0)";
-                SqlCommand newEmpCmd = new SqlCommand(newEmpQuery, con);
-                newEmpCmd.Parameters.AddWithValue("@id", newEmpID);
-                newEmpCmd.Parameters.AddWithValue("@name", name);
-                newEmpCmd.Parameters.AddWithValue("@contact", contact);
-                newEmpCmd.Parameters.AddWithValue("@address", address);
-                newEmpCmd.Parameters.AddWithValue("@email", email);
-                newEmpCmd.Parameters.AddWithValue("@password", pin);
-                newEmpCmd.ExecuteNonQuery();
-
-                con.Close();
             }
         }
 
@@ -92,7 +141,6 @@ namespace CSM_Project
         {
             if (isUpdateData)
             {
-                
                 if (nameChange || pinChange || addressChange || contactChange || emailChange)
                 {
                     string name = nameBox.Text;
@@ -102,19 +150,39 @@ namespace CSM_Project
                     string email = emailBox.Text;
                     string employeeId = updateEmp.id;
 
+                    //this block of code will check whether the manufacturer email is valid or not as it is also a unique value
                     con.Open();
-                    string updateEmpQuery = "Update employee set EMPLOYEE_Name = @newName, EMPLOYEE_Password = @newPin, EMPLOYEE_Contact = @newContact, EMPLOYEE_Address = @newAddress, EMPLOYEE_Email = @newEmail  where EMPLOYEE_ID = @updateId";
-                    SqlCommand updateEmpCMD = new SqlCommand(updateEmpQuery, con);
-                    updateEmpCMD.Parameters.AddWithValue("@newName", name);
-                    updateEmpCMD.Parameters.AddWithValue("@newPin", pin);
-                    updateEmpCMD.Parameters.AddWithValue("@newContact", contact);
-                    updateEmpCMD.Parameters.AddWithValue("@newAddress", address);
-                    updateEmpCMD.Parameters.AddWithValue("@newEmail", email);
-                    updateEmpCMD.Parameters.AddWithValue("@updateId", employeeId);
-                    updateEmpCMD.ExecuteNonQuery();
+                    string mEmailCheckQuery = "select * from employee where employee_email = @email and employee_id <> @id";
+                    SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, con);
+                    mEmailCheckCMD.Parameters.AddWithValue("@email", email);
+                    mEmailCheckCMD.Parameters.AddWithValue("@id", employeeId);
+                    SqlDataAdapter mEmailCheckAdapter = new SqlDataAdapter(mEmailCheckCMD);
+                    DataSet mEmailCheckSet = new DataSet();
+                    mEmailCheckAdapter.Fill(mEmailCheckSet);
                     con.Close();
-                    
-                    
+                    if (mEmailCheckSet.Tables[0].Rows.Count == 0)
+                    {
+
+                        con.Open();
+                        string updateEmpQuery = "Update employee set EMPLOYEE_Name = @newName, EMPLOYEE_Password = @newPin, EMPLOYEE_Contact = @newContact, EMPLOYEE_Address = @newAddress, EMPLOYEE_Email = @newEmail  where EMPLOYEE_ID = @updateId";
+                        SqlCommand updateEmpCMD = new SqlCommand(updateEmpQuery, con);
+                        updateEmpCMD.Parameters.AddWithValue("@newName", name);
+                        updateEmpCMD.Parameters.AddWithValue("@newPin", pin);
+                        updateEmpCMD.Parameters.AddWithValue("@newContact", contact);
+                        updateEmpCMD.Parameters.AddWithValue("@newAddress", address);
+                        updateEmpCMD.Parameters.AddWithValue("@newEmail", email);
+                        updateEmpCMD.Parameters.AddWithValue("@updateId", employeeId);
+                        updateEmpCMD.ExecuteNonQuery();
+                        con.Close();
+
+                        MessageBox.Show("Success");
+                        nameBox.Text = contactBox.Text = pinBox.Text = addressBox.Text = contactBox.Text = emailBox.Text = "";
+                    }
+                    else
+                    {
+                        CustomMsgBox.Show("The given Email is invalid.\nPlease recheck it", "OK");
+                        emailBoxErrorIcon.Visible = true;
+                    }
                 }
                 else
                 {
@@ -130,26 +198,23 @@ namespace CSM_Project
             this.Hide();
         }
 
+        //checking whether the user has updated data or not
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
             nameChange = true;
         }
-
         private void contactBox_TextChanged(object sender, EventArgs e)
         {
             contactChange = true;
         }
-
         private void pinBox_TextChanged(object sender, EventArgs e)
         {
             pinChange = true;
         }
-
         private void addressBox_TextChanged(object sender, EventArgs e)
         {
             addressChange = true;
         }
-
         private void emailBox_TextChanged(object sender, EventArgs e)
         {
             emailChange = true;
@@ -161,7 +226,200 @@ namespace CSM_Project
         }
 
        
+        // This Block Contains the code for when does the focus comes into the textboxes
+        private void nameBox_Enter(object sender, EventArgs e)
+        {
+            nameBoxErrorIcon.Visible = false;
+            nameBox.BorderStyle = BorderStyle.None;
+            nameBox.BackColor = Color.FromArgb(77, 74, 82);
+            nameBox.ForeColor = Color.White;
+        }
+        private void nameBox_Leave(object sender, EventArgs e)
+        {
+            if (nameBox.Text == "")
+            {
+                nameBoxErrorIcon.Visible = true;
+                nameFlag = true;
+            }
+            else
+            {
+                nameBoxErrorIcon.Visible = false;
+                nameFlag = false;
+            }
+            nameBoxErrorIcon.BackColor = Color.Transparent;
+            nameBox.BorderStyle = BorderStyle.Fixed3D;
+            nameBox.BackColor = Color.White;
+            nameBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
 
+        private void pinBox_Enter(object sender, EventArgs e)
+        {
+            pinBoxErrorIcon.Visible = false;
+            pinBox.BorderStyle = BorderStyle.None;
+            pinBox.BackColor = Color.FromArgb(77, 74, 82);
+            pinBox.ForeColor = Color.White;
+        }
+        private void pinBox_Leave(object sender, EventArgs e)
+        {
+            if (pinBox.Text == "")
+            {
+                pinBoxErrorIcon.Visible = true;
+                pinFlag = true;
+            }
+            else 
+            {
+                pinBoxErrorIcon.Visible = false;
+                pinFlag = false;
+            }
+            pinBoxErrorIcon.BackColor = Color.Transparent;
+            pinBox.BorderStyle = BorderStyle.Fixed3D;
+            pinBox.BackColor = Color.White;
+            pinBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void addressBox_Enter(object sender, EventArgs e)
+        {
+            addressBoxErrorIcon.Visible = false;
+            addressBox.BorderStyle = BorderStyle.None;
+            addressBox.BackColor = Color.FromArgb(77, 74, 82);
+            addressBox.ForeColor = Color.White;
+        }
+        private void addressBox_Leave(object sender, EventArgs e)
+        {
+            if (addressBox.Text == "")
+            {
+                addressBoxErrorIcon.Visible = true;
+                addressFlag = true;
+            }
+            else
+            {
+                addressBoxErrorIcon.Visible = false;
+                addressFlag = false;
+            }
+            addressBoxErrorIcon.BackColor = Color.Transparent;
+            addressBox.BorderStyle = BorderStyle.Fixed3D;
+            addressBox.BackColor = Color.White;
+            addressBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+        
+        private void contactBox_Enter(object sender, EventArgs e)
+        {
+            contactBoxErrorIcon.Visible = false;
+            contactBox.BorderStyle = BorderStyle.None;
+            contactBox.BackColor = Color.FromArgb(77, 74, 82);
+            contactBox.ForeColor = Color.White;
+        }
+        private void contactBox_Leave(object sender, EventArgs e)
+        {
+            if ((contactBox.Text == "") || ((contactBox.Text.Length) != 11))
+            {
+                contactBoxErrorIcon.Visible = true;
+                contactFlag = true;
+            }
+            else if (contactBox.Text.Length == 11)
+            {
+                contactBoxErrorIcon.Visible = false;
+                contactFlag = false;
+            }
+            contactBoxErrorIcon.BackColor = Color.Transparent;
+            contactBox.BorderStyle = BorderStyle.Fixed3D;
+            contactBox.BackColor = Color.White;
+            contactBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+        
+        private void emailBox_Enter(object sender, EventArgs e)
+        {
+            emailBoxErrorIcon.Visible = false;
+            emailBox.BorderStyle = BorderStyle.None;
+            emailBox.BackColor = Color.FromArgb(77, 74, 82);
+            emailBox.ForeColor = Color.White;
+        }
+        private void emailBox_Leave(object sender, EventArgs e)
+        {
+            if (emailBox.Text == "")
+            {
+                emailBoxErrorIcon.Visible = true;
+                emailFlag = true;
+            }
+            else
+            {
+                emailBoxErrorIcon.Visible = false;
+                emailFlag = false;
+            }
+            emailBoxErrorIcon.BackColor = Color.Transparent;
+            emailBox.BorderStyle = BorderStyle.Fixed3D;
+            emailBox.BackColor = Color.White;
+            emailBox.ForeColor = Color.FromArgb(77, 74, 82);
+        }
+
+
+        //validating input of textboxes
+        private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        private void contactBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        private void addressBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || (e.KeyChar == '/')
+                || (e.KeyChar == '#') || (e.KeyChar == ',') || char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+
+        }
+        private void pinBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        private void emailBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsLetterOrDigit(e.KeyChar) || (e.KeyChar == '@')
+                || (e.KeyChar == '.'))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                CustomMsgBox.Show("Input Incorrect.\nPlease Input in the way shown below each text field.", "OK");
+                e.Handled = true;
+            }
+        }
+        
+        
+        
         private string idGenerator(string id)
         {
             string digits, letters;

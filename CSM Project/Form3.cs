@@ -39,19 +39,57 @@ namespace CSM_Project
             this.Hide();
         }
 
-        private void SmmBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            new empControl(empId).Show();
-            this.Hide();
-
-        }
-
-        private void carCtrlBtn_MouseClick(object sender, MouseEventArgs e)
+    
+        private void carCtrlPanel_MouseClick(object sender, MouseEventArgs e)
         {
             new SMMenu(empId).Show();
             this.Hide();
         }
 
-       
+        private void empCtrlPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            new empControl(empId).Show();
+            this.Hide();
+        }
+
+        private void carCtrlPanel_MouseEnter(object sender, EventArgs e)
+        {
+            carCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void carCtrlPanel_MouseLeave(object sender, EventArgs e)
+        {
+            carCtrlPanel.BackColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void empCtrlPanel_MouseEnter(object sender, EventArgs e)
+        {
+            empCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void empCtrlPanel_MouseLeave(object sender, EventArgs e)
+        {
+            empCtrlPanel.BackColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void salesCtrlPanel_MouseEnter(object sender, EventArgs e)
+        {
+            salesCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void salesCtrlPanel_MouseLeave(object sender, EventArgs e)
+        {
+            salesCtrlPanel.BackColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void accountCtrlPanel_MouseEnter(object sender, EventArgs e)
+        {
+            accountCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+        }
+
+        private void accountCtrlPanel_MouseLeave(object sender, EventArgs e)
+        {
+            accountCtrlPanel.BackColor = Color.FromArgb(77, 74, 82);
+        }
     }
 }

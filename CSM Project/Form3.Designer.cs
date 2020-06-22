@@ -29,72 +29,46 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manager_Menu));
-            this.SmmBtn = new System.Windows.Forms.Button();
-            this.carCtrlBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.hireEmpPanel = new System.Windows.Forms.Panel();
+            this.carCtrlPanel = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.empCtrlPanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.salesCtrlPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.accountCtrlPanel = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.hireEmpPanel.SuspendLayout();
+            this.carCtrlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.empCtrlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.salesCtrlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.accountCtrlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // SmmBtn
-            // 
-            this.SmmBtn.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SmmBtn.Location = new System.Drawing.Point(12, 393);
-            this.SmmBtn.Name = "SmmBtn";
-            this.SmmBtn.Size = new System.Drawing.Size(102, 45);
-            this.SmmBtn.TabIndex = 10;
-            this.SmmBtn.Text = "Salesman";
-            this.SmmBtn.UseVisualStyleBackColor = true;
-            this.SmmBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SmmBtn_MouseClick);
-            // 
-            // carCtrlBtn
-            // 
-            this.carCtrlBtn.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carCtrlBtn.Location = new System.Drawing.Point(12, 342);
-            this.carCtrlBtn.Name = "carCtrlBtn";
-            this.carCtrlBtn.Size = new System.Drawing.Size(99, 45);
-            this.carCtrlBtn.TabIndex = 11;
-            this.carCtrlBtn.Text = "Cars";
-            this.carCtrlBtn.UseVisualStyleBackColor = true;
-            this.carCtrlBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.carCtrlBtn_MouseClick);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.panel4.Controls.Add(this.backBtn);
             this.panel4.Controls.Add(this.exitBtn);
-            this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.pictureBox7);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(838, 83);
+            this.panel4.Size = new System.Drawing.Size(830, 83);
             this.panel4.TabIndex = 40;
             // 
             // backBtn
@@ -121,7 +95,7 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.Red;
-            this.exitBtn.Location = new System.Drawing.Point(792, 0);
+            this.exitBtn.Location = new System.Drawing.Point(784, 0);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(46, 40);
             this.exitBtn.TabIndex = 37;
@@ -129,22 +103,11 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.exitBtn_MouseClick);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(350, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 24);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Management System";
-            // 
             // pictureBox7
             // 
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Location = new System.Drawing.Point(176, 0);
+            this.pictureBox7.Location = new System.Drawing.Point(238, 3);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 72);
             this.pictureBox7.TabIndex = 27;
@@ -155,22 +118,25 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(299, 9);
+            this.label4.Location = new System.Drawing.Point(354, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(316, 33);
+            this.label4.Size = new System.Drawing.Size(228, 33);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Automobile Showroom \r\n";
+            this.label4.Text = "Manager\'s Menu";
             // 
-            // hireEmpPanel
+            // carCtrlPanel
             // 
-            this.hireEmpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.hireEmpPanel.Controls.Add(this.pictureBox6);
-            this.hireEmpPanel.Controls.Add(this.label9);
-            this.hireEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hireEmpPanel.Location = new System.Drawing.Point(443, 103);
-            this.hireEmpPanel.Name = "hireEmpPanel";
-            this.hireEmpPanel.Size = new System.Drawing.Size(225, 211);
-            this.hireEmpPanel.TabIndex = 41;
+            this.carCtrlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.carCtrlPanel.Controls.Add(this.pictureBox6);
+            this.carCtrlPanel.Controls.Add(this.label9);
+            this.carCtrlPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.carCtrlPanel.Location = new System.Drawing.Point(434, 114);
+            this.carCtrlPanel.Name = "carCtrlPanel";
+            this.carCtrlPanel.Size = new System.Drawing.Size(225, 211);
+            this.carCtrlPanel.TabIndex = 41;
+            this.carCtrlPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.carCtrlPanel_MouseClick);
+            this.carCtrlPanel.MouseEnter += new System.EventHandler(this.carCtrlPanel_MouseEnter);
+            this.carCtrlPanel.MouseLeave += new System.EventHandler(this.carCtrlPanel_MouseLeave);
             // 
             // pictureBox6
             // 
@@ -195,17 +161,23 @@
             this.label9.TabIndex = 30;
             this.label9.Text = "Control Car Records";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.carCtrlPanel_MouseClick);
+            this.label9.MouseEnter += new System.EventHandler(this.carCtrlPanel_MouseEnter);
+            this.label9.MouseLeave += new System.EventHandler(this.carCtrlPanel_MouseLeave);
             // 
-            // panel2
+            // empCtrlPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(176, 103);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(225, 211);
-            this.panel2.TabIndex = 42;
+            this.empCtrlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.empCtrlPanel.Controls.Add(this.pictureBox2);
+            this.empCtrlPanel.Controls.Add(this.label2);
+            this.empCtrlPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.empCtrlPanel.Location = new System.Drawing.Point(167, 114);
+            this.empCtrlPanel.Name = "empCtrlPanel";
+            this.empCtrlPanel.Size = new System.Drawing.Size(225, 211);
+            this.empCtrlPanel.TabIndex = 42;
+            this.empCtrlPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.empCtrlPanel_MouseClick);
+            this.empCtrlPanel.MouseEnter += new System.EventHandler(this.empCtrlPanel_MouseEnter);
+            this.empCtrlPanel.MouseLeave += new System.EventHandler(this.empCtrlPanel_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -230,17 +202,22 @@
             this.label2.TabIndex = 30;
             this.label2.Text = "Control Employee";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.empCtrlPanel_MouseClick);
+            this.label2.MouseEnter += new System.EventHandler(this.empCtrlPanel_MouseEnter);
+            this.label2.MouseLeave += new System.EventHandler(this.empCtrlPanel_MouseLeave);
             // 
-            // panel1
+            // salesCtrlPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel1.Location = new System.Drawing.Point(176, 342);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(225, 211);
-            this.panel1.TabIndex = 43;
+            this.salesCtrlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.salesCtrlPanel.Controls.Add(this.pictureBox1);
+            this.salesCtrlPanel.Controls.Add(this.label1);
+            this.salesCtrlPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.salesCtrlPanel.Location = new System.Drawing.Point(167, 353);
+            this.salesCtrlPanel.Name = "salesCtrlPanel";
+            this.salesCtrlPanel.Size = new System.Drawing.Size(225, 211);
+            this.salesCtrlPanel.TabIndex = 43;
+            this.salesCtrlPanel.MouseEnter += new System.EventHandler(this.salesCtrlPanel_MouseEnter);
+            this.salesCtrlPanel.MouseLeave += new System.EventHandler(this.salesCtrlPanel_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -265,26 +242,30 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Sales & Purchase";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseEnter += new System.EventHandler(this.salesCtrlPanel_MouseEnter);
+            this.label1.MouseLeave += new System.EventHandler(this.salesCtrlPanel_MouseLeave);
             // 
-            // panel3
+            // accountCtrlPanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel3.Location = new System.Drawing.Point(443, 342);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 211);
-            this.panel3.TabIndex = 44;
+            this.accountCtrlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.accountCtrlPanel.Controls.Add(this.pictureBox3);
+            this.accountCtrlPanel.Controls.Add(this.label5);
+            this.accountCtrlPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.accountCtrlPanel.Location = new System.Drawing.Point(434, 353);
+            this.accountCtrlPanel.Name = "accountCtrlPanel";
+            this.accountCtrlPanel.Size = new System.Drawing.Size(225, 211);
+            this.accountCtrlPanel.TabIndex = 44;
+            this.accountCtrlPanel.MouseEnter += new System.EventHandler(this.accountCtrlPanel_MouseEnter);
+            this.accountCtrlPanel.MouseLeave += new System.EventHandler(this.accountCtrlPanel_MouseLeave);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Enabled = false;
-            this.pictureBox3.Location = new System.Drawing.Point(22, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(33, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(183, 139);
+            this.pictureBox3.Size = new System.Drawing.Size(172, 155);
             this.pictureBox3.TabIndex = 29;
             this.pictureBox3.TabStop = false;
             // 
@@ -294,26 +275,26 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Verdana", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(59, 154);
+            this.label5.Location = new System.Drawing.Point(69, 161);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 53);
+            this.label5.Size = new System.Drawing.Size(103, 46);
             this.label5.TabIndex = 30;
             this.label5.Text = "Account";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.MouseEnter += new System.EventHandler(this.accountCtrlPanel_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.accountCtrlPanel_MouseLeave);
             // 
             // Manager_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(838, 596);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.hireEmpPanel);
+            this.ClientSize = new System.Drawing.Size(830, 596);
+            this.Controls.Add(this.accountCtrlPanel);
+            this.Controls.Add(this.salesCtrlPanel);
+            this.Controls.Add(this.empCtrlPanel);
+            this.Controls.Add(this.carCtrlPanel);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.carCtrlBtn);
-            this.Controls.Add(this.SmmBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Manager_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -321,37 +302,34 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.hireEmpPanel.ResumeLayout(false);
+            this.carCtrlPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.empCtrlPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.salesCtrlPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
+            this.accountCtrlPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button SmmBtn;
-        private System.Windows.Forms.Button carCtrlBtn;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Panel hireEmpPanel;
+        private System.Windows.Forms.Panel carCtrlPanel;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel empCtrlPanel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel salesCtrlPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel accountCtrlPanel;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label5;
     }

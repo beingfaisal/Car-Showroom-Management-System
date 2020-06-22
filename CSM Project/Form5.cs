@@ -455,9 +455,14 @@ namespace CSM_Project
             exitBtn.BackColor = Color.White;
             exitBtn.ForeColor = Color.Red;
         }
-        private void exitBtn_MouseClick(object sender, MouseEventArgs e)
+
+        private void backBtn_MouseEnter(object sender, EventArgs e)
         {
-            Application.Exit();
+            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+        }
+        private void backBtn_MouseLeave(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.Transparent;
         }
         private string idGenerator(string id)
         {

@@ -42,7 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.updateBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -229,7 +229,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.exitBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -239,20 +239,22 @@
             this.panel1.Size = new System.Drawing.Size(883, 79);
             this.panel1.TabIndex = 42;
             // 
-            // button1
+            // backBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 79);
-            this.button1.TabIndex = 41;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Location = new System.Drawing.Point(0, 0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(87, 79);
+            this.backBtn.TabIndex = 41;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
+            this.backBtn.MouseEnter += new System.EventHandler(this.backBtn_MouseEnter);
+            this.backBtn.MouseLeave += new System.EventHandler(this.backBtn_MouseLeave);
             // 
             // exitBtn
             // 
@@ -464,7 +466,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;

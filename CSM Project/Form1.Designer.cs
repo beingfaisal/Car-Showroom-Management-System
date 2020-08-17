@@ -40,6 +40,10 @@
             this.nameErrorIcon = new System.Windows.Forms.PictureBox();
             this.pinErrorIcon = new System.Windows.Forms.PictureBox();
             this.circularPictureBox1 = new CSM_Project.CircularPictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lockImage)).BeginInit();
             this.pinPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage)).BeginInit();
@@ -47,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nameErrorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pinErrorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // exitBtn
@@ -58,7 +63,7 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1065, 0);
+            this.exitBtn.Location = new System.Drawing.Point(550, 0);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(46, 40);
             this.exitBtn.TabIndex = 6;
@@ -100,7 +105,7 @@
             this.pinPnl.Controls.Add(this.pinErrorIcon);
             this.pinPnl.Controls.Add(this.lockImage);
             this.pinPnl.Controls.Add(this.pinBox);
-            this.pinPnl.Location = new System.Drawing.Point(728, 378);
+            this.pinPnl.Location = new System.Drawing.Point(152, 337);
             this.pinPnl.Name = "pinPnl";
             this.pinPnl.Size = new System.Drawing.Size(290, 48);
             this.pinPnl.TabIndex = 37;
@@ -138,7 +143,7 @@
             this.namePnl.Controls.Add(this.nameErrorIcon);
             this.namePnl.Controls.Add(this.userImage);
             this.namePnl.Controls.Add(this.nameBox);
-            this.namePnl.Location = new System.Drawing.Point(728, 311);
+            this.namePnl.Location = new System.Drawing.Point(152, 270);
             this.namePnl.Name = "namePnl";
             this.namePnl.Size = new System.Drawing.Size(290, 48);
             this.namePnl.TabIndex = 36;
@@ -150,7 +155,7 @@
             this.logBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logBtn.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logBtn.ForeColor = System.Drawing.Color.Black;
-            this.logBtn.Location = new System.Drawing.Point(828, 471);
+            this.logBtn.Location = new System.Drawing.Point(253, 430);
             this.logBtn.Name = "logBtn";
             this.logBtn.Size = new System.Drawing.Size(89, 40);
             this.logBtn.TabIndex = 38;
@@ -188,20 +193,68 @@
             this.circularPictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
             this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.circularPictureBox1.Location = new System.Drawing.Point(795, 91);
+            this.circularPictureBox1.Location = new System.Drawing.Point(222, 73);
             this.circularPictureBox1.Name = "circularPictureBox1";
             this.circularPictureBox1.Size = new System.Drawing.Size(150, 150);
             this.circularPictureBox1.TabIndex = 40;
             this.circularPictureBox1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 60);
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(79, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 25);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Car Showroom";
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(59, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 25);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Management System";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(253, 226);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 32);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Sign In";
             // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1111, 653);
+            this.ClientSize = new System.Drawing.Size(596, 554);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.circularPictureBox1);
             this.Controls.Add(this.logBtn);
             this.Controls.Add(this.namePnl);
@@ -220,7 +273,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nameErrorIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pinErrorIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -236,6 +291,10 @@
         private System.Windows.Forms.Button logBtn;
         private System.Windows.Forms.PictureBox pinErrorIcon;
         private System.Windows.Forms.PictureBox nameErrorIcon;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

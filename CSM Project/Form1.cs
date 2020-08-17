@@ -140,8 +140,8 @@ namespace CSM_Project
             else
             {
                 LblVisible();
-                nameBox.Text = "";
-                pinBox.Text = "";
+                if(pinBox.Text != "Password")
+                    pinBox.Text = "";
             }
 
             con.Close();
@@ -150,19 +150,21 @@ namespace CSM_Project
 
         private void LblVisible()
         {
-            userLbl.Visible = true;
-            pinLbl.Visible = true;
-            label2.Visible = true;
-            label3.Visible = true;
+            nameErrorIcon.Visible = true;
+            pinErrorIcon.Visible = true;
             userImage.BackColor = Color.Red;
             lockImage.BackColor = Color.Red;
+            CustomMsgBox.Show("Wrong Name/Password. \nPlease Recheck it immediately", "OK");
         }
         private void LblVanish()
         {
-            userLbl.Visible = false;
-            pinLbl.Visible = false;
-            label2.Visible = false;
-            label3.Visible = false;
+            nameErrorIcon.Visible = false;
+            pinErrorIcon.Visible = false;
+        }
+
+        private void pinErrorIcon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

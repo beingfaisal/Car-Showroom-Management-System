@@ -46,7 +46,7 @@ namespace CSM_Project
             bool isFired = false;
             DateTime fireDate = default(DateTime);
             con.Open();
-            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman'", con);
+            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' order by employee_designation", con);
             SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
             DataSet empDataset = new DataSet();
             empAdapter.Fill(empDataset);
@@ -209,135 +209,135 @@ namespace CSM_Project
 
 
 
-        private void viewHiredPanel_MouseEnter(object sender, EventArgs e)
-        {
-            viewHiredPanel.BackColor = Color.FromArgb(64, 64, 64);
-        }
-        private void viewHiredPanel_MouseLeave(object sender, EventArgs e)
-        {
-            viewHiredPanel.BackColor = Color.Transparent;
-        }
-        private void viewHiredPanel_MouseClick(object sender, MouseEventArgs e)
-        {
-            bool isFired = false;
-            DateTime fireDate = default(DateTime);
-            con.Open();
-            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'working'", con);
-            SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
-            DataSet empDataset = new DataSet();
-            empAdapter.Fill(empDataset);
+        //private void viewHiredPanel_MouseEnter(object sender, EventArgs e)
+        //{
+        //    viewHiredPanel.BackColor = Color.FromArgb(64, 64, 64);
+        //}
+        //private void viewHiredPanel_MouseLeave(object sender, EventArgs e)
+        //{
+        //    viewHiredPanel.BackColor = Color.Transparent;
+        //}
+        //private void viewHiredPanel_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //    bool isFired = false;
+        //    DateTime fireDate = default(DateTime);
+        //    con.Open();
+        //    SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'working'", con);
+        //    SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
+        //    DataSet empDataset = new DataSet();
+        //    empAdapter.Fill(empDataset);
 
-            empGrid.Rows.Clear();
-            for (int i = 0; i < (empDataset.Tables[0].Rows.Count); i++)
-            {
-                string id = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[0]);
-                string name = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[1]);
-                string pin = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[2]);
-                string contact = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[3]);
-                string address = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[4]);
-                string email = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[5]);
-                string designation = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[6]);
-                string hire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[7]);
-                string fire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[8]);
-                string status = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[9]);
-                string sales = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[10]);
+        //    empGrid.Rows.Clear();
+        //    for (int i = 0; i < (empDataset.Tables[0].Rows.Count); i++)
+        //    {
+        //        string id = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[0]);
+        //        string name = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[1]);
+        //        string pin = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[2]);
+        //        string contact = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[3]);
+        //        string address = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[4]);
+        //        string email = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[5]);
+        //        string designation = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[6]);
+        //        string hire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[7]);
+        //        string fire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[8]);
+        //        string status = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[9]);
+        //        string sales = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[10]);
 
-                DateTime hireDate = (Convert.ToDateTime(hire)).Date;
-                if (fire == string.Empty)
-                {
-                    isFired = false;
-                    fire = "---";
-                }
-                else
-                {
-                    isFired = true;
-                    fireDate = (Convert.ToDateTime(fire)).Date;
-                }
+        //        DateTime hireDate = (Convert.ToDateTime(hire)).Date;
+        //        if (fire == string.Empty)
+        //        {
+        //            isFired = false;
+        //            fire = "---";
+        //        }
+        //        else
+        //        {
+        //            isFired = true;
+        //            fireDate = (Convert.ToDateTime(fire)).Date;
+        //        }
 
-                DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(empGrid);
-                pushData.Cells[0].Value = id;
-                pushData.Cells[1].Value = name;
-                pushData.Cells[2].Value = pin;
-                pushData.Cells[3].Value = contact;
-                pushData.Cells[4].Value = address;
-                pushData.Cells[5].Value = email;
-                pushData.Cells[6].Value = hireDate;
-                if (isFired) pushData.Cells[7].Value = fireDate;
-                else pushData.Cells[7].Value = fire;
-                pushData.Cells[8].Value = status;
-                pushData.Cells[9].Value = sales;
-                empGrid.Rows.Add(pushData);
+        //        DataGridViewRow pushData = new DataGridViewRow();
+        //        pushData.CreateCells(empGrid);
+        //        pushData.Cells[0].Value = id;
+        //        pushData.Cells[1].Value = name;
+        //        pushData.Cells[2].Value = pin;
+        //        pushData.Cells[3].Value = contact;
+        //        pushData.Cells[4].Value = address;
+        //        pushData.Cells[5].Value = email;
+        //        pushData.Cells[6].Value = hireDate;
+        //        if (isFired) pushData.Cells[7].Value = fireDate;
+        //        else pushData.Cells[7].Value = fire;
+        //        pushData.Cells[8].Value = status;
+        //        pushData.Cells[9].Value = sales;
+        //        empGrid.Rows.Add(pushData);
 
-            }
-            con.Close();
-        }
-
-
+        //    }
+        //    con.Close();
+        //}
 
 
-        private void viewFiredPanel_MouseEnter(object sender, EventArgs e)
-        {
-            viewFiredPanel.BackColor = Color.FromArgb(64, 64, 64);
-        }
-        private void viewFiredPanel_MouseLeave(object sender, EventArgs e)
-        {
-            viewFiredPanel.BackColor = Color.Transparent;
-        }
-        private void viewFiredPanel_MouseClick(object sender, MouseEventArgs e)
-        {
-            bool isFired = false;
-            DateTime fireDate = default(DateTime);
-            con.Open();
-            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'fired'", con);
-            SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
-            DataSet empDataset = new DataSet();
-            empAdapter.Fill(empDataset);
 
-            empGrid.Rows.Clear();
-            for (int i = 0; i < (empDataset.Tables[0].Rows.Count); i++)
-            {
-                string id = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[0]);
-                string name = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[1]);
-                string pin = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[2]);
-                string contact = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[3]);
-                string address = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[4]);
-                string email = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[5]);
-                string designation = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[6]);
-                string hire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[7]);
-                string fire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[8]);
-                string status = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[9]);
-                string sales = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[10]);
 
-                DateTime hireDate = (Convert.ToDateTime(hire)).Date;
-                if (fire == string.Empty)
-                {
-                    isFired = false;
-                    fire = "---";
-                }
-                else
-                {
-                    isFired = true;
-                    fireDate = (Convert.ToDateTime(fire)).Date;
-                }
-                DataGridViewRow pushData = new DataGridViewRow();
-                pushData.CreateCells(empGrid);
-                pushData.Cells[0].Value = id;
-                pushData.Cells[1].Value = name;
-                pushData.Cells[2].Value = pin;
-                pushData.Cells[3].Value = contact;
-                pushData.Cells[4].Value = address;
-                pushData.Cells[5].Value = email;
-                pushData.Cells[6].Value = hireDate;
-                if(isFired) pushData.Cells[7].Value = fireDate;
-                else pushData.Cells[7].Value = fire;
-                pushData.Cells[8].Value = status;
-                pushData.Cells[9].Value = sales;
-                empGrid.Rows.Add(pushData);
+        //private void viewFiredPanel_MouseEnter(object sender, EventArgs e)
+        //{
+        //    viewFiredPanel.BackColor = Color.FromArgb(64, 64, 64);
+        //}
+        //private void viewFiredPanel_MouseLeave(object sender, EventArgs e)
+        //{
+        //    viewFiredPanel.BackColor = Color.Transparent;
+        //}
+        //private void viewFiredPanel_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //    bool isFired = false;
+        //    DateTime fireDate = default(DateTime);
+        //    con.Open();
+        //    SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' and employee_status = 'fired'", con);
+        //    SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
+        //    DataSet empDataset = new DataSet();
+        //    empAdapter.Fill(empDataset);
 
-            }
-            con.Close();
-        }
+        //    empGrid.Rows.Clear();
+        //    for (int i = 0; i < (empDataset.Tables[0].Rows.Count); i++)
+        //    {
+        //        string id = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[0]);
+        //        string name = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[1]);
+        //        string pin = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[2]);
+        //        string contact = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[3]);
+        //        string address = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[4]);
+        //        string email = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[5]);
+        //        string designation = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[6]);
+        //        string hire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[7]);
+        //        string fire = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[8]);
+        //        string status = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[9]);
+        //        string sales = Convert.ToString(empDataset.Tables[0].Rows[i].ItemArray[10]);
+
+        //        DateTime hireDate = (Convert.ToDateTime(hire)).Date;
+        //        if (fire == string.Empty)
+        //        {
+        //            isFired = false;
+        //            fire = "---";
+        //        }
+        //        else
+        //        {
+        //            isFired = true;
+        //            fireDate = (Convert.ToDateTime(fire)).Date;
+        //        }
+        //        DataGridViewRow pushData = new DataGridViewRow();
+        //        pushData.CreateCells(empGrid);
+        //        pushData.Cells[0].Value = id;
+        //        pushData.Cells[1].Value = name;
+        //        pushData.Cells[2].Value = pin;
+        //        pushData.Cells[3].Value = contact;
+        //        pushData.Cells[4].Value = address;
+        //        pushData.Cells[5].Value = email;
+        //        pushData.Cells[6].Value = hireDate;
+        //        if(isFired) pushData.Cells[7].Value = fireDate;
+        //        else pushData.Cells[7].Value = fire;
+        //        pushData.Cells[8].Value = status;
+        //        pushData.Cells[9].Value = sales;
+        //        empGrid.Rows.Add(pushData);
+
+        //    }
+        //    con.Close();
+        //}
 
 
 
@@ -387,6 +387,36 @@ namespace CSM_Project
         private void rehireEmpPanel_MouseClick(object sender, MouseEventArgs e)
         {
             rehireEmp();
+        }
+
+        private void viewHiredPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void viewHiredPanel_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewHiredPanel_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewFiredPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void viewFiredPanel_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewFiredPanel_MouseLeave(object sender, EventArgs e)
+        {
+
         }
     }
 }

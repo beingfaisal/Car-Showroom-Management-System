@@ -29,15 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(empControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.viewFiredPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.viewHiredPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backBtn = new System.Windows.Forms.Button();
             this.firEmpPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -71,10 +65,6 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            this.viewFiredPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.viewHiredPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.firEmpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.hireEmpPanel.SuspendLayout();
@@ -92,8 +82,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.panel1.Controls.Add(this.viewFiredPanel);
-            this.panel1.Controls.Add(this.viewHiredPanel);
             this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.firEmpPanel);
             this.panel1.Controls.Add(this.hireEmpPanel);
@@ -105,86 +93,6 @@
             this.panel1.Size = new System.Drawing.Size(200, 563);
             this.panel1.TabIndex = 38;
             // 
-            // viewFiredPanel
-            // 
-            this.viewFiredPanel.BackColor = System.Drawing.Color.Transparent;
-            this.viewFiredPanel.Controls.Add(this.label2);
-            this.viewFiredPanel.Controls.Add(this.pictureBox2);
-            this.viewFiredPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.viewFiredPanel.Location = new System.Drawing.Point(3, 465);
-            this.viewFiredPanel.Name = "viewFiredPanel";
-            this.viewFiredPanel.Size = new System.Drawing.Size(197, 75);
-            this.viewFiredPanel.TabIndex = 36;
-            this.viewFiredPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewFiredPanel_MouseClick);
-            this.viewFiredPanel.MouseEnter += new System.EventHandler(this.viewFiredPanel_MouseEnter);
-            this.viewFiredPanel.MouseLeave += new System.EventHandler(this.viewFiredPanel_MouseLeave);
-            // 
-            // label2
-            // 
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(87, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 43);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "View Fired Employee";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewFiredPanel_MouseClick);
-            this.label2.MouseEnter += new System.EventHandler(this.viewFiredPanel_MouseEnter);
-            this.label2.MouseLeave += new System.EventHandler(this.viewFiredPanel_MouseLeave);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Enabled = false;
-            this.pictureBox2.Location = new System.Drawing.Point(17, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 55);
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // viewHiredPanel
-            // 
-            this.viewHiredPanel.BackColor = System.Drawing.Color.Transparent;
-            this.viewHiredPanel.Controls.Add(this.label1);
-            this.viewHiredPanel.Controls.Add(this.pictureBox1);
-            this.viewHiredPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.viewHiredPanel.Location = new System.Drawing.Point(3, 390);
-            this.viewHiredPanel.Name = "viewHiredPanel";
-            this.viewHiredPanel.Size = new System.Drawing.Size(197, 75);
-            this.viewHiredPanel.TabIndex = 35;
-            this.viewHiredPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewHiredPanel_MouseClick);
-            this.viewHiredPanel.MouseEnter += new System.EventHandler(this.viewHiredPanel_MouseEnter);
-            this.viewHiredPanel.MouseLeave += new System.EventHandler(this.viewHiredPanel_MouseLeave);
-            // 
-            // label1
-            // 
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(88, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 43);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "View Hired Employee";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewHiredPanel_MouseClick);
-            this.label1.MouseEnter += new System.EventHandler(this.viewHiredPanel_MouseEnter);
-            this.label1.MouseLeave += new System.EventHandler(this.viewHiredPanel_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 57);
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
             // backBtn
             // 
             this.backBtn.BackColor = System.Drawing.Color.Transparent;
@@ -195,7 +103,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Location = new System.Drawing.Point(0, 0);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(198, 83);
+            this.backBtn.Size = new System.Drawing.Size(198, 117);
             this.backBtn.TabIndex = 36;
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
@@ -205,12 +113,13 @@
             // firEmpPanel
             // 
             this.firEmpPanel.BackColor = System.Drawing.Color.Transparent;
+            this.firEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.firEmpPanel.Controls.Add(this.label7);
             this.firEmpPanel.Controls.Add(this.pictureBox4);
             this.firEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.firEmpPanel.Location = new System.Drawing.Point(3, 240);
+            this.firEmpPanel.Location = new System.Drawing.Point(0, 307);
             this.firEmpPanel.Name = "firEmpPanel";
-            this.firEmpPanel.Size = new System.Drawing.Size(197, 75);
+            this.firEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.firEmpPanel.TabIndex = 35;
             this.firEmpPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.firEmpPanel_MouseClick);
             this.firEmpPanel.MouseEnter += new System.EventHandler(this.firEmpPanel_MouseEnter);
@@ -221,7 +130,7 @@
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(85, 18);
+            this.label7.Location = new System.Drawing.Point(84, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 39);
             this.label7.TabIndex = 30;
@@ -234,23 +143,24 @@
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox4.Enabled = false;
-            this.pictureBox4.Location = new System.Drawing.Point(13, 15);
+            this.pictureBox4.Location = new System.Drawing.Point(3, 9);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(59, 42);
+            this.pictureBox4.Size = new System.Drawing.Size(79, 76);
             this.pictureBox4.TabIndex = 29;
             this.pictureBox4.TabStop = false;
             // 
             // hireEmpPanel
             // 
             this.hireEmpPanel.BackColor = System.Drawing.Color.Transparent;
+            this.hireEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hireEmpPanel.Controls.Add(this.pictureBox6);
             this.hireEmpPanel.Controls.Add(this.label9);
             this.hireEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hireEmpPanel.Location = new System.Drawing.Point(0, 90);
+            this.hireEmpPanel.Location = new System.Drawing.Point(0, 117);
             this.hireEmpPanel.Name = "hireEmpPanel";
-            this.hireEmpPanel.Size = new System.Drawing.Size(197, 75);
+            this.hireEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.hireEmpPanel.TabIndex = 32;
             this.hireEmpPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.hireEmpPanel_MouseClick);
             this.hireEmpPanel.MouseEnter += new System.EventHandler(this.hireEmpPanel_MouseEnter);
@@ -259,11 +169,11 @@
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox6.Enabled = false;
-            this.pictureBox6.Location = new System.Drawing.Point(26, 14);
+            this.pictureBox6.Location = new System.Drawing.Point(5, 8);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(45, 55);
+            this.pictureBox6.Size = new System.Drawing.Size(70, 77);
             this.pictureBox6.TabIndex = 29;
             this.pictureBox6.TabStop = false;
             // 
@@ -273,7 +183,7 @@
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(88, 16);
+            this.label9.Location = new System.Drawing.Point(87, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 42);
             this.label9.TabIndex = 30;
@@ -286,12 +196,13 @@
             // rehireEmpPanel
             // 
             this.rehireEmpPanel.BackColor = System.Drawing.Color.Transparent;
+            this.rehireEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rehireEmpPanel.Controls.Add(this.label8);
             this.rehireEmpPanel.Controls.Add(this.pictureBox5);
             this.rehireEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rehireEmpPanel.Location = new System.Drawing.Point(3, 315);
+            this.rehireEmpPanel.Location = new System.Drawing.Point(0, 403);
             this.rehireEmpPanel.Name = "rehireEmpPanel";
-            this.rehireEmpPanel.Size = new System.Drawing.Size(197, 75);
+            this.rehireEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.rehireEmpPanel.TabIndex = 34;
             this.rehireEmpPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rehireEmpPanel_MouseClick);
             this.rehireEmpPanel.MouseEnter += new System.EventHandler(this.rehireEmpPanel_MouseEnter);
@@ -302,7 +213,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(88, 11);
+            this.label8.Location = new System.Drawing.Point(81, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 55);
             this.label8.TabIndex = 30;
@@ -315,23 +226,24 @@
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox5.Enabled = false;
-            this.pictureBox5.Location = new System.Drawing.Point(23, 11);
+            this.pictureBox5.Location = new System.Drawing.Point(8, 11);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(44, 53);
+            this.pictureBox5.Size = new System.Drawing.Size(59, 80);
             this.pictureBox5.TabIndex = 29;
             this.pictureBox5.TabStop = false;
             // 
             // updateEmpPanel
             // 
             this.updateEmpPanel.BackColor = System.Drawing.Color.Transparent;
+            this.updateEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.updateEmpPanel.Controls.Add(this.label5);
             this.updateEmpPanel.Controls.Add(this.pictureBox3);
             this.updateEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.updateEmpPanel.Location = new System.Drawing.Point(0, 165);
+            this.updateEmpPanel.Location = new System.Drawing.Point(0, 212);
             this.updateEmpPanel.Name = "updateEmpPanel";
-            this.updateEmpPanel.Size = new System.Drawing.Size(197, 75);
+            this.updateEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.updateEmpPanel.TabIndex = 33;
             this.updateEmpPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.updateEmpPanel_MouseClick);
             this.updateEmpPanel.MouseEnter += new System.EventHandler(this.updateEmpPanel_MouseEnter);
@@ -343,7 +255,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(88, 12);
+            this.label5.Location = new System.Drawing.Point(84, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 51);
             this.label5.TabIndex = 30;
@@ -356,11 +268,11 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Enabled = false;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(3, 12);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(71, 51);
+            this.pictureBox3.Size = new System.Drawing.Size(74, 71);
             this.pictureBox3.TabIndex = 29;
             this.pictureBox3.TabStop = false;
             // 
@@ -467,15 +379,15 @@
             this.empGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.empGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.empGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.empGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.empGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.empGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.empGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -488,17 +400,17 @@
             this.Fire_Date,
             this.Status,
             this.Sales});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle8.Format = "d";
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.empGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.empGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.empGrid.EnableHeadersVisualStyles = false;
             this.empGrid.GridColor = System.Drawing.Color.White;
             this.empGrid.Location = new System.Drawing.Point(200, 142);
@@ -607,10 +519,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form7";
             this.panel1.ResumeLayout(false);
-            this.viewFiredPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.viewHiredPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.firEmpPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.hireEmpPanel.ResumeLayout(false);
@@ -645,12 +553,6 @@
         private System.Windows.Forms.Panel hireEmpPanel;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel viewHiredPanel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel viewFiredPanel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label label3;

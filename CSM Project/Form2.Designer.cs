@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMMenu));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buyCarPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -78,6 +78,7 @@
             // buyCarPanel
             // 
             this.buyCarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.buyCarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.buyCarPanel.Controls.Add(this.label5);
             this.buyCarPanel.Controls.Add(this.pictureBox3);
             this.buyCarPanel.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -119,6 +120,7 @@
             // sellCarPanel
             // 
             this.sellCarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.sellCarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sellCarPanel.Controls.Add(this.pictureBox6);
             this.sellCarPanel.Controls.Add(this.label9);
             this.sellCarPanel.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -161,6 +163,7 @@
             // viewAvailPanel
             // 
             this.viewAvailPanel.BackColor = System.Drawing.Color.Transparent;
+            this.viewAvailPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.viewAvailPanel.Controls.Add(this.label8);
             this.viewAvailPanel.Controls.Add(this.pictureBox5);
             this.viewAvailPanel.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -201,6 +204,7 @@
             // viewSoldPanel
             // 
             this.viewSoldPanel.BackColor = System.Drawing.Color.Transparent;
+            this.viewSoldPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.viewSoldPanel.Controls.Add(this.label7);
             this.viewSoldPanel.Controls.Add(this.pictureBox4);
             this.viewSoldPanel.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -249,15 +253,15 @@
             this.viewCarGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.viewCarGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.viewCarGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.viewCarGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.viewCarGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NameC,
@@ -266,15 +270,15 @@
             this.Price,
             this.Status,
             this.CAR_ID});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.viewCarGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.viewCarGrid.EnableHeadersVisualStyles = false;
             this.viewCarGrid.GridColor = System.Drawing.Color.White;
             this.viewCarGrid.Location = new System.Drawing.Point(198, 159);
@@ -348,7 +352,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Location = new System.Drawing.Point(0, 0);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(198, 105);
+            this.backBtn.Size = new System.Drawing.Size(198, 109);
             this.backBtn.TabIndex = 36;
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);

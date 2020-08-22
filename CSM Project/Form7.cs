@@ -152,7 +152,7 @@ namespace CSM_Project
 
         private void hireEmpPanel_MouseEnter(object sender, EventArgs e)
         {
-            hireEmpPanel.BackColor = Color.FromArgb(64, 64, 64);
+            hireEmpPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void hireEmpPanel_MouseLeave(object sender, EventArgs e)
         {
@@ -168,7 +168,7 @@ namespace CSM_Project
 
         private void updateEmpPanel_MouseEnter(object sender, EventArgs e)
         {
-            updateEmpPanel.BackColor = Color.FromArgb(64, 64, 64);
+            updateEmpPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void updateEmpPanel_MouseLeave(object sender, EventArgs e)
         {
@@ -184,7 +184,7 @@ namespace CSM_Project
 
         private void firEmpPanel_MouseEnter(object sender, EventArgs e)
         {
-            firEmpPanel.BackColor = Color.FromArgb(64, 64, 64);
+            firEmpPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void firEmpPanel_MouseLeave(object sender, EventArgs e)
         {
@@ -200,7 +200,7 @@ namespace CSM_Project
 
         private void rehireEmpPanel_MouseEnter(object sender, EventArgs e)
         {
-            rehireEmpPanel.BackColor = Color.FromArgb(64, 64, 64);
+            rehireEmpPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void rehireEmpPanel_MouseLeave(object sender, EventArgs e)
         {
@@ -358,7 +358,7 @@ namespace CSM_Project
         
         private void backBtn_MouseEnter(object sender, EventArgs e)
         {
-            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+            backBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void backBtn_MouseLeave(object sender, EventArgs e)
         {
@@ -389,32 +389,9 @@ namespace CSM_Project
             rehireEmp();
         }
 
-        private void viewHiredPanel_MouseClick(object sender, MouseEventArgs e)
-        {
+   
 
-        }
-
-        private void viewHiredPanel_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewHiredPanel_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewFiredPanel_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void viewFiredPanel_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewFiredPanel_MouseLeave(object sender, EventArgs e)
+        private void empControl_Load(object sender, EventArgs e)
         {
 
         }

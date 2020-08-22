@@ -63,16 +63,6 @@ namespace CSM_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap apps_25539_14562285940372221_1152921504742975729 {
-            get {
-                object obj = ResourceManager.GetObject("apps.25539.14562285940372221.1152921504742975729", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ok_240px {
             get {
                 object obj = ResourceManager.GetObject("ok_240px", resourceCulture);

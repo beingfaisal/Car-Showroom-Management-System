@@ -238,7 +238,7 @@ namespace CSM_Project
         {
             nameBoxErrorIcon.Visible = false;
             nameBox.BorderStyle = BorderStyle.None;
-            nameBox.BackColor = Color.FromArgb(77, 74, 82);
+            nameBox.BackColor = Color.FromArgb(34, 36, 49);
             nameBox.ForeColor = Color.White;
         }
         private void nameBox_Leave(object sender, EventArgs e)
@@ -263,7 +263,7 @@ namespace CSM_Project
         {
             pinBoxErrorIcon.Visible = false;
             pinBox.BorderStyle = BorderStyle.None;
-            pinBox.BackColor = Color.FromArgb(77, 74, 82);
+            pinBox.BackColor = Color.FromArgb(34, 36, 49);
             pinBox.ForeColor = Color.White;
         }
         private void pinBox_Leave(object sender, EventArgs e)
@@ -288,7 +288,7 @@ namespace CSM_Project
         {
             addressBoxErrorIcon.Visible = false;
             addressBox.BorderStyle = BorderStyle.None;
-            addressBox.BackColor = Color.FromArgb(77, 74, 82);
+            addressBox.BackColor = Color.FromArgb(34, 36, 49);
             addressBox.ForeColor = Color.White;
         }
         private void addressBox_Leave(object sender, EventArgs e)
@@ -313,7 +313,7 @@ namespace CSM_Project
         {
             contactBoxErrorIcon.Visible = false;
             contactBox.BorderStyle = BorderStyle.None;
-            contactBox.BackColor = Color.FromArgb(77, 74, 82);
+            contactBox.BackColor = Color.FromArgb(34, 36, 49);
             contactBox.ForeColor = Color.White;
         }
         private void contactBox_Leave(object sender, EventArgs e)
@@ -338,7 +338,7 @@ namespace CSM_Project
         {
             emailBoxErrorIcon.Visible = false;
             emailBox.BorderStyle = BorderStyle.None;
-            emailBox.BackColor = Color.FromArgb(77, 74, 82);
+            emailBox.BackColor = Color.FromArgb(34, 36, 49);
             emailBox.ForeColor = Color.White;
         }
         private void emailBox_Leave(object sender, EventArgs e)
@@ -429,7 +429,7 @@ namespace CSM_Project
         //for button styling
         private void hireBtn_MouseEnter(object sender, EventArgs e)
         {
-            hireBtn.BackColor = Color.Black;
+            hireBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void hireBtn_MouseLeave(object sender, EventArgs e)
         {
@@ -438,7 +438,7 @@ namespace CSM_Project
 
         private void updateBtn_MouseEnter(object sender, EventArgs e)
         {
-            updateBtn.BackColor = Color.Black;
+            updateBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void updateBtn_MouseLeave(object sender, EventArgs e)
         {
@@ -458,7 +458,7 @@ namespace CSM_Project
 
         private void backBtn_MouseEnter(object sender, EventArgs e)
         {
-            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+            backBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void backBtn_MouseLeave(object sender, EventArgs e)
         {

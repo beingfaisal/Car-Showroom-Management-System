@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(empControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.Button();
             this.firEmpPanel = new System.Windows.Forms.Panel();
@@ -50,7 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.empGrid = new System.Windows.Forms.DataGridView();
@@ -64,6 +63,7 @@
             this.Fire_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.firEmpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -75,8 +75,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,7 +90,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 563);
+            this.panel1.Size = new System.Drawing.Size(200, 555);
             this.panel1.TabIndex = 38;
             // 
             // backBtn
@@ -103,7 +103,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Location = new System.Drawing.Point(0, 0);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(198, 117);
+            this.backBtn.Size = new System.Drawing.Size(198, 105);
             this.backBtn.TabIndex = 36;
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
@@ -113,11 +113,10 @@
             // firEmpPanel
             // 
             this.firEmpPanel.BackColor = System.Drawing.Color.Transparent;
-            this.firEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.firEmpPanel.Controls.Add(this.label7);
             this.firEmpPanel.Controls.Add(this.pictureBox4);
             this.firEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.firEmpPanel.Location = new System.Drawing.Point(0, 307);
+            this.firEmpPanel.Location = new System.Drawing.Point(0, 295);
             this.firEmpPanel.Name = "firEmpPanel";
             this.firEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.firEmpPanel.TabIndex = 35;
@@ -154,11 +153,10 @@
             // hireEmpPanel
             // 
             this.hireEmpPanel.BackColor = System.Drawing.Color.Transparent;
-            this.hireEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hireEmpPanel.Controls.Add(this.pictureBox6);
             this.hireEmpPanel.Controls.Add(this.label9);
             this.hireEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hireEmpPanel.Location = new System.Drawing.Point(0, 117);
+            this.hireEmpPanel.Location = new System.Drawing.Point(0, 105);
             this.hireEmpPanel.Name = "hireEmpPanel";
             this.hireEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.hireEmpPanel.TabIndex = 32;
@@ -196,11 +194,10 @@
             // rehireEmpPanel
             // 
             this.rehireEmpPanel.BackColor = System.Drawing.Color.Transparent;
-            this.rehireEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rehireEmpPanel.Controls.Add(this.label8);
             this.rehireEmpPanel.Controls.Add(this.pictureBox5);
             this.rehireEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rehireEmpPanel.Location = new System.Drawing.Point(0, 403);
+            this.rehireEmpPanel.Location = new System.Drawing.Point(0, 391);
             this.rehireEmpPanel.Name = "rehireEmpPanel";
             this.rehireEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.rehireEmpPanel.TabIndex = 34;
@@ -237,11 +234,10 @@
             // updateEmpPanel
             // 
             this.updateEmpPanel.BackColor = System.Drawing.Color.Transparent;
-            this.updateEmpPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.updateEmpPanel.Controls.Add(this.label5);
             this.updateEmpPanel.Controls.Add(this.pictureBox3);
             this.updateEmpPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.updateEmpPanel.Location = new System.Drawing.Point(0, 212);
+            this.updateEmpPanel.Location = new System.Drawing.Point(0, 200);
             this.updateEmpPanel.Name = "updateEmpPanel";
             this.updateEmpPanel.Size = new System.Drawing.Size(200, 96);
             this.updateEmpPanel.TabIndex = 33;
@@ -285,7 +281,7 @@
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(200, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1031, 83);
+            this.panel4.Size = new System.Drawing.Size(900, 83);
             this.panel4.TabIndex = 39;
             // 
             // exitBtn
@@ -297,7 +293,7 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.Red;
-            this.exitBtn.Location = new System.Drawing.Point(985, 0);
+            this.exitBtn.Location = new System.Drawing.Point(854, 0);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(46, 40);
             this.exitBtn.TabIndex = 37;
@@ -312,7 +308,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.label3.Location = new System.Drawing.Point(431, 45);
+            this.label3.Location = new System.Drawing.Point(363, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 24);
             this.label3.TabIndex = 28;
@@ -322,7 +318,7 @@
             // 
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Location = new System.Drawing.Point(257, 3);
+            this.pictureBox7.Location = new System.Drawing.Point(189, 0);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 72);
             this.pictureBox7.TabIndex = 27;
@@ -333,29 +329,18 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.label4.Location = new System.Drawing.Point(380, 12);
+            this.label4.Location = new System.Drawing.Point(312, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(316, 33);
             this.label4.TabIndex = 1;
             this.label4.Text = "Automobile Showroom \r\n";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(222, 84);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(63, 42);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 44;
-            this.pictureBox8.TabStop = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel5.Location = new System.Drawing.Point(222, 126);
+            this.panel5.Location = new System.Drawing.Point(223, 131);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(982, 4);
+            this.panel5.Size = new System.Drawing.Size(877, 3);
             this.panel5.TabIndex = 43;
             // 
             // label6
@@ -373,21 +358,20 @@
             // 
             this.empGrid.AllowUserToAddRows = false;
             this.empGrid.AllowUserToDeleteRows = false;
-            this.empGrid.AllowUserToResizeColumns = false;
             this.empGrid.AllowUserToResizeRows = false;
             this.empGrid.BackgroundColor = System.Drawing.Color.White;
             this.empGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.empGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.empGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.empGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.empGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.empGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.empGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -400,17 +384,17 @@
             this.Fire_Date,
             this.Status,
             this.Sales});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.empGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.empGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.empGrid.EnableHeadersVisualStyles = false;
             this.empGrid.GridColor = System.Drawing.Color.White;
             this.empGrid.Location = new System.Drawing.Point(200, 142);
@@ -419,7 +403,7 @@
             this.empGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.empGrid.RowHeadersVisible = false;
             this.empGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.empGrid.Size = new System.Drawing.Size(1031, 421);
+            this.empGrid.Size = new System.Drawing.Size(900, 413);
             this.empGrid.TabIndex = 45;
             this.empGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.empGrid_CellEnter);
             // 
@@ -502,12 +486,23 @@
             this.Sales.Name = "Sales";
             this.Sales.ReadOnly = true;
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(222, 84);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(63, 42);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 44;
+            this.pictureBox8.TabStop = false;
+            // 
             // empControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1230, 563);
+            this.ClientSize = new System.Drawing.Size(1100, 555);
             this.Controls.Add(this.empGrid);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.panel5);
@@ -515,9 +510,11 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "empControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form7";
+            this.Load += new System.EventHandler(this.empControl_Load);
             this.panel1.ResumeLayout(false);
             this.firEmpPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -530,8 +527,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

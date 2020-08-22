@@ -33,25 +33,25 @@
             this.pinBox = new System.Windows.Forms.TextBox();
             this.lockImage = new System.Windows.Forms.PictureBox();
             this.pinPnl = new System.Windows.Forms.Panel();
+            this.pinErrorIcon = new System.Windows.Forms.PictureBox();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.userImage = new System.Windows.Forms.PictureBox();
             this.namePnl = new System.Windows.Forms.Panel();
-            this.logBtn = new System.Windows.Forms.Button();
             this.nameErrorIcon = new System.Windows.Forms.PictureBox();
-            this.pinErrorIcon = new System.Windows.Forms.PictureBox();
-            this.circularPictureBox1 = new CSM_Project.CircularPictureBox();
+            this.logBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.circularPictureBox1 = new CSM_Project.CircularPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.lockImage)).BeginInit();
             this.pinPnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pinErrorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImage)).BeginInit();
             this.namePnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nameErrorIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pinErrorIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // exitBtn
@@ -79,7 +79,7 @@
             this.pinBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pinBox.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pinBox.ForeColor = System.Drawing.Color.Black;
-            this.pinBox.Location = new System.Drawing.Point(58, 13);
+            this.pinBox.Location = new System.Drawing.Point(58, 11);
             this.pinBox.Multiline = true;
             this.pinBox.Name = "pinBox";
             this.pinBox.Size = new System.Drawing.Size(229, 26);
@@ -110,13 +110,25 @@
             this.pinPnl.Size = new System.Drawing.Size(290, 48);
             this.pinPnl.TabIndex = 37;
             // 
+            // pinErrorIcon
+            // 
+            this.pinErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pinErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pinErrorIcon.BackgroundImage")));
+            this.pinErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pinErrorIcon.Location = new System.Drawing.Point(263, 10);
+            this.pinErrorIcon.Name = "pinErrorIcon";
+            this.pinErrorIcon.Size = new System.Drawing.Size(19, 29);
+            this.pinErrorIcon.TabIndex = 42;
+            this.pinErrorIcon.TabStop = false;
+            this.pinErrorIcon.Click += new System.EventHandler(this.pinErrorIcon_Click);
+            // 
             // nameBox
             // 
             this.nameBox.BackColor = System.Drawing.Color.White;
             this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nameBox.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBox.ForeColor = System.Drawing.Color.Black;
-            this.nameBox.Location = new System.Drawing.Point(58, 12);
+            this.nameBox.Location = new System.Drawing.Point(58, 11);
             this.nameBox.Multiline = true;
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(229, 26);
@@ -132,7 +144,7 @@
             this.userImage.Image = ((System.Drawing.Image)(resources.GetObject("userImage.Image")));
             this.userImage.Location = new System.Drawing.Point(0, 0);
             this.userImage.Name = "userImage";
-            this.userImage.Size = new System.Drawing.Size(52, 51);
+            this.userImage.Size = new System.Drawing.Size(52, 48);
             this.userImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.userImage.TabIndex = 24;
             this.userImage.TabStop = false;
@@ -148,9 +160,21 @@
             this.namePnl.Size = new System.Drawing.Size(290, 48);
             this.namePnl.TabIndex = 36;
             // 
+            // nameErrorIcon
+            // 
+            this.nameErrorIcon.BackColor = System.Drawing.Color.Transparent;
+            this.nameErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nameErrorIcon.BackgroundImage")));
+            this.nameErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.nameErrorIcon.Location = new System.Drawing.Point(263, 9);
+            this.nameErrorIcon.Name = "nameErrorIcon";
+            this.nameErrorIcon.Size = new System.Drawing.Size(19, 29);
+            this.nameErrorIcon.TabIndex = 41;
+            this.nameErrorIcon.TabStop = false;
+            // 
             // logBtn
             // 
             this.logBtn.BackColor = System.Drawing.Color.White;
+            this.logBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logBtn.FlatAppearance.BorderSize = 0;
             this.logBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logBtn.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,40 +188,6 @@
             this.logBtn.Click += new System.EventHandler(this.logBtn_Click);
             this.logBtn.MouseEnter += new System.EventHandler(this.logBtn_MouseEnter);
             this.logBtn.MouseLeave += new System.EventHandler(this.logBtn_MouseLeave);
-            // 
-            // nameErrorIcon
-            // 
-            this.nameErrorIcon.BackColor = System.Drawing.Color.Transparent;
-            this.nameErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nameErrorIcon.BackgroundImage")));
-            this.nameErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.nameErrorIcon.Location = new System.Drawing.Point(263, 9);
-            this.nameErrorIcon.Name = "nameErrorIcon";
-            this.nameErrorIcon.Size = new System.Drawing.Size(19, 29);
-            this.nameErrorIcon.TabIndex = 41;
-            this.nameErrorIcon.TabStop = false;
-            // 
-            // pinErrorIcon
-            // 
-            this.pinErrorIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pinErrorIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pinErrorIcon.BackgroundImage")));
-            this.pinErrorIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pinErrorIcon.Location = new System.Drawing.Point(263, 10);
-            this.pinErrorIcon.Name = "pinErrorIcon";
-            this.pinErrorIcon.Size = new System.Drawing.Size(19, 29);
-            this.pinErrorIcon.TabIndex = 42;
-            this.pinErrorIcon.TabStop = false;
-            this.pinErrorIcon.Click += new System.EventHandler(this.pinErrorIcon_Click);
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.circularPictureBox1.Location = new System.Drawing.Point(222, 73);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.circularPictureBox1.TabIndex = 40;
-            this.circularPictureBox1.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -244,6 +234,17 @@
             this.label3.TabIndex = 44;
             this.label3.Text = "Sign In";
             // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
+            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.circularPictureBox1.Location = new System.Drawing.Point(222, 73);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(150, 150);
+            this.circularPictureBox1.TabIndex = 40;
+            this.circularPictureBox1.TabStop = false;
+            // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,19 +262,20 @@
             this.Controls.Add(this.pinPnl);
             this.Controls.Add(this.exitBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In";
             ((System.ComponentModel.ISupportInitialize)(this.lockImage)).EndInit();
             this.pinPnl.ResumeLayout(false);
             this.pinPnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pinErrorIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImage)).EndInit();
             this.namePnl.ResumeLayout(false);
             this.namePnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nameErrorIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pinErrorIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

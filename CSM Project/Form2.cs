@@ -229,7 +229,7 @@ namespace CSM_Project
 
         private void sellCarPanel_MouseEnter(object sender, EventArgs e)
         {
-            sellCarPanel.BackColor = Color.FromArgb(64, 64, 64);
+            sellCarPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void sellCarPanel_MouseLeave(object sender, EventArgs e)
@@ -239,7 +239,7 @@ namespace CSM_Project
 
         private void buyCarPanel_MouseEnter(object sender, EventArgs e)
         {
-            buyCarPanel.BackColor = Color.FromArgb(64, 64, 64);
+            buyCarPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void buyCarPanel_MouseLeave(object sender, EventArgs e)
@@ -249,7 +249,7 @@ namespace CSM_Project
 
         private void viewSoldPanel_MouseEnter(object sender, EventArgs e)
         {
-            viewSoldPanel.BackColor = Color.FromArgb(64, 64, 64);
+            viewSoldPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void viewSoldPanel_MouseLeave(object sender, EventArgs e)
@@ -259,7 +259,7 @@ namespace CSM_Project
 
         private void viewAvailPanel_MouseEnter(object sender, EventArgs e)
         {
-            viewAvailPanel.BackColor = Color.FromArgb(64, 64, 64);
+            viewAvailPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void viewAvailPanel_MouseLeave(object sender, EventArgs e)
@@ -269,7 +269,7 @@ namespace CSM_Project
 
         private void backBtn_MouseEnter(object sender, EventArgs e)
         {
-            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+            backBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void backBtn_MouseLeave(object sender, EventArgs e)

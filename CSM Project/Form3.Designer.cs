@@ -81,10 +81,12 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Location = new System.Drawing.Point(0, 1);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(87, 79);
+            this.backBtn.Size = new System.Drawing.Size(87, 82);
             this.backBtn.TabIndex = 42;
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
+            this.backBtn.MouseEnter += new System.EventHandler(this.backBtn_MouseEnter);
+            this.backBtn.MouseLeave += new System.EventHandler(this.backBtn_MouseLeave);
             // 
             // exitBtn
             // 
@@ -102,6 +104,8 @@
             this.exitBtn.Text = "X";
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.exitBtn_MouseClick);
+            this.exitBtn.MouseEnter += new System.EventHandler(this.exitBtn_MouseEnter);
+            this.exitBtn.MouseLeave += new System.EventHandler(this.exitBtn_MouseLeave);
             // 
             // pictureBox7
             // 
@@ -296,6 +300,7 @@
             this.Controls.Add(this.carCtrlPanel);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Manager_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manager Menu";

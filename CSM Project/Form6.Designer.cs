@@ -212,6 +212,7 @@
             // buyBtn
             // 
             this.buyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.buyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buyBtn.FlatAppearance.BorderSize = 0;
             this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -223,6 +224,8 @@
             this.buyBtn.Text = "Buy";
             this.buyBtn.UseVisualStyleBackColor = false;
             this.buyBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buyBtn_MouseClick);
+            this.buyBtn.MouseEnter += new System.EventHandler(this.buyBtn_MouseEnter);
+            this.buyBtn.MouseLeave += new System.EventHandler(this.buyBtn_MouseLeave);
             // 
             // cPriceBox
             // 
@@ -682,6 +685,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "carCtrl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Management";

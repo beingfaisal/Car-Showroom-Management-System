@@ -27,11 +27,11 @@ namespace CSM_Project
             {
                 nameBox.Text = "";
             }
-
-            namePnl.BackColor = Color.Black;
-            nameBox.BackColor = Color.Black;
+            namePnl.BorderStyle = BorderStyle.FixedSingle;
+            namePnl.BackColor = Color.FromArgb(34, 36, 49);
+            nameBox.BackColor = Color.FromArgb(34, 36, 49);
             nameBox.ForeColor = Color.White;
-            userImage.BackColor = Color.Black;
+            userImage.BackColor = Color.FromArgb(34, 36, 49);
             lockImage.BackColor = Color.White;
             LblVanish();
 
@@ -55,10 +55,11 @@ namespace CSM_Project
                 pinBox.Text = "";
                 pinBox.PasswordChar = '*';
             }
-            pinPnl.BackColor = Color.Black;
-            pinBox.BackColor = Color.Black;
+            pinPnl.BorderStyle = BorderStyle.FixedSingle;
+            pinPnl.BackColor = Color.FromArgb(34, 36, 49);
+            pinBox.BackColor = Color.FromArgb(34, 36, 49);
             pinBox.ForeColor = Color.White;
-            lockImage.BackColor = Color.Black;
+            lockImage.BackColor = Color.FromArgb(34, 36, 49);
             userImage.BackColor = Color.White;
             LblVanish();
         }
@@ -76,6 +77,8 @@ namespace CSM_Project
         }
         private void logBtn_MouseEnter(object sender, EventArgs e)
         {
+            logBtn.FlatAppearance.BorderColor = Color.White;
+            logBtn.FlatAppearance.BorderSize = 1;
             logBtn.BackColor = Color.FromArgb(34, 36, 49);
             logBtn.ForeColor = Color.White;
         }

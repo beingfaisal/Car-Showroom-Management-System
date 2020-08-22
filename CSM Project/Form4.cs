@@ -92,7 +92,7 @@ namespace CSM_Project
         }
         private void backBtn_MouseEnter(object sender, EventArgs e)
         {
-            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+            backBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void backBtn_MouseLeave(object sender, EventArgs e)
         {
@@ -102,7 +102,7 @@ namespace CSM_Project
 
         private void sellBtn_MouseEnter(object sender, EventArgs e)
         {
-            sellBtn.BackColor = Color.Black;
+            sellBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void sellBtn_MouseLeave(object sender, EventArgs e)
         {
@@ -252,7 +252,7 @@ namespace CSM_Project
         {
             nameBoxErrorIcon.Visible = false;
             nameBox.BorderStyle = BorderStyle.None;
-            nameBox.BackColor = Color.FromArgb(77, 74, 82);
+            nameBox.BackColor = Color.FromArgb(34, 36, 49);
             nameBox.ForeColor = Color.White;
         }
         private void nameBox_Leave(object sender, EventArgs e)
@@ -277,7 +277,7 @@ namespace CSM_Project
         {
             cnicBoxErrorIcon.Visible = false;
             cnicBox.BorderStyle = BorderStyle.None;
-            cnicBox.BackColor = Color.FromArgb(77, 74, 82);
+            cnicBox.BackColor = Color.FromArgb(34, 36, 49);
             cnicBox.ForeColor = Color.White;
         }
         private void cnicBox_Leave(object sender, EventArgs e)
@@ -302,7 +302,7 @@ namespace CSM_Project
         {
             addressBoxErrorIcon.Visible = false;
             addressBox.BorderStyle = BorderStyle.None;
-            addressBox.BackColor = Color.FromArgb(77, 74, 82);
+            addressBox.BackColor = Color.FromArgb(34, 36, 49);
             addressBox.ForeColor = Color.White;
         }
         private void addressBox_Leave(object sender, EventArgs e)
@@ -327,7 +327,7 @@ namespace CSM_Project
         {
             contactBoxErrorIcon.Visible = false;
             contactBox.BorderStyle = BorderStyle.None;
-            contactBox.BackColor = Color.FromArgb(77, 74, 82);
+            contactBox.BackColor = Color.FromArgb(34, 36, 49);
             contactBox.ForeColor = Color.White;
         }
         private void contactBox_Leave(object sender, EventArgs e)

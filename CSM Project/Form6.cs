@@ -263,7 +263,7 @@ namespace CSM_Project
         {
             manufLicenseErrorIcon.Visible = false;
             licenseBox.BorderStyle = BorderStyle.None;
-            licenseBox.BackColor = Color.FromArgb(77, 74, 82);
+            licenseBox.BackColor = Color.FromArgb(34, 36, 49);
             licenseBox.ForeColor = Color.White;
         }
         private void licenseBox_Leave(object sender, EventArgs e)
@@ -288,7 +288,7 @@ namespace CSM_Project
         {
             manufNameErrorIcon.Visible = false;
             nameBox.BorderStyle = BorderStyle.None;
-            nameBox.BackColor = Color.FromArgb(77, 74, 82);
+            nameBox.BackColor = Color.FromArgb(34, 36, 49);
             nameBox.ForeColor = Color.White;
         }
         private void nameBox_Leave(object sender, EventArgs e)
@@ -313,7 +313,7 @@ namespace CSM_Project
         {
             manufContactErrorIcon.Visible = false;
             contactBox.BorderStyle = BorderStyle.None;
-            contactBox.BackColor = Color.FromArgb(77, 74, 82);
+            contactBox.BackColor = Color.FromArgb(34, 36, 49);
             contactBox.ForeColor = Color.White;
         }
         private void contactBox_Leave(object sender, EventArgs e)
@@ -338,7 +338,7 @@ namespace CSM_Project
         {
             manufAddressErrorIcon.Visible = false;
             addressBox.BorderStyle = BorderStyle.None;
-            addressBox.BackColor = Color.FromArgb(77, 74, 82);
+            addressBox.BackColor = Color.FromArgb(34, 36, 49);
             addressBox.ForeColor = Color.White;
         }
         private void addressBox_Leave(object sender, EventArgs e)
@@ -363,7 +363,7 @@ namespace CSM_Project
         {
             manufEmailErrorIcon.Visible = false;
             emailBox.BorderStyle = BorderStyle.None;
-            emailBox.BackColor = Color.FromArgb(77, 74, 82);
+            emailBox.BackColor = Color.FromArgb(34, 36, 49);
             emailBox.ForeColor = Color.White;
         }
         private void emailBox_Leave(object sender, EventArgs e)
@@ -390,7 +390,7 @@ namespace CSM_Project
         {
             carIDErrorIcon.Visible = false;
             cIDBox.BorderStyle = BorderStyle.None;
-            cIDBox.BackColor = Color.FromArgb(77, 74, 82);
+            cIDBox.BackColor = Color.FromArgb(34, 36, 49);
             cIDBox.ForeColor = Color.White;
         }
         private void cIDBox_Leave(object sender, EventArgs e)
@@ -415,7 +415,7 @@ namespace CSM_Project
         {
             carNameErrorIcon.Visible = false;
             cNameBox.BorderStyle = BorderStyle.None;
-            cNameBox.BackColor = Color.FromArgb(77, 74, 82);
+            cNameBox.BackColor = Color.FromArgb(34, 36, 49);
             cNameBox.ForeColor = Color.White;
         }
         private void cNameBox_Leave(object sender, EventArgs e)
@@ -440,7 +440,7 @@ namespace CSM_Project
         {
             carModelErrorIcon.Visible = false;
             cModelBox.BorderStyle = BorderStyle.None;
-            cModelBox.BackColor = Color.FromArgb(77, 74, 82);
+            cModelBox.BackColor = Color.FromArgb(34, 36, 49);
             cModelBox.ForeColor = Color.White;
         }
         private void cModelBox_Leave(object sender, EventArgs e)
@@ -465,7 +465,7 @@ namespace CSM_Project
         {
             carCompanyErrorIcon.Visible = false;
             cCmpyBox.BorderStyle = BorderStyle.None;
-            cCmpyBox.BackColor = Color.FromArgb(77, 74, 82);
+            cCmpyBox.BackColor = Color.FromArgb(34, 36, 49);
             cCmpyBox.ForeColor = Color.White;
         }
         private void cCmpyBox_Leave(object sender, EventArgs e)
@@ -490,7 +490,7 @@ namespace CSM_Project
         {
             carPriceErrorIcon.Visible = false;
             cPriceBox.BorderStyle = BorderStyle.None;
-            cPriceBox.BackColor = Color.FromArgb(77, 74, 82);
+            cPriceBox.BackColor = Color.FromArgb(34, 36, 49);
             cPriceBox.ForeColor = Color.White;
         }
         private void cPriceBox_Leave(object sender, EventArgs e)
@@ -625,6 +625,17 @@ namespace CSM_Project
                 e.Handled = true;
             }
         }
+
+        private void buyBtn_MouseEnter(object sender, EventArgs e)
+        {
+            buyBtn.BackColor = Color.FromArgb(34, 36, 49);
+        }
+
+        private void buyBtn_MouseLeave(object sender, EventArgs e)
+        {
+            buyBtn.BackColor = Color.FromArgb(77, 74, 82);
+        }
+
         private void cIDBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsDigit(e.KeyChar))
@@ -648,7 +659,7 @@ namespace CSM_Project
         }
         private void backBtn_MouseEnter(object sender, EventArgs e)
         {
-            backBtn.BackColor = Color.FromArgb(54, 54, 56);
+            backBtn.BackColor = Color.FromArgb(34, 36, 49);
         }
         private void backBtn_MouseLeave(object sender, EventArgs e)
         {

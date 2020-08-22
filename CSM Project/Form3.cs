@@ -54,7 +54,7 @@ namespace CSM_Project
 
         private void carCtrlPanel_MouseEnter(object sender, EventArgs e)
         {
-            carCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+            carCtrlPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void carCtrlPanel_MouseLeave(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace CSM_Project
 
         private void empCtrlPanel_MouseEnter(object sender, EventArgs e)
         {
-            empCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+            empCtrlPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void empCtrlPanel_MouseLeave(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace CSM_Project
 
         private void salesCtrlPanel_MouseEnter(object sender, EventArgs e)
         {
-            salesCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+            salesCtrlPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void salesCtrlPanel_MouseLeave(object sender, EventArgs e)
@@ -84,12 +84,34 @@ namespace CSM_Project
 
         private void accountCtrlPanel_MouseEnter(object sender, EventArgs e)
         {
-            accountCtrlPanel.BackColor = Color.FromArgb(64, 64, 64);
+            accountCtrlPanel.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void accountCtrlPanel_MouseLeave(object sender, EventArgs e)
         {
             accountCtrlPanel.BackColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void backBtn_MouseEnter(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.FromArgb(34, 36, 49);
+        }
+
+        private void backBtn_MouseLeave(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.FromArgb(77, 74, 82);
+        }
+
+        private void exitBtn_MouseEnter(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Red;
+            exitBtn.ForeColor = Color.White;
+        }
+
+        private void exitBtn_MouseLeave(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Transparent;
+            exitBtn.ForeColor = Color.Red;
         }
     }
 }

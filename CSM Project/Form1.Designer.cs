@@ -94,7 +94,7 @@
             this.lockImage.Image = ((System.Drawing.Image)(resources.GetObject("lockImage.Image")));
             this.lockImage.Location = new System.Drawing.Point(0, 0);
             this.lockImage.Name = "lockImage";
-            this.lockImage.Size = new System.Drawing.Size(52, 51);
+            this.lockImage.Size = new System.Drawing.Size(52, 48);
             this.lockImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.lockImage.TabIndex = 24;
             this.lockImage.TabStop = false;
@@ -120,7 +120,6 @@
             this.pinErrorIcon.Size = new System.Drawing.Size(19, 29);
             this.pinErrorIcon.TabIndex = 42;
             this.pinErrorIcon.TabStop = false;
-            this.pinErrorIcon.Click += new System.EventHandler(this.pinErrorIcon_Click);
             // 
             // nameBox
             // 

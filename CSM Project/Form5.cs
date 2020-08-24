@@ -19,7 +19,7 @@ namespace CSM_Project
         bool nameChange, contactChange, pinChange, addressChange, emailChange = false; //validate the change for update
         bool nameFlag, pinFlag, addressFlag, contactFlag ,emailFlag; //for error checking
 
-        empControl.empInfo updateEmp;
+        redundantData.empInfo updateEmp;
        
         public SaleManCtrl()
         {
@@ -35,7 +35,7 @@ namespace CSM_Project
             hireBtn.Location = new Point(383, 384);
             updateBtn.Enabled = updateBtn.Visible = false;
         }
-        public SaleManCtrl(empControl.empInfo emp)
+        public SaleManCtrl(redundantData.empInfo emp)
         {
             InitializeComponent();
             pictureVanish();

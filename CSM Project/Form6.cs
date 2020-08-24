@@ -91,7 +91,7 @@ namespace CSM_Project
             string carPrice = cPriceBox.Text;
 
             if ((mLicenceFlag || mNameFlag || mContactFlag || mAddressFlag || mEmailFlag
-                || cIDFlag || cNameFlag || cModelFlag || cPriceFlag || cCompanyFlag) == true)
+                || cIDFlag || cNameFlag || cModelFlag || cPriceFlag || cCompanyFlag))
             {
                 if (mLicenceFlag) manufLicenseErrorIcon.Visible = true;
                 if (mNameFlag) manufNameErrorIcon.Visible = true;
@@ -142,10 +142,12 @@ namespace CSM_Project
                         isnewSeller = false;
                         //now we will check whether the cnic matches with the name
                         con.Open();     //if manufacturer id is repeated then checking name
-                        string nameCheckQuery = "select * from manufacturer where manufacturer_name = @name and manufacturer_id = @id";
+                        string nameCheckQuery = "select * from manufacturer where manufacturer_name = @name and manufacturer_id = @id " +
+                            "and manufacturer_email = @email";
                         SqlCommand nameCheckCMD = new SqlCommand(nameCheckQuery, con);
                         nameCheckCMD.Parameters.AddWithValue("@name", manfName);
                         nameCheckCMD.Parameters.AddWithValue("@id", manfID);
+                        nameCheckCMD.Parameters.AddWithValue("@email", manfEmail);
                         SqlDataAdapter nameCheckAdapter = new SqlDataAdapter(nameCheckCMD);
                         DataSet nameCheckSet = new DataSet();
                         nameCheckAdapter.Fill(nameCheckSet);
@@ -156,6 +158,7 @@ namespace CSM_Project
                             CustomMsgBox.Show("The Given Manufacturer's License/Name are invalid. Please recheck them or inform developer", "OK");
                             manufLicenseErrorIcon.Visible = manufNameErrorIcon.Visible = true;
                         }
+
                     }
                     if (isnewSeller)
                     {

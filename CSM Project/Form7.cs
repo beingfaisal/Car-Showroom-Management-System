@@ -17,15 +17,7 @@ namespace CSM_Project
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string mainEmpID;
        
-        public struct empInfo
-        {
-            public string id, pin, name, contact, address, email ,status;
-            public empInfo(string s)
-            {
-                id = pin =name = contact = address = email = status = s;
-            }
-        }
-        empInfo empUpdateInfo = new empInfo("");
+        redundantData.empInfo empUpdateInfo = new redundantData.empInfo("");
        
         
         public empControl()

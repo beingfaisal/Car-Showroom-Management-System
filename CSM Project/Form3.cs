@@ -117,7 +117,7 @@ namespace CSM_Project
         private void salesCtrlPanel_MouseClick(object sender, MouseEventArgs e)
         {
             this.Hide();
-            new Form8().Show();
+            new Form8(empId).Show();
         }
     }
 }

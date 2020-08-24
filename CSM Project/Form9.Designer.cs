@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form9));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -97,6 +97,21 @@
             this.panel1.Size = new System.Drawing.Size(848, 79);
             this.panel1.TabIndex = 42;
             // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Location = new System.Drawing.Point(0, 0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(87, 79);
+            this.backBtn.TabIndex = 41;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
+            // 
             // exitBtn
             // 
             this.exitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -112,6 +127,7 @@
             this.exitBtn.TabIndex = 38;
             this.exitBtn.Text = "X";
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
             // 
             // label5
             // 
@@ -123,20 +139,6 @@
             this.label5.Size = new System.Drawing.Size(263, 25);
             this.label5.TabIndex = 40;
             this.label5.Text = "Transaction Information";
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(0, 0);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(87, 79);
-            this.backBtn.TabIndex = 41;
-            this.backBtn.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -152,7 +154,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(79, 117);
+            this.label2.Location = new System.Drawing.Point(57, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 25);
             this.label2.TabIndex = 44;
@@ -161,7 +163,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(23, 145);
+            this.panel2.Location = new System.Drawing.Point(12, 133);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(109, 3);
             this.panel2.TabIndex = 45;
@@ -169,7 +171,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(23, 322);
+            this.panel3.Location = new System.Drawing.Point(12, 345);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 3);
             this.panel3.TabIndex = 51;
@@ -178,7 +180,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 294);
+            this.label1.Location = new System.Drawing.Point(60, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(199, 25);
             this.label1.TabIndex = 50;
@@ -187,7 +189,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(474, 159);
+            this.panel4.Location = new System.Drawing.Point(460, 136);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(170, 3);
             this.panel4.TabIndex = 57;
@@ -196,7 +198,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(529, 128);
+            this.label3.Location = new System.Drawing.Point(492, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 25);
             this.label3.TabIndex = 56;
@@ -205,7 +207,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(474, 339);
+            this.panel5.Location = new System.Drawing.Point(460, 351);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(130, 3);
             this.panel5.TabIndex = 63;
@@ -214,7 +216,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(529, 311);
+            this.label4.Location = new System.Drawing.Point(492, 323);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 25);
             this.label4.TabIndex = 62;
@@ -224,7 +226,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(32, 163);
+            this.label6.Location = new System.Drawing.Point(21, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 18);
             this.label6.TabIndex = 91;
@@ -234,7 +236,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(32, 227);
+            this.label7.Location = new System.Drawing.Point(21, 215);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 18);
             this.label7.TabIndex = 92;
@@ -244,7 +246,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(32, 259);
+            this.label8.Location = new System.Drawing.Point(21, 247);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 18);
             this.label8.TabIndex = 93;
@@ -254,7 +256,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(32, 195);
+            this.label9.Location = new System.Drawing.Point(21, 183);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 18);
             this.label9.TabIndex = 94;
@@ -264,7 +266,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(32, 380);
+            this.label10.Location = new System.Drawing.Point(21, 403);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(75, 18);
             this.label10.TabIndex = 98;
@@ -274,7 +276,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(32, 444);
+            this.label11.Location = new System.Drawing.Point(21, 467);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 18);
             this.label11.TabIndex = 97;
@@ -284,7 +286,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(32, 412);
+            this.label12.Location = new System.Drawing.Point(21, 435);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(71, 18);
             this.label12.TabIndex = 96;
@@ -294,7 +296,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(32, 348);
+            this.label13.Location = new System.Drawing.Point(21, 371);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(55, 18);
             this.label13.TabIndex = 95;
@@ -304,7 +306,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(485, 206);
+            this.label14.Location = new System.Drawing.Point(463, 192);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(70, 18);
             this.label14.TabIndex = 102;
@@ -314,7 +316,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(484, 270);
+            this.label15.Location = new System.Drawing.Point(462, 256);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(106, 18);
             this.label15.TabIndex = 101;
@@ -324,7 +326,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(484, 238);
+            this.label16.Location = new System.Drawing.Point(462, 224);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(71, 18);
             this.label16.TabIndex = 100;
@@ -334,7 +336,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(487, 174);
+            this.label17.Location = new System.Drawing.Point(465, 160);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(55, 18);
             this.label17.TabIndex = 99;
@@ -344,7 +346,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(487, 394);
+            this.label18.Location = new System.Drawing.Point(473, 417);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(34, 18);
             this.label18.TabIndex = 106;
@@ -354,7 +356,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(487, 426);
+            this.label20.Location = new System.Drawing.Point(473, 449);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(47, 18);
             this.label20.TabIndex = 104;
@@ -364,7 +366,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(487, 362);
+            this.label21.Location = new System.Drawing.Point(473, 385);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(68, 18);
             this.label21.TabIndex = 103;
@@ -374,7 +376,7 @@
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(23, 106);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 94);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -385,7 +387,7 @@
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(23, 283);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 306);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 36);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -396,7 +398,7 @@
             // 
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(474, 117);
+            this.pictureBox4.Location = new System.Drawing.Point(448, 100);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 36);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -407,7 +409,7 @@
             // 
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(474, 300);
+            this.pictureBox5.Location = new System.Drawing.Point(448, 312);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(50, 36);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -417,7 +419,7 @@
             // carNameLbl
             // 
             this.carNameLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carNameLbl.Location = new System.Drawing.Point(163, 161);
+            this.carNameLbl.Location = new System.Drawing.Point(152, 149);
             this.carNameLbl.Name = "carNameLbl";
             this.carNameLbl.Size = new System.Drawing.Size(195, 23);
             this.carNameLbl.TabIndex = 111;
@@ -427,7 +429,7 @@
             // carIDLbl
             // 
             this.carIDLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carIDLbl.Location = new System.Drawing.Point(163, 192);
+            this.carIDLbl.Location = new System.Drawing.Point(152, 180);
             this.carIDLbl.Name = "carIDLbl";
             this.carIDLbl.Size = new System.Drawing.Size(195, 23);
             this.carIDLbl.TabIndex = 112;
@@ -437,7 +439,7 @@
             // carModelLbl
             // 
             this.carModelLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carModelLbl.Location = new System.Drawing.Point(163, 223);
+            this.carModelLbl.Location = new System.Drawing.Point(152, 211);
             this.carModelLbl.Name = "carModelLbl";
             this.carModelLbl.Size = new System.Drawing.Size(195, 23);
             this.carModelLbl.TabIndex = 113;
@@ -447,7 +449,7 @@
             // carCompanyLbl
             // 
             this.carCompanyLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carCompanyLbl.Location = new System.Drawing.Point(163, 254);
+            this.carCompanyLbl.Location = new System.Drawing.Point(152, 242);
             this.carCompanyLbl.Name = "carCompanyLbl";
             this.carCompanyLbl.Size = new System.Drawing.Size(195, 23);
             this.carCompanyLbl.TabIndex = 114;
@@ -457,7 +459,7 @@
             // sellerNameLbl
             // 
             this.sellerNameLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sellerNameLbl.Location = new System.Drawing.Point(163, 343);
+            this.sellerNameLbl.Location = new System.Drawing.Point(152, 366);
             this.sellerNameLbl.Name = "sellerNameLbl";
             this.sellerNameLbl.Size = new System.Drawing.Size(195, 23);
             this.sellerNameLbl.TabIndex = 115;
@@ -467,7 +469,7 @@
             // sellerIDLbl
             // 
             this.sellerIDLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sellerIDLbl.Location = new System.Drawing.Point(163, 375);
+            this.sellerIDLbl.Location = new System.Drawing.Point(152, 398);
             this.sellerIDLbl.Name = "sellerIDLbl";
             this.sellerIDLbl.Size = new System.Drawing.Size(195, 23);
             this.sellerIDLbl.TabIndex = 116;
@@ -477,7 +479,7 @@
             // sellerContactLbl
             // 
             this.sellerContactLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sellerContactLbl.Location = new System.Drawing.Point(163, 407);
+            this.sellerContactLbl.Location = new System.Drawing.Point(152, 430);
             this.sellerContactLbl.Name = "sellerContactLbl";
             this.sellerContactLbl.Size = new System.Drawing.Size(195, 23);
             this.sellerContactLbl.TabIndex = 117;
@@ -487,17 +489,17 @@
             // sellerAddressLbl
             // 
             this.sellerAddressLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sellerAddressLbl.Location = new System.Drawing.Point(163, 439);
+            this.sellerAddressLbl.Location = new System.Drawing.Point(103, 462);
             this.sellerAddressLbl.Name = "sellerAddressLbl";
-            this.sellerAddressLbl.Size = new System.Drawing.Size(195, 23);
+            this.sellerAddressLbl.Size = new System.Drawing.Size(294, 51);
             this.sellerAddressLbl.TabIndex = 118;
             this.sellerAddressLbl.Text = "Name";
-            this.sellerAddressLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.sellerAddressLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // empNameLbl
             // 
             this.empNameLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empNameLbl.Location = new System.Drawing.Point(631, 169);
+            this.empNameLbl.Location = new System.Drawing.Point(609, 155);
             this.empNameLbl.Name = "empNameLbl";
             this.empNameLbl.Size = new System.Drawing.Size(195, 23);
             this.empNameLbl.TabIndex = 119;
@@ -507,7 +509,7 @@
             // empContactLbl
             // 
             this.empContactLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empContactLbl.Location = new System.Drawing.Point(631, 233);
+            this.empContactLbl.Location = new System.Drawing.Point(609, 219);
             this.empContactLbl.Name = "empContactLbl";
             this.empContactLbl.Size = new System.Drawing.Size(195, 23);
             this.empContactLbl.TabIndex = 120;
@@ -517,7 +519,7 @@
             // empIDLbl
             // 
             this.empIDLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empIDLbl.Location = new System.Drawing.Point(631, 201);
+            this.empIDLbl.Location = new System.Drawing.Point(609, 187);
             this.empIDLbl.Name = "empIDLbl";
             this.empIDLbl.Size = new System.Drawing.Size(195, 23);
             this.empIDLbl.TabIndex = 121;
@@ -527,7 +529,7 @@
             // empDesignationLbl
             // 
             this.empDesignationLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empDesignationLbl.Location = new System.Drawing.Point(631, 265);
+            this.empDesignationLbl.Location = new System.Drawing.Point(609, 251);
             this.empDesignationLbl.Name = "empDesignationLbl";
             this.empDesignationLbl.Size = new System.Drawing.Size(195, 23);
             this.empDesignationLbl.TabIndex = 122;
@@ -537,7 +539,7 @@
             // orderBillLbl
             // 
             this.orderBillLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderBillLbl.Location = new System.Drawing.Point(631, 389);
+            this.orderBillLbl.Location = new System.Drawing.Point(617, 412);
             this.orderBillLbl.Name = "orderBillLbl";
             this.orderBillLbl.Size = new System.Drawing.Size(195, 23);
             this.orderBillLbl.TabIndex = 125;
@@ -547,7 +549,7 @@
             // orderDateLbl
             // 
             this.orderDateLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderDateLbl.Location = new System.Drawing.Point(631, 421);
+            this.orderDateLbl.Location = new System.Drawing.Point(617, 444);
             this.orderDateLbl.Name = "orderDateLbl";
             this.orderDateLbl.Size = new System.Drawing.Size(195, 23);
             this.orderDateLbl.TabIndex = 124;
@@ -557,7 +559,7 @@
             // orderIDLbl
             // 
             this.orderIDLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderIDLbl.Location = new System.Drawing.Point(631, 357);
+            this.orderIDLbl.Location = new System.Drawing.Point(617, 380);
             this.orderIDLbl.Name = "orderIDLbl";
             this.orderIDLbl.Size = new System.Drawing.Size(195, 23);
             this.orderIDLbl.TabIndex = 123;
@@ -569,7 +571,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(848, 499);
+            this.ClientSize = new System.Drawing.Size(848, 533);
             this.Controls.Add(this.orderBillLbl);
             this.Controls.Add(this.orderDateLbl);
             this.Controls.Add(this.orderIDLbl);

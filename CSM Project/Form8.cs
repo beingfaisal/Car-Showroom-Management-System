@@ -14,12 +14,13 @@ namespace CSM_Project
     public partial class Form8 : Form
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
-        string OrderID;
+        string OrderID,userID;
         bool isPurchase;
-        public Form8()
+        public Form8(string empID)
         {
             InitializeComponent();
             salesGridFill();
+            userID = empID;
         }
         private void purchGridFill()
         {
@@ -126,7 +127,7 @@ namespace CSM_Project
         private void viewCarGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.Hide();
-            new Form9(OrderID,isPurchase).Show();
+            new Form9(OrderID,isPurchase,userID).Show();
         }
 
         private void viewCarGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -135,6 +136,32 @@ namespace CSM_Project
             DataGridViewRow row = viewCarGrid.Rows[rowIndex];
 
             OrderID = Convert.ToString(row.Cells[0].Value);
+        }
+
+        private void sellCarPanel_MouseEnter(object sender, EventArgs e)
+        {
+            sellCarPanel.BackColor = Color.FromArgb(34, 36, 49);
+        }
+
+        private void sellCarPanel_MouseLeave(object sender, EventArgs e)
+        {
+            sellCarPanel.BackColor = Color.Transparent;
+        }
+
+        private void buyCarPanel_MouseEnter(object sender, EventArgs e)
+        {
+            buyCarPanel.BackColor = Color.FromArgb(34, 36, 49);
+        }
+
+        private void buyCarPanel_MouseLeave(object sender, EventArgs e)
+        {
+            buyCarPanel.BackColor = Color.Transparent;
+        }
+
+        private void backBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Hide();
+            new Manager_Menu(userID).Show();
         }
     }
     

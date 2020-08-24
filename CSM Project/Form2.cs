@@ -32,8 +32,17 @@ namespace CSM_Project
         }
         private void backBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            new LogInForm().Show();
-            this.Hide();
+            if((empId[0].ToString() + empId[1].ToString()).ToUpper() == "MG" )
+            {
+                //this means that the user is manager
+                new Manager_Menu(empId).Show();
+                this.Hide();
+            }
+            else
+            {
+                new LogInForm().Show();
+                this.Hide();
+            }
         }
 
         private void exitBtn_MouseClick(object sender, MouseEventArgs e)

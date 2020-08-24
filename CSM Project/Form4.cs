@@ -234,6 +234,7 @@ namespace CSM_Project
 
                     con.Close();
                     MessageBox.Show("success");
+                    new SMMenu(empId).Show();
                     this.Close();
 
                     nameBox.Text = "";

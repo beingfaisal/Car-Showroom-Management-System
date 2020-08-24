@@ -271,7 +271,7 @@
             this.exitBtn.TabIndex = 38;
             this.exitBtn.Text = "X";
             this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.exitBtn_MouseClick);
+            this.exitBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBtn_MouseClick);
             this.exitBtn.MouseEnter += new System.EventHandler(this.exitBtn_MouseEnter);
             this.exitBtn.MouseLeave += new System.EventHandler(this.exitBtn_MouseLeave);
             // 

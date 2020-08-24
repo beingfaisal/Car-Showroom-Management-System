@@ -69,10 +69,7 @@ namespace CSM_Project
         }
 
        
-        private void exitBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            Application.Exit();
-        }
+        
         private void exitBtn_MouseEnter(object sender, EventArgs e)
         {
             exitBtn.BackColor = Color.Red;

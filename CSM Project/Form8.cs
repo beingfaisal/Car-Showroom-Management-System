@@ -158,6 +158,28 @@ namespace CSM_Project
             buyCarPanel.BackColor = Color.Transparent;
         }
 
+        private void backBtn_MouseEnter(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.FromArgb(34, 36, 49);
+        }
+
+        private void backBtn_MouseLeave(object sender, EventArgs e)
+        {
+            backBtn.BackColor = Color.Transparent;
+        }
+
+        private void exitBtn_MouseEnter(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.Red;
+            exitBtn.ForeColor = Color.White;
+        }
+
+        private void exitBtn_MouseLeave(object sender, EventArgs e)
+        {
+            exitBtn.BackColor = Color.White;
+            exitBtn.ForeColor = Color.Red;
+        }
+
         private void backBtn_MouseClick(object sender, MouseEventArgs e)
         {
             this.Hide();

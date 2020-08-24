@@ -86,6 +86,7 @@
             this.pinBox.TabIndex = 18;
             this.pinBox.Text = "Password";
             this.pinBox.Enter += new System.EventHandler(this.pinBox_Enter);
+            this.pinBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pinBox_KeyPress);
             this.pinBox.Leave += new System.EventHandler(this.pinBox_Leave);
             // 
             // lockImage
@@ -134,6 +135,7 @@
             this.nameBox.TabIndex = 25;
             this.nameBox.Text = "Username";
             this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
+            this.nameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameBox_KeyPress);
             this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
             // userImage

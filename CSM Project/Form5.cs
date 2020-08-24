@@ -35,13 +35,14 @@ namespace CSM_Project
             hireBtn.Location = new Point(383, 384);
             updateBtn.Enabled = updateBtn.Visible = false;
         }
-        public SaleManCtrl(redundantData.empInfo emp)
+        public SaleManCtrl(redundantData.empInfo emp, string empID)
         {
             InitializeComponent();
             pictureVanish();
             updateBtn.Location = new Point(383, 384);
             hireBtn.Enabled =  hireBtn.Visible = false;
             isUpdateData = true;
+            mainEmpID = empID;
             updateEmp = emp;
             nameBox.Text = emp.name;
             pinBox.Text = emp.pin;
@@ -208,29 +209,30 @@ namespace CSM_Project
         //checking whether the user has updated data or not
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
-            nameChange = true;
+            if(updateEmp.name != nameBox.Text)
+                nameChange = true;
         }
         private void contactBox_TextChanged(object sender, EventArgs e)
         {
-            contactChange = true;
+            if (updateEmp.contact != contactBox.Text)
+                contactChange = true;
         }
         private void pinBox_TextChanged(object sender, EventArgs e)
         {
-            pinChange = true;
+            if (updateEmp.pin != pinBox.Text)
+                pinChange = true;
         }
         private void addressBox_TextChanged(object sender, EventArgs e)
         {
-            addressChange = true;
+            if (updateEmp.address != addressBox.Text)
+                addressChange = true;
         }
         private void emailBox_TextChanged(object sender, EventArgs e)
         {
-            emailChange = true;
+            if (updateEmp.email != emailBox.Text)
+                emailChange = true;
         }
 
-        private void exitBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-            Application.Exit();
-        }
 
        
         // This Block Contains the code for when does the focus comes into the textboxes

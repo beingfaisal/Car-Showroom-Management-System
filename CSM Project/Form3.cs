@@ -119,5 +119,11 @@ namespace CSM_Project
             this.Hide();
             new Form8(empId).Show();
         }
+
+        private void accountCtrlPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            new Form10().Show();
+            this.Hide();
+        }
     }
 }

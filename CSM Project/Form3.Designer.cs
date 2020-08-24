@@ -260,6 +260,7 @@
             this.accountCtrlPanel.Name = "accountCtrlPanel";
             this.accountCtrlPanel.Size = new System.Drawing.Size(225, 211);
             this.accountCtrlPanel.TabIndex = 44;
+            this.accountCtrlPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.accountCtrlPanel_MouseClick);
             this.accountCtrlPanel.MouseEnter += new System.EventHandler(this.accountCtrlPanel_MouseEnter);
             this.accountCtrlPanel.MouseLeave += new System.EventHandler(this.accountCtrlPanel_MouseLeave);
             // 

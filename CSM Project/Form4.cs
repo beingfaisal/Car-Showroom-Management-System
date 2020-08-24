@@ -198,7 +198,7 @@ namespace CSM_Project
                     DataSet priceData = new DataSet();
                     priceAdapter.Fill(priceData);
                     int price = Convert.ToInt32(priceData.Tables[0].Rows[0].ItemArray[0]);
-                    int newBill = price + ((price * 10) / 100);
+                    int newBill = price + ((price * 7) / 100);
 
                     //this block of code is used to store data for the order given by customer
                     string upOrderQuery = "Insert into Customer_Order(order_id,employee_id,car_id,customer_cnic,order_date,bill) values(@Oid,@EmpID,@CiD,@cnic,getDate(),@bill)";
@@ -222,22 +222,31 @@ namespace CSM_Project
                     updateCMD.Parameters.AddWithValue("@carid", carID);
                     updateCMD.ExecuteNonQuery();
 
+                   
                     //this block of Code will update the number of sales for that employee
                     string updateSalesQuery = "Update employee set EMPLOYEE_SALES = (Employee_sales+1) where EMPLOYEE_ID = @id";
                     SqlCommand updateSaleCMD = new SqlCommand(updateSalesQuery, con);
                     updateSaleCMD.Parameters.AddWithValue("@id", empId);
                     updateSaleCMD.ExecuteNonQuery();
 
-
-                    con.Close();
+                    //this block of Code will update the number of sales for that employee
+                    string updateAccountQuery = "Insert into Account(Cust_Order,AMOUNT_RECEIVED,IS_PAID,PAYMENT_DATE) Values(@order,@amount,'FALSE',GETDATE())";
+                    SqlCommand updateAccountCMD = new SqlCommand(updateAccountQuery, con);
+                    updateAccountCMD.Parameters.AddWithValue("@order", OrderID);
+                    updateAccountCMD.Parameters.AddWithValue("@amount", newBill);
+                    updateAccountCMD.ExecuteNonQuery();
+                    
                     MessageBox.Show("success");
+                    con.Close();
                     new SMMenu(empId).Show();
                     this.Close();
+
 
                     nameBox.Text = "";
                     cnicBox.Text = "";
                     addressBox.Text = "";
                     contactBox.Text = "";
+                   
                 }
             }
         

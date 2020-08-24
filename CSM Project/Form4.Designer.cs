@@ -164,7 +164,7 @@
             this.sellBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sellBtn.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sellBtn.ForeColor = System.Drawing.Color.White;
-            this.sellBtn.Location = new System.Drawing.Point(302, 328);
+            this.sellBtn.Location = new System.Drawing.Point(317, 328);
             this.sellBtn.Name = "sellBtn";
             this.sellBtn.Size = new System.Drawing.Size(100, 43);
             this.sellBtn.TabIndex = 20;

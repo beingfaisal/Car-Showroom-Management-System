@@ -16,3 +16,4 @@ D:\Projects\CSM Project\CSM Project\bin\Release\CSM Project.pdb
 D:\Projects\CSM Project\CSM Project\obj\Release\CSM Project.exe
 D:\Projects\CSM Project\CSM Project\obj\Release\CSM Project.pdb
 D:\Projects\CSM Project\CSM Project\obj\Release\CSM_Project.Form8.resources
+D:\Projects\CSM Project\CSM Project\obj\Release\CSM_Project.Form9.resources

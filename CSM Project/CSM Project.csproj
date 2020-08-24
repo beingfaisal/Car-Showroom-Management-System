@@ -142,6 +142,12 @@
     <Compile Include="Form8.Designer.cs">
       <DependentUpon>Form8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form9.Designer.cs">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CustomMsgBox.resx">
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form8.resx">
       <DependentUpon>Form8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form9.resx">
+      <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -213,8 +222,6 @@
     <None Include="Resources\ok_240px.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icons8-car-badge-100.ico" />
-    <Content Include="icons8-car-badge-48.ico" />
     <Content Include="Screenshot %28135%29.ico" />
     <Content Include="Screenshot__135_-removebg-preview %283%29.ico" />
   </ItemGroup>

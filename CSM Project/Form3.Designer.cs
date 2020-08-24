@@ -220,6 +220,7 @@
             this.salesCtrlPanel.Name = "salesCtrlPanel";
             this.salesCtrlPanel.Size = new System.Drawing.Size(225, 211);
             this.salesCtrlPanel.TabIndex = 43;
+            this.salesCtrlPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.salesCtrlPanel_MouseClick);
             this.salesCtrlPanel.MouseEnter += new System.EventHandler(this.salesCtrlPanel_MouseEnter);
             this.salesCtrlPanel.MouseLeave += new System.EventHandler(this.salesCtrlPanel_MouseLeave);
             // 

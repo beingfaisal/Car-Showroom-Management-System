@@ -113,5 +113,11 @@ namespace CSM_Project
             exitBtn.BackColor = Color.Transparent;
             exitBtn.ForeColor = Color.Red;
         }
+
+        private void salesCtrlPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Hide();
+            new Form8().Show();
+        }
     }
 }

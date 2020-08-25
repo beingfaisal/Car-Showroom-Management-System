@@ -249,7 +249,7 @@ namespace CSM_Project
                         addStockCMD.ExecuteNonQuery();
 
                         //this block of Code will update the number of sales for that employee
-                        string updateAccountQuery = "Insert into Account(MANF_Order,AMOUNT_PAID,IS_PAID,PAYMENT_DATE) Values(@order,@amount,'TRUE',GETDATE())";
+                        string updateAccountQuery = "Insert into Account(MANF_Order,AMOUNT,IS_PAID,PAYMENT_DATE) Values(@order,@amount,'TRUE',GETDATE())";
                         SqlCommand updateAccountCMD = new SqlCommand(updateAccountQuery, con);
                         updateAccountCMD.Parameters.AddWithValue("@order", OrderID);
                         updateAccountCMD.Parameters.AddWithValue("@amount", carPrice);

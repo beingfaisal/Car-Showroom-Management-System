@@ -127,7 +127,7 @@ namespace CSM_Project
         private void viewCarGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.Hide();
-            new Form9(OrderID,isPurchase,userID).Show();
+            new Form9(OrderID,isPurchase,userID,false).Show();
         }
 
         private void viewCarGrid_CellEnter(object sender, DataGridViewCellEventArgs e)

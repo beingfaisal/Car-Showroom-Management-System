@@ -16,14 +16,16 @@ namespace CSM_Project
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string idOrder = "\0";
         string userID;
+        bool fromAccount;
         bool isPurch = true;
-        public Form9(string orderID, bool isPurchase,string empID)
+        public Form9(string orderID, bool isPurchase,string empID,bool fromAcc)
         {
             InitializeComponent();
             idOrder = orderID;
             isPurch = isPurchase;
             userID = empID;
             gridfill();
+            fromAccount = fromAcc;
         }
 
         void gridfill()
@@ -145,7 +147,10 @@ namespace CSM_Project
 
         private void backBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            new Form8(userID).Show();
+            if (fromAccount)
+                new Form10(userID).Show();
+            else
+                new Form8(userID).Show();
             this.Hide();
         }
 

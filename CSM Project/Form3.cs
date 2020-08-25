@@ -122,7 +122,7 @@ namespace CSM_Project
 
         private void accountCtrlPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            new Form10().Show();
+            new Form10(empId).Show();
             this.Hide();
         }
     }

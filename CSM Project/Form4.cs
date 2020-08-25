@@ -230,13 +230,13 @@ namespace CSM_Project
                     updateSaleCMD.ExecuteNonQuery();
 
                     //this block of Code will update the number of sales for that employee
-                    string updateAccountQuery = "Insert into Account(Cust_Order,AMOUNT_RECEIVED,IS_PAID,PAYMENT_DATE) Values(@order,@amount,'FALSE',GETDATE())";
+                    string updateAccountQuery = "Insert into Account(Cust_Order,AMOUNT,IS_PAID,PAYMENT_DATE) Values(@order,@amount,'FALSE',GETDATE())";
                     SqlCommand updateAccountCMD = new SqlCommand(updateAccountQuery, con);
                     updateAccountCMD.Parameters.AddWithValue("@order", OrderID);
                     updateAccountCMD.Parameters.AddWithValue("@amount", newBill);
                     updateAccountCMD.ExecuteNonQuery();
                     
-                    MessageBox.Show("success");
+                    MessageBox.Show("Successfull Transactition");
                     con.Close();
                     new SMMenu(empId).Show();
                     this.Close();

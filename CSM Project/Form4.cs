@@ -235,8 +235,8 @@ namespace CSM_Project
                     updateAccountCMD.Parameters.AddWithValue("@order", OrderID);
                     updateAccountCMD.Parameters.AddWithValue("@amount", newBill);
                     updateAccountCMD.ExecuteNonQuery();
-                    
-                    MessageBox.Show("Successfull Transactition");
+
+                    CustomSuccessBox.Show("Transaction Has been Completed Successfuly.");
                     con.Close();
                     new SMMenu(empId).Show();
                     this.Close();

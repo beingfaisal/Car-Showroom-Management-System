@@ -19,9 +19,10 @@ namespace CSM_Project
         public Form8(string empID)
         {
             InitializeComponent();
-            salesGridFill();
+            purchGridFill();
             userID = empID;
         }
+            
         private void purchGridFill()
         {
             viewCarGrid.Columns[3].Visible = true;

@@ -256,7 +256,7 @@ namespace CSM_Project
                         updateAccountCMD.ExecuteNonQuery();
 
                         con.Close();
-                        MessageBox.Show("Success");
+                        CustomSuccessBox.Show("New Car has been Successfuly Added.");
                         clearRows();
                     }
                 }

@@ -18,3 +18,4 @@ D:\Projects\CSM Project\CSM Project\obj\Release\CSM Project.pdb
 D:\Projects\CSM Project\CSM Project\obj\Release\CSM_Project.Form8.resources
 D:\Projects\CSM Project\CSM Project\obj\Release\CSM_Project.Form9.resources
 D:\Projects\CSM Project\CSM Project\obj\Release\CSM_Project.Form10.resources
+D:\Projects\CSM Project\CSM Project\obj\Release\CSM_Project.CustomSuccessBox.resources

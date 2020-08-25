@@ -90,7 +90,7 @@ namespace CSM_Project
                 }
                 else
                 {
-                    //this block of code will check whether the manufacturer email is valid or not as it is also a unique value
+                    //this block of code will check whether the employee email is valid or not as it is also a unique value
                     con.Open();
                     string mEmailCheckQuery = "select * from employee where employee_email = @email";
                     SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, con);
@@ -131,7 +131,7 @@ namespace CSM_Project
                         newEmpCmd.ExecuteNonQuery();
 
                         con.Close();
-                        MessageBox.Show("Suuccess");
+                        CustomSuccessBox.Show("New Employee has been Successfuly Added.");
                         nameBox.Text = contactBox.Text = pinBox.Text = addressBox.Text = contactBox.Text = emailBox.Text = "";
 
                     }
@@ -183,7 +183,7 @@ namespace CSM_Project
                         updateEmpCMD.ExecuteNonQuery();
                         con.Close();
 
-                        MessageBox.Show("Success");
+                        CustomSuccessBox.Show("Employee Data has been Successfuly Updated.");
                         nameBox.Text = contactBox.Text = pinBox.Text = addressBox.Text = contactBox.Text = emailBox.Text = "";
                     }
                     else

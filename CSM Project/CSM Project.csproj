@@ -94,6 +94,12 @@
     <Compile Include="CustomMsgBox.Designer.cs">
       <DependentUpon>CustomMsgBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomSuccessBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomSuccessBox.Designer.cs">
+      <DependentUpon>CustomSuccessBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     <Compile Include="redundantData.cs" />
     <EmbeddedResource Include="CustomMsgBox.resx">
       <DependentUpon>CustomMsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomSuccessBox.resx">
+      <DependentUpon>CustomSuccessBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

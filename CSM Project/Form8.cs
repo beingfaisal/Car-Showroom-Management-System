@@ -127,8 +127,37 @@ namespace CSM_Project
 
         private void viewCarGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Hide();
-            new Form9(OrderID,isPurchase,userID,false).Show();
+            Form formBackground = new Form();
+            try
+            {
+                using (Form9 uu = new Form9(OrderID, isPurchase, userID, false))
+                {
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .50d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Normal;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                    formBackground.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+                formBackground.Hide();
+            }
         }
 
         private void viewCarGrid_CellEnter(object sender, DataGridViewCellEventArgs e)

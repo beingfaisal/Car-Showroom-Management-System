@@ -14,6 +14,8 @@ namespace CSM_Project
 {
     public class redundantData
     {
+        public static SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
+
         public struct empInfo
         {
             public string id, pin, name, contact, address, email, status;

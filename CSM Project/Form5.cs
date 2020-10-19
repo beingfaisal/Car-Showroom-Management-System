@@ -13,7 +13,6 @@ namespace CSM_Project
 {
     public partial class SaleManCtrl : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string mainEmpID;
         bool isUpdateData,isNewData = false;
         bool nameChange, contactChange, pinChange, addressChange, emailChange = false; //validate the change for update
@@ -91,20 +90,20 @@ namespace CSM_Project
                 else
                 {
                     //this block of code will check whether the employee email is valid or not as it is also a unique value
-                    con.Open();
+                    redundantData.con.Open();
                     string mEmailCheckQuery = "select * from employee where employee_email = @email";
-                    SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, con);
+                    SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, redundantData.con);
                     mEmailCheckCMD.Parameters.AddWithValue("@email", email);
                     SqlDataAdapter mEmailCheckAdapter = new SqlDataAdapter(mEmailCheckCMD);
                     DataSet mEmailCheckSet = new DataSet();
                     mEmailCheckAdapter.Fill(mEmailCheckSet);
-                    con.Close();
+                    redundantData.con.Close();
                     if (mEmailCheckSet.Tables[0].Rows.Count == 0)
                     {
-                        con.Open();
+                        redundantData.con.Open();
                         //this block is used to generate new employee id by getting id from database just the digit part
                         string getEmpIdQuery = "Select max(substring(employee.employee_ID,3,len(EMPLOYEE.EMPLOYEE_ID))) from employee where EMPLOYEE_DESIGNATION = 'Salesman' ";
-                        SqlCommand getEmpIdCmd = new SqlCommand(getEmpIdQuery, con);
+                        SqlCommand getEmpIdCmd = new SqlCommand(getEmpIdQuery, redundantData.con);
                         SqlDataAdapter empIdAdapter = new SqlDataAdapter(getEmpIdCmd);
                         DataSet empIdDataSet = new DataSet();
                         empIdAdapter.Fill(empIdDataSet);
@@ -121,7 +120,7 @@ namespace CSM_Project
 
                         //this block of code is used to add new employees
                         string newEmpQuery = "INSERT INTO EMPLOYEE(EMPLOYEE_ID,EMPLOYEE_NAME,EMPLOYEE_PASSWORD,EMPLOYEE_CONTACT,EMPLOYEE_ADDRESS,EMPLOYEE_EMAIL,EMPLOYEE_DESIGNATION,EMPLOYEE_HIREDATE,EMPLOYEE_STATUS,EMPLOYEE_SALES) VALUES(@id,@name,@password,@contact,@address,@email,'Salesman',(CONVERT(DATE, GETDATE())),'Working',0)";
-                        SqlCommand newEmpCmd = new SqlCommand(newEmpQuery, con);
+                        SqlCommand newEmpCmd = new SqlCommand(newEmpQuery, redundantData.con);
                         newEmpCmd.Parameters.AddWithValue("@id", newEmpID);
                         newEmpCmd.Parameters.AddWithValue("@name", name);
                         newEmpCmd.Parameters.AddWithValue("@contact", contact);
@@ -130,7 +129,7 @@ namespace CSM_Project
                         newEmpCmd.Parameters.AddWithValue("@password", pin);
                         newEmpCmd.ExecuteNonQuery();
 
-                        con.Close();
+                        redundantData.con.Close();
                         CustomSuccessBox.Show("New Employee has been Successfuly Added.");
                         nameBox.Text = contactBox.Text = pinBox.Text = addressBox.Text = contactBox.Text = emailBox.Text = "";
 
@@ -159,21 +158,21 @@ namespace CSM_Project
                     string employeeId = updateEmp.id;
 
                     //this block of code will check whether the manufacturer email is valid or not as it is also a unique value
-                    con.Open();
+                    redundantData.con.Open();
                     string mEmailCheckQuery = "select * from employee where employee_email = @email and employee_id <> @id";
-                    SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, con);
+                    SqlCommand mEmailCheckCMD = new SqlCommand(mEmailCheckQuery, redundantData.con);
                     mEmailCheckCMD.Parameters.AddWithValue("@email", email);
                     mEmailCheckCMD.Parameters.AddWithValue("@id", employeeId);
                     SqlDataAdapter mEmailCheckAdapter = new SqlDataAdapter(mEmailCheckCMD);
                     DataSet mEmailCheckSet = new DataSet();
                     mEmailCheckAdapter.Fill(mEmailCheckSet);
-                    con.Close();
+                    redundantData.con.Close();
                     if (mEmailCheckSet.Tables[0].Rows.Count == 0)
                     {
 
-                        con.Open();
+                        redundantData.con.Open();
                         string updateEmpQuery = "Update employee set EMPLOYEE_Name = @newName, EMPLOYEE_Password = @newPin, EMPLOYEE_Contact = @newContact, EMPLOYEE_Address = @newAddress, EMPLOYEE_Email = @newEmail  where EMPLOYEE_ID = @updateId";
-                        SqlCommand updateEmpCMD = new SqlCommand(updateEmpQuery, con);
+                        SqlCommand updateEmpCMD = new SqlCommand(updateEmpQuery, redundantData.con);
                         updateEmpCMD.Parameters.AddWithValue("@newName", name);
                         updateEmpCMD.Parameters.AddWithValue("@newPin", pin);
                         updateEmpCMD.Parameters.AddWithValue("@newContact", contact);
@@ -181,7 +180,7 @@ namespace CSM_Project
                         updateEmpCMD.Parameters.AddWithValue("@newEmail", email);
                         updateEmpCMD.Parameters.AddWithValue("@updateId", employeeId);
                         updateEmpCMD.ExecuteNonQuery();
-                        con.Close();
+                        redundantData.con.Close();
 
                         CustomSuccessBox.Show("Employee Data has been Successfuly Updated.");
                         nameBox.Text = contactBox.Text = pinBox.Text = addressBox.Text = contactBox.Text = emailBox.Text = "";

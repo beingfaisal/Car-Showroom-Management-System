@@ -14,7 +14,6 @@ namespace CSM_Project
    
     public partial class empControl : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string mainEmpID;
        
         redundantData.empInfo empUpdateInfo = new redundantData.empInfo("");
@@ -37,8 +36,8 @@ namespace CSM_Project
         {
             bool isFired = false;
             DateTime fireDate = default(DateTime);
-            con.Open();
-            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' order by employee_designation", con);
+            redundantData.con.Open();
+            SqlCommand getEmpCmd = new SqlCommand("select * from employee where employee_designation = 'salesman' order by employee_designation", redundantData.con);
             SqlDataAdapter empAdapter = new SqlDataAdapter(getEmpCmd);
             DataSet empDataset = new DataSet();
             empAdapter.Fill(empDataset);
@@ -86,7 +85,7 @@ namespace CSM_Project
                 empGrid.Rows.Add(pushData);
 
             }
-            con.Close();
+            redundantData.con.Close();
         }
         private void fireEmp()
         {
@@ -103,12 +102,12 @@ namespace CSM_Project
                 }
                 else
                 {
-                    con.Open();
+                    redundantData.con.Open();
                     string fireQuery = "Update employee set EMPLOYEE_Status = 'Fired',Employee_FIREDATE = CONVERT(DATE, GETDATE()) where EMPLOYEE_ID = @id";
-                    SqlCommand fireCmd = new SqlCommand(fireQuery, con);
+                    SqlCommand fireCmd = new SqlCommand(fireQuery, redundantData.con);
                     fireCmd.Parameters.AddWithValue("@id", empUpdateInfo.id);
                     fireCmd.ExecuteNonQuery();
-                    con.Close();
+                    redundantData.con.Close();
                     gridFill();
 
                 }
@@ -130,12 +129,12 @@ namespace CSM_Project
                 }
                 else
                 {
-                    con.Open();
+                    redundantData.con.Open();
                     string fireQuery = "Update employee set EMPLOYEE_Status = 'Working',Employee_HIREDATE = CONVERT(DATE, GETDATE()),Employee_firedate = NULL, Employee_Sales = 0 where EMPLOYEE_ID = @id";
-                    SqlCommand fireCmd = new SqlCommand(fireQuery, con);
+                    SqlCommand fireCmd = new SqlCommand(fireQuery, redundantData.con);
                     fireCmd.Parameters.AddWithValue("@id", empUpdateInfo.id);
                     fireCmd.ExecuteNonQuery();
-                    con.Close();
+                    redundantData.con.Close();
                     gridFill();
 
                 }

@@ -13,7 +13,6 @@ namespace CSM_Project
 {
     public partial class Form9 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string idOrder = "\0";
         string userID;
         bool fromAccount;
@@ -88,10 +87,10 @@ namespace CSM_Project
 
 
             }
-            con.Open();
+            redundantData.con.Open();
 
             //Data for Car
-            SqlCommand carInfoCmd = new SqlCommand(carInfoQuery, con);
+            SqlCommand carInfoCmd = new SqlCommand(carInfoQuery, redundantData.con);
             carInfoCmd.Parameters.AddWithValue("@id", idOrder);
             SqlDataAdapter carInfoAdapter = new SqlDataAdapter(carInfoCmd);
             DataSet carInfoData = new DataSet();
@@ -104,7 +103,7 @@ namespace CSM_Project
 
 
             //Data for Employee
-            SqlCommand empInfoCmd = new SqlCommand(empInfoQuery, con);
+            SqlCommand empInfoCmd = new SqlCommand(empInfoQuery, redundantData.con);
             empInfoCmd.Parameters.AddWithValue("@id", idOrder);
             SqlDataAdapter empInfoAdapter = new SqlDataAdapter(empInfoCmd);
             DataSet empInfoData = new DataSet();
@@ -116,7 +115,7 @@ namespace CSM_Project
             empDesignationLbl.Text = Convert.ToString(empInfoData.Tables[0].Rows[0].ItemArray[3]);
 
             //Data for Customer or Seller
-            SqlCommand sellerCustInfoCmd = new SqlCommand(cust_manufQuery, con);
+            SqlCommand sellerCustInfoCmd = new SqlCommand(cust_manufQuery, redundantData.con);
             sellerCustInfoCmd.Parameters.AddWithValue("@id", idOrder);
             SqlDataAdapter sellerCustInfoAdapter = new SqlDataAdapter(sellerCustInfoCmd);
             DataSet sellerCustInfoData = new DataSet();
@@ -128,7 +127,7 @@ namespace CSM_Project
             sellerAddressLbl.Text = Convert.ToString(sellerCustInfoData.Tables[0].Rows[0].ItemArray[3]);
 
             //Data for Order info
-            SqlCommand orderInfoCmd = new SqlCommand(orderInfoQuery, con);
+            SqlCommand orderInfoCmd = new SqlCommand(orderInfoQuery, redundantData.con);
             orderInfoCmd.Parameters.AddWithValue("@id", idOrder);
             SqlDataAdapter orderInfoAdapter = new SqlDataAdapter(orderInfoCmd);
             DataSet orderInfoData = new DataSet();
@@ -140,7 +139,7 @@ namespace CSM_Project
 
 
 
-            con.Close();
+            redundantData.con.Close();
 
 
         }

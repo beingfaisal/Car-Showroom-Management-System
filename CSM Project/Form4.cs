@@ -14,7 +14,6 @@ namespace CSM_Project
 {
     public partial class CarSell : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string empId,carID;
         bool nameFlag, cnicFlag, addressFlag, contactFlag;
 
@@ -128,29 +127,29 @@ namespace CSM_Project
                 /*so the way this thing works is that it first checks repition of cnic
                  if its not repeated then it is a new customer else it checks the name whether its an 
                 old customer or invalid input*/
-               
+
                 //this piece of code checks whether the primary key is repeated or not
-                con.Open();
+                redundantData.con.Open();
                 string cnicCheckQuery = "select * from customer where customer_cnic = @id";
-                SqlCommand cnicCheckCMD = new SqlCommand(cnicCheckQuery, con);
+                SqlCommand cnicCheckCMD = new SqlCommand(cnicCheckQuery, redundantData.con);
                 cnicCheckCMD.Parameters.AddWithValue("@id", cust_cnic);
                 SqlDataAdapter cnicCheckAdapter = new SqlDataAdapter(cnicCheckCMD);
                 DataSet cnicCheckSet = new DataSet();
                 cnicCheckAdapter.Fill(cnicCheckSet);
-                con.Close();
+                redundantData.con.Close();
                 
                 if ((cnicCheckSet.Tables[0].Rows.Count) > 0)
                 {
                     newCustomer = false;
-                    con.Open();     //if CNIC is repeated then checking name
+                    redundantData.con.Open();     //if CNIC is repeated then checking name
                     string nameCheckQuery = "select * from customer where customer_name = @name and customer_cnic = @id";
-                    SqlCommand nameCheckCMD = new SqlCommand(nameCheckQuery, con);
+                    SqlCommand nameCheckCMD = new SqlCommand(nameCheckQuery, redundantData.con);
                     nameCheckCMD.Parameters.AddWithValue("@name", cust_name);
                     nameCheckCMD.Parameters.AddWithValue("@id", cust_cnic);
                     SqlDataAdapter nameCheckAdapter = new SqlDataAdapter(nameCheckCMD);
                     DataSet nameCheckSet = new DataSet();
                     nameCheckAdapter.Fill(nameCheckSet);
-                    con.Close();
+                    redundantData.con.Close();
                     //if its true then its an old customer otherwise invalid input
                     if (nameCheckSet.Tables[0].Rows.Count > 0) oldCustomer = true;
                     else CustomMsgBox.Show("The given CNIC/Name are Invalid. Please Input Correct CNIC and Name.", "OK");
@@ -159,23 +158,23 @@ namespace CSM_Project
                 {
                     //if its a new customer we add it in the database
                     //this block is used to insert the values in the column of customer
-                    con.Open();
+                    redundantData.con.Open();
                     string insertQuery = "Insert into CUSTOMER(CUSTOMER_CNIC,CUSTOMER_NAME,CUSTOMER_CONTACT,CUSTOMER_ADDRESS) VALUES(@cnic,@name,@contact,@address)";
-                    SqlCommand cmd = new SqlCommand(insertQuery, con);
+                    SqlCommand cmd = new SqlCommand(insertQuery, redundantData.con);
                     cmd.Parameters.AddWithValue("@cnic", cust_cnic);
                     cmd.Parameters.AddWithValue("@name", cust_name);
                     cmd.Parameters.AddWithValue("@contact", cust_contact);
                     cmd.Parameters.AddWithValue("@address", cust_address);
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                    redundantData.con.Close();
                 }
                 if (oldCustomer || newCustomer)
                 {
                     //from  here we have validated or added customer so we just resume the selling process
-                    con.Open();
+                    redundantData.con.Open();
                     //this block is used to generate new order id by getting id from database just the digit part
                     string getOrderQuery = "Select max(substring(CUSTOMER_ORDER.ORDER_ID,4,len(customer_order.order_id))) from CUSTOMER_ORDER ";
-                    SqlCommand getCmd = new SqlCommand(getOrderQuery, con);
+                    SqlCommand getCmd = new SqlCommand(getOrderQuery, redundantData.con);
                     SqlDataAdapter orderAdapter = new SqlDataAdapter(getCmd);
                     DataSet orderData = new DataSet();
                     orderAdapter.Fill(orderData);
@@ -192,7 +191,7 @@ namespace CSM_Project
 
                     //this block of code gets the price of car from database and increases it by 10%
                     string getPriceQuery = "Select car.car_price from car where car.car_id = @id";
-                    SqlCommand getPriceCmd = new SqlCommand(getPriceQuery, con);
+                    SqlCommand getPriceCmd = new SqlCommand(getPriceQuery, redundantData.con);
                     getPriceCmd.Parameters.AddWithValue("@id", carID);
                     SqlDataAdapter priceAdapter = new SqlDataAdapter(getPriceCmd);
                     DataSet priceData = new DataSet();
@@ -202,7 +201,7 @@ namespace CSM_Project
 
                     //this block of code is used to store data for the order given by customer
                     string upOrderQuery = "Insert into Customer_Order(order_id,employee_id,car_id,customer_cnic,order_date,bill) values(@Oid,@EmpID,@CiD,@cnic,getDate(),@bill)";
-                    SqlCommand upCMD = new SqlCommand(upOrderQuery, con);
+                    SqlCommand upCMD = new SqlCommand(upOrderQuery, redundantData.con);
                     upCMD.Parameters.AddWithValue("@Oid", OrderID);
                     upCMD.Parameters.AddWithValue("@EmpID", empId);
                     upCMD.Parameters.AddWithValue("@CiD", carID);
@@ -212,32 +211,32 @@ namespace CSM_Project
 
                     //this block of code is used to store data about the payment of sold car
                     string paymentQuery = "insert into SELL_PAYMENT(Order_ID,payment_Date) values(@order,getDate())";
-                    SqlCommand paymentCMD = new SqlCommand(paymentQuery, con);
+                    SqlCommand paymentCMD = new SqlCommand(paymentQuery, redundantData.con);
                     paymentCMD.Parameters.AddWithValue("@order", OrderID);
                     paymentCMD.ExecuteNonQuery();
 
                     //this block of code runs query that changes the status of car from available to sold
                     string updateCarQuery = "update Car set car.car_status='Sold' where car_id = @carid";
-                    SqlCommand updateCMD = new SqlCommand(updateCarQuery, con);
+                    SqlCommand updateCMD = new SqlCommand(updateCarQuery, redundantData.con);
                     updateCMD.Parameters.AddWithValue("@carid", carID);
                     updateCMD.ExecuteNonQuery();
 
                    
                     //this block of Code will update the number of sales for that employee
                     string updateSalesQuery = "Update employee set EMPLOYEE_SALES = (Employee_sales+1) where EMPLOYEE_ID = @id";
-                    SqlCommand updateSaleCMD = new SqlCommand(updateSalesQuery, con);
+                    SqlCommand updateSaleCMD = new SqlCommand(updateSalesQuery, redundantData.con);
                     updateSaleCMD.Parameters.AddWithValue("@id", empId);
                     updateSaleCMD.ExecuteNonQuery();
 
                     //this block of Code will update the number of sales for that employee
                     string updateAccountQuery = "Insert into Account(Cust_Order,AMOUNT,IS_PAID,PAYMENT_DATE) Values(@order,@amount,'FALSE',GETDATE())";
-                    SqlCommand updateAccountCMD = new SqlCommand(updateAccountQuery, con);
+                    SqlCommand updateAccountCMD = new SqlCommand(updateAccountQuery, redundantData.con);
                     updateAccountCMD.Parameters.AddWithValue("@order", OrderID);
                     updateAccountCMD.Parameters.AddWithValue("@amount", newBill);
                     updateAccountCMD.ExecuteNonQuery();
 
                     CustomSuccessBox.Show("Transaction Has been Completed Successfuly.");
-                    con.Close();
+                    redundantData.con.Close();
                     new SMMenu(empId).Show();
                     this.Close();
 

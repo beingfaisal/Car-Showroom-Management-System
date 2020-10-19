@@ -14,7 +14,6 @@ namespace CSM_Project
 {
     public partial class LogInForm : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         public LogInForm()
         {
             InitializeComponent();
@@ -120,14 +119,14 @@ namespace CSM_Project
 
         private void logBtn_Click(object sender, EventArgs e)
         {
-            con.Open();
+            redundantData.con.Open();
             string empID, empDesgination, empPin;
             empID = nameBox.Text;
             empPin = pinBox.Text;
 
             string logQuery = "select * from employee where employee_id = @id and EMPLOYEE_PASSWORD = @pin and employee_status = @work";
 
-            SqlCommand logCmd = new SqlCommand(logQuery, con);
+            SqlCommand logCmd = new SqlCommand(logQuery, redundantData.con);
             logCmd.Parameters.AddWithValue("@id", empID);
             logCmd.Parameters.AddWithValue("@pin", empPin);
             logCmd.Parameters.AddWithValue("@work", "Working");
@@ -159,7 +158,7 @@ namespace CSM_Project
                     pinBox.Text = "";
             }
 
-            con.Close();
+            redundantData.con.Close();
         }
 
 

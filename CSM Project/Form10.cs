@@ -13,7 +13,6 @@ namespace CSM_Project
 {
     public partial class Form10 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string userID,OrderID,isPurch;
         public Form10(string id)
         {
@@ -25,8 +24,8 @@ namespace CSM_Project
 
         private void gridFill()
         {
-            con.Open();
-            SqlCommand accountAllCmd = new SqlCommand("select * from Account", con);
+            redundantData.con.Open();
+            SqlCommand accountAllCmd = new SqlCommand("select * from Account", redundantData.con);
             SqlDataAdapter accountAllAdapter = new SqlDataAdapter(accountAllCmd);
             DataSet accountAllData = new DataSet();
             accountAllAdapter.Fill(accountAllData);
@@ -62,15 +61,15 @@ namespace CSM_Project
 
             }
 
-            con.Close();
+            redundantData.con.Close();
         }
 
 
 
         void checkSale()
         {
-            con.Open();
-            SqlCommand accountAllCmd = new SqlCommand("select * from Account where IS_PAID = 'FALSE'", con);
+            redundantData.con.Open();
+            SqlCommand accountAllCmd = new SqlCommand("select * from Account where IS_PAID = 'FALSE'", redundantData.con);
             SqlDataAdapter accountAllAdapter = new SqlDataAdapter(accountAllCmd);
             DataSet accountAllData = new DataSet();
             accountAllAdapter.Fill(accountAllData);
@@ -97,13 +96,13 @@ namespace CSM_Project
 
             }
 
-            con.Close();
+            redundantData.con.Close();
         }
 
         void checkPurch()
         {
-            con.Open();
-            SqlCommand accountAllCmd = new SqlCommand("select * from Account where IS_PAID = 'TRUE'", con);
+            redundantData.con.Open();
+            SqlCommand accountAllCmd = new SqlCommand("select * from Account where IS_PAID = 'TRUE'", redundantData.con);
             SqlDataAdapter accountAllAdapter = new SqlDataAdapter(accountAllCmd);
             DataSet accountAllData = new DataSet();
             accountAllAdapter.Fill(accountAllData);
@@ -130,31 +129,31 @@ namespace CSM_Project
 
             }
 
-            con.Close();
+            redundantData.con.Close();
         }
 
         private void cashCollector()
         {
-            con.Open();
-            SqlCommand recAmountCmd = new SqlCommand("select sum(Account.Amount) from Account where Account.IS_PAID = 'FALSE' ", con);
+            redundantData.con.Open();
+            SqlCommand recAmountCmd = new SqlCommand("select sum(Account.Amount) from Account where Account.IS_PAID = 'FALSE' ", redundantData.con);
             SqlDataAdapter recAmountAdapter = new SqlDataAdapter(recAmountCmd);
             DataSet recAmountData = new DataSet();
             recAmountAdapter.Fill(recAmountData);
             string amountRecieved = Convert.ToString(recAmountData.Tables[0].Rows[0].ItemArray[0]);
 
-            SqlCommand spentAmountCmd = new SqlCommand("select sum(Account.Amount) from Account where Account.IS_PAID = 'TRUE' ", con);
+            SqlCommand spentAmountCmd = new SqlCommand("select sum(Account.Amount) from Account where Account.IS_PAID = 'TRUE' ", redundantData.con);
             SqlDataAdapter spentAmountAdapter = new SqlDataAdapter(spentAmountCmd);
             DataSet spentAmountData = new DataSet();
             spentAmountAdapter.Fill(spentAmountData);
             string amountSpent = Convert.ToString(spentAmountData.Tables[0].Rows[0].ItemArray[0]);
 
-            SqlCommand netAmountCmd = new SqlCommand("SELECT (SELECT SUM(ACCOUNT.AMOUNT) FROM ACCOUNT WHERE ACCOUNT.IS_PAID = 'FALSE') - (SELECT SUM(ACCOUNT.AMOUNT) FROM ACCOUNT WHERE ACCOUNT.IS_PAID = 'TRUE')", con);
+            SqlCommand netAmountCmd = new SqlCommand("SELECT (SELECT SUM(ACCOUNT.AMOUNT) FROM ACCOUNT WHERE ACCOUNT.IS_PAID = 'FALSE') - (SELECT SUM(ACCOUNT.AMOUNT) FROM ACCOUNT WHERE ACCOUNT.IS_PAID = 'TRUE')", redundantData.con);
             SqlDataAdapter netAmountAdapter = new SqlDataAdapter(netAmountCmd);
             DataSet netAmountData = new DataSet();
             netAmountAdapter.Fill(netAmountData);
             string amountNet = Convert.ToString(netAmountData.Tables[0].Rows[0].ItemArray[0]);
 
-            con.Close();
+            redundantData.con.Close();
 
             amountRecLbl.Text = amountRecieved;
             amountSpentLbl.Text = amountSpent;

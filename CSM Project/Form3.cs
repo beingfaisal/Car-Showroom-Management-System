@@ -14,7 +14,7 @@ namespace CSM_Project
 {
     public partial class Manager_Menu : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
+        
         string empId;
         public Manager_Menu()
         {

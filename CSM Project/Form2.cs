@@ -13,7 +13,7 @@ namespace CSM_Project
 {
     public partial class SMMenu : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
+       
         string empId ="";
         string CarID = "";
         string C_Status = "";
@@ -63,8 +63,8 @@ namespace CSM_Project
 
         private void gridFill()
         {
-            con.Open();
-            SqlCommand viewCarCmd = new SqlCommand("select * from CAR", con);
+            redundantData.con.Open();
+            SqlCommand viewCarCmd = new SqlCommand("select * from CAR", redundantData.con);
             SqlDataAdapter viewCarAdapter = new SqlDataAdapter(viewCarCmd);
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
@@ -91,14 +91,14 @@ namespace CSM_Project
                 viewCarGrid.Rows.Add(pushData);
 
             }
-            
-            con.Close();
+
+            redundantData.con.Close();
         }
 
         private void viewAvailable()
         {
-            con.Open();
-            SqlCommand viewCarCmd = new SqlCommand("select * from CAR where car_status = 'Available'", con);
+            redundantData.con.Open();
+            SqlCommand viewCarCmd = new SqlCommand("select * from CAR where car_status = 'Available'", redundantData.con);
             SqlDataAdapter viewCarAdapter = new SqlDataAdapter(viewCarCmd);
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
@@ -125,13 +125,13 @@ namespace CSM_Project
                 viewCarGrid.Rows.Add(pushData);
 
             }
-            con.Close();
+            redundantData.con.Close();
         }
 
         private void viewSold()
         {
-            con.Open();
-            SqlCommand viewCarCmd = new SqlCommand("select * from CAR where car_status = 'Sold'", con);
+            redundantData.con.Open();
+            SqlCommand viewCarCmd = new SqlCommand("select * from CAR where car_status = 'Sold'", redundantData.con);
             SqlDataAdapter viewCarAdapter = new SqlDataAdapter(viewCarCmd);
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
@@ -158,21 +158,21 @@ namespace CSM_Project
                 viewCarGrid.Rows.Add(pushData);
 
             }
-            con.Close();
+            redundantData.con.Close();
         }
 
         private void buyCar()
         {
-            con.Open();
+            redundantData.con.Open();
             string checkEmpQuery = "select employee_designation from employee where employee_id = @id";
-            SqlCommand checkEmpCmd = new SqlCommand(checkEmpQuery, con);
+            SqlCommand checkEmpCmd = new SqlCommand(checkEmpQuery, redundantData.con);
             checkEmpCmd.Parameters.AddWithValue("@id", empId);
             SqlDataAdapter checkEmpAdapter = new SqlDataAdapter(checkEmpCmd);
             DataSet empData = new DataSet();
             checkEmpAdapter.Fill(empData);
 
             string empDesig = Convert.ToString(empData.Tables[0].Rows[0].ItemArray[0]);
-            con.Close();
+            redundantData.con.Close();
             if (empDesig.ToLower() == "manager")
             {
                 new carCtrl(empId).Show();

@@ -13,7 +13,6 @@ namespace CSM_Project
 {
     public partial class Form8 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-BQUHHL3\\MSSQLSERVER01;Initial Catalog=CSM;Integrated Security=True");
         string OrderID,userID;
         bool isPurchase;
         public Form8(string empID)
@@ -29,9 +28,9 @@ namespace CSM_Project
             viewCarGrid.Columns[4].Visible = false;
             isPurchase = true;
 
-            con.Open();
+            redundantData.con.Open();
             string saleQuery = "Select STOCK_PAYMENT.ORDER_ID, CAR.CAR_NAME,EMPLOYEE.EMPLOYEE_NAME,MANUFACTURER.MANUFACTURER_NAME,MANUF_ORDER.BILL, STOCK_PAYMENT.PAYMENT_DATE from STOCK_PAYMENT inner join MANUF_ORDER on STOCK_PAYMENT.ORDER_ID = MANUF_ORDER.ORDER_ID inner join CAR on MANUF_ORDER.CAR_ID = CAR.CAR_ID inner join EMPLOYEE on MANUF_ORDER.EMPLOYEE_ID = EMPLOYEE.EMPLOYEE_ID inner join MANUFACTURER on MANUF_ORDER.MANUFACTURER_ID = MANUFACTURER.MANUFACTURER_ID";
-            SqlCommand viewCarCmd = new SqlCommand(saleQuery, con);
+            SqlCommand viewCarCmd = new SqlCommand(saleQuery, redundantData.con);
             SqlDataAdapter viewCarAdapter = new SqlDataAdapter(viewCarCmd);
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
@@ -61,7 +60,7 @@ namespace CSM_Project
 
             }
 
-            con.Close();
+            redundantData.con.Close();
         }
 
         private void salesGridFill()
@@ -70,9 +69,9 @@ namespace CSM_Project
             viewCarGrid.Columns[4].Visible = true ;
             isPurchase = false;
 
-            con.Open();
+            redundantData.con.Open();
             string purchQuery = "Select SELL_PAYMENT.ORDER_ID, CAR.CAR_NAME, EMPLOYEE.EMPLOYEE_NAME, CUSTOMER.CUSTOMER_NAME,CUSTOMER_ORDER.BILL, SELL_PAYMENT.PAYMENT_DATE from SELL_PAYMENT inner join CUSTOMER_ORDER on SELL_PAYMENT.ORDER_ID = CUSTOMER_ORDER.ORDER_ID inner join CAR on CUSTOMER_ORDER.CAR_ID = CAR.CAR_ID inner join EMPLOYEE on CUSTOMER_ORDER.EMPLOYEE_ID = EMPLOYEE.EMPLOYEE_ID inner join CUSTOMER on CUSTOMER_ORDER.CUSTOMER_CNIC = CUSTOMER.CUSTOMER_CNIC";
-            SqlCommand viewCarCmd = new SqlCommand(purchQuery, con);
+            SqlCommand viewCarCmd = new SqlCommand(purchQuery, redundantData.con);
             SqlDataAdapter viewCarAdapter = new SqlDataAdapter(viewCarCmd);
             DataSet carData = new DataSet();
             viewCarAdapter.Fill(carData);
@@ -102,7 +101,7 @@ namespace CSM_Project
 
             }
 
-            con.Close();
+            redundantData.con.Close();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
